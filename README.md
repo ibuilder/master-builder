@@ -1,0 +1,90 @@
+# Master Builder — a Claude Skill for the built environment
+
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+![Skill](https://img.shields.io/badge/type-Claude%20Skill-6366f1)
+![Domain](https://img.shields.io/badge/domain-AEC%20%C2%B7%20real%20estate-33d17a)
+
+> **Reason like a master builder** — one mind holding an entire built-asset project from raw land
+> through design, construction, handover, operations, and disposition, **anywhere in the world.**
+
+The historical *master builder* — the capomastro, the Baumeister, the architectus — was one person
+who understood the whole: the ground, the money, the code, the crew, the materials, and the life of
+the building after handover. This [Claude Skill](https://docs.claude.com) restores that unified mind.
+Hand it any fragment of a project — a wind-load question, a line in a pro forma, a schedule slip — and
+it reasons about that fragment inside the whole.
+
+## What it does
+
+- **Grounds every answer in a real place.** Codes and permits are local; physics and money are
+  universal. It derives the governing code family, loads, utility path, and market from the site
+  instead of giving a generic answer.
+- **Follows the money as the spine.** Every design or construction decision is treated as the
+  cash-flow decision it actually is.
+- **Reviews models forensically.** Treats a pro forma as an argument made in numbers and audits it
+  for integrity — the capability behind the [case study](#case-study) below.
+- **Encodes real build doctrine.** Source-of-truth data models, staged validation gates, hard rails
+  on irreversible actions, honest status over optimistic status, compliance-as-code.
+- **Thinks globally.** A method for reasoning about unfamiliar jurisdictions by code family (ICC/IBC,
+  Eurocodes, NCC, NBCC, IS/NBC India, GB China, Japan BSL, Middle East).
+- **Counts the carbon and the power.** Treats whole-life and embodied carbon as a cost and a risk
+  (CBAM, Buy Clean, LEED v5, transition risk), and the utility-interconnection queue as the schedule
+  gate it has become for energy-intensive projects.
+
+## Install
+
+**In Claude:** download [`dist/master-builder.skill`](dist/master-builder.skill) and use the
+**Save skill** button on the file card (where skill creation is enabled), or upload it in a skill-capable surface.
+
+**By hand / other runtimes:** the skill is just `SKILL.md` plus the `references/` folder — point your
+tooling at this repo.
+
+## Structure
+
+```
+SKILL.md                         # the Master Builder Protocol + ground-in-place rule + boundaries
+references/
+  global-codes.md                # jurisdictions, code families, load derivation, the AHJ, utility gates
+  development-lifecycle.md        # origination → feasibility → entitlements → design gates → ops → exit
+  real-estate-finance.md         # pro formas, returns, capital stack, construction loans, JV waterfalls
+  construction-delivery.md        # delivery methods, contracts (AIA/FIDIC/NEC/JCT), estimating, scheduling
+  digital-toolkit.md             # BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, the software map
+  sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk
+  build-doctrine.md              # cross-cutting engineering lessons for building any system
+  pro-forma-review.md            # forensic model/deal audit — reframe, reconcile, defect checklist
+examples/
+  hempstead-vertical-farm-case-study.md   # using the skill to critique the author's own 2021 thesis
+  hempstead-corrected-model.xlsx          # the rebuilt, formula-driven feasibility model
+dist/
+  master-builder.skill           # packaged, installable
+```
+
+Progressive disclosure: `SKILL.md` stays lean (~170 lines) and carries a table pointing to the eight
+reference files, which load only when the task needs them.
+
+## Case study
+
+[`examples/hempstead-vertical-farm-case-study.md`](examples/hempstead-vertical-farm-case-study.md) —
+the author pointed the skill at his own 2021 Georgetown capstone (converting a dead big-box into an
+indoor vertical farm) and let it audit the pro forma. It caught a self-contradicting NOI, ~$1M of
+soft costs dropped between tabs, a wind array that was 33% of hard cost for ~2% of the energy, and a
+zero-vacancy assumption for an asset class that has since seen ~14 bankruptcies. The corrected,
+formula-driven model is included. The building deal got *stronger*; the risk turned out to live in the
+business, not the real estate.
+
+## Provenance
+
+Built from 22+ years of construction and real-estate development practice and the working conventions
+of open platforms in this org (notably [Massing](https://github.com/ibuilder/massing) — an IFC-native
+AEC platform). Standards references were verified against current editions as of **July 2026**: IBC 2024
+/ ASCE 7-22 (ICC 2027 in development), second-generation Eurocodes (publish 2027 / withdraw 2028),
+NCC 2025, ISO 19650 second-generation DIS (Mar 2026) + IFC/ISO 16739-1:2024, LEED v5, RICS WLCA 2nd ed
++ EN 15978, and the EU CBAM definitive period (live Jan 2026).
+
+## Contributing
+
+Issues and PRs welcome — especially country/jurisdiction dossiers, additional worked case studies, and
+corrections to code-edition references. Keep `SKILL.md` lean; put depth in `references/`.
+
+## License
+
+[MIT](LICENSE) © Matthew M. Emma / ibuilder. Built with Claude.
