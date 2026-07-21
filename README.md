@@ -33,11 +33,50 @@ it reasons about that fragment inside the whole.
 
 ## Install
 
-**In Claude:** download [`dist/master-builder.skill`](dist/master-builder.skill) and use the
-**Save skill** button on the file card (where skill creation is enabled), or upload it in a skill-capable surface.
+A "skill" is just a folder — `SKILL.md` plus the `references/`. Pick the one path below that matches how
+you use Claude. You only need to do this once.
 
-**By hand / other runtimes:** the skill is just `SKILL.md` plus the `references/` folder — point your
-tooling at this repo.
+### Option 1 — one command (Claude Code, or the Claude desktop app)
+
+Paste this into your terminal. It drops the skill into your personal skills folder, which **both Claude
+Code and the Claude desktop app read from** — so you install once and it works in both:
+
+**macOS / Linux:**
+```bash
+git clone https://github.com/ibuilder/master-builder.git ~/.claude/skills/master-builder
+```
+
+**Windows (PowerShell):**
+```powershell
+git clone https://github.com/ibuilder/master-builder.git "$env:USERPROFILE\.claude\skills\master-builder"
+```
+
+Then start (or restart) Claude and just ask a building question — it triggers on its own. In Claude Code
+you can also type `/master-builder`, and `/skills` lists what's loaded. To update later, `pull` the folder:
+
+```bash
+git -C ~/.claude/skills/master-builder pull      # Windows: git -C "$env:USERPROFILE\.claude\skills\master-builder" pull
+```
+
+*No git?* [Download the ZIP](https://github.com/ibuilder/master-builder/archive/refs/heads/main.zip),
+unzip it, and rename/move the folder so the path is `~/.claude/skills/master-builder/SKILL.md`.
+
+### Option 2 — no terminal (Claude.ai in a browser, or the desktop app UI)
+
+1. In Claude, open **Settings → Capabilities** and switch on **Code Execution** and **File Creation**
+   (Skills need these turned on).
+2. Download **[`master-builder.zip`](https://github.com/ibuilder/master-builder/releases/latest/download/master-builder.zip)**
+   from the [latest release](https://github.com/ibuilder/master-builder/releases/latest).
+3. Go to **Settings → Capabilities → Skills**, click **＋ → Upload skill**, and pick that `.zip`.
+4. It shows up in your Skills list with an on/off toggle — switch it on. Done.
+
+   *(The ZIP is already shaped the way the uploader wants — a `master-builder/` folder with `SKILL.md`
+   inside — so it just works; no unzipping needed.)*
+
+### By hand / other runtimes
+
+Point your tooling at `SKILL.md` and the `references/` folder, or drop the folder at
+`.claude/skills/master-builder/` inside a single project to scope it to that project.
 
 ## Structure
 
