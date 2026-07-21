@@ -26,9 +26,10 @@ it reasons about that fragment inside the whole.
   on irreversible actions, honest status over optimistic status, compliance-as-code.
 - **Thinks globally.** A method for reasoning about unfamiliar jurisdictions by code family (ICC/IBC,
   Eurocodes, NCC, NBCC, IS/NBC India, GB China, Japan BSL, Middle East).
-- **Counts the carbon and the power.** Treats whole-life and embodied carbon as a cost and a risk
-  (CBAM, Buy Clean, LEED v5, transition risk), and the utility-interconnection queue as the schedule
-  gate it has become for energy-intensive projects.
+- **Counts the carbon, the climate risk, and the power.** Treats whole-life and embodied carbon as a
+  cost and a risk (CBAM, Buy Clean, LEED v5, transition risk), climate resilience as adaptation the asset
+  is underwritten against (flood/ASCE 24, stormwater, wildfire, heat), and the utility-interconnection
+  queue as the schedule gate it has become for energy-intensive projects.
 
 ## Install
 
@@ -48,7 +49,7 @@ references/
   real-estate-finance.md         # pro formas, returns, capital stack, construction loans, JV waterfalls
   construction-delivery.md        # delivery methods, contracts (AIA/FIDIC/NEC/JCT), estimating, scheduling
   digital-toolkit.md             # BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, the software map
-  sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk
+  sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk, resilience
   build-doctrine.md              # cross-cutting engineering lessons for building any system
   pro-forma-review.md            # forensic model/deal audit — reframe, reconcile, defect checklist
 examples/

@@ -2,6 +2,25 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.3.1] — 2026-07-21
+Reconciliation pass against the current Massing repo + research: adds climate **adaptation/resilience**
+(the counterpart to carbon mitigation) and sharpens tool descriptions to the platform as it actually ships.
+
+### Added
+- `sustainability-carbon.md` §7 "Adaptation — the other half of climate" — design-to-future-hazard,
+  resilience-as-underwriting (insurance/downtime/exit), and siting/passivity as the cheapest resilience.
+- `global-codes.md` §4 — ASCE 24 flood-resistant design, Rational-Method stormwater sizing, and a
+  forward-looking physical climate-risk overlay ("design to the future hazard, not just the historical map").
+- SKILL.md — "The climate risk" added to the ground-in-place list; resilience/adaptation added to the
+  `description` triggers and the reference-table summary.
+
+### Changed
+- `digital-toolkit.md` — reality-capture (2D→BIM raise, scan-to-BIM deviation, GIS/DEM overlays, LAS/LAZ),
+  operations (CMMS, EUI, reserve study, UNIFORMAT II → Facility Condition Index, ESG Scope 1/2 + climate-risk
+  rating), and AI/MCP (Claude skill pack; schedule-risk/carbon/permit-readiness engines off one model)
+  updated to the current Massing capabilities; climate-resilience row added to the software map.
+- README — "counts the carbon, the climate risk, and the power" reflects the resilience addition.
+
 ## [0.3.0] — 2026-07-21
 Currency + decarbonization pass. Adds carbon as a first-class development discipline, refreshes code
 editions to mid-2026, and folds in the power-constrained and tariff-driven cost environment.

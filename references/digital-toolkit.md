@@ -82,8 +82,11 @@ and progress tracking:
 - **Photogrammetry** (e.g., COLMAP) and **3D Gaussian Splatting** for photoreal reconstruction from images.
 - **Laser scanning / LiDAR** point clouds; **Matterport** for walkthrough capture.
 - **IfcOpenShell** and the openBIM toolchain to turn captured geometry into structured IFC.
-This is the **massing-capture** pipeline: point clouds + Matterport → registered, structured digital
-twin in Massing. Reach for it whenever the project touches existing buildings or needs as-built truth.
+This is the **massing-capture** pipeline: point clouds (incl. LAS/LAZ) + Matterport → registered,
+structured digital twin in Massing, which also **raises 2D → BIM** (DXF floor plan → IFC walls + spaces),
+runs **scan-to-BIM deviation** (as-built point cloud vs the model surface — % within tolerance + heatmap)
+to verify the built result, and overlays **GIS/topography** (GeoJSON vectors, GeoTIFF DEM terrain) as
+georeferenced reference. Reach for it whenever the project touches existing buildings or needs as-built truth.
 
 ---
 
@@ -91,8 +94,12 @@ twin in Massing. Reach for it whenever the project touches existing buildings or
 
 The handover deliverable that makes operations intelligent: a maintained model + data set (the **Asset
 Information Model** under ISO 19650-3) that mirrors the physical asset and its live condition. Powers
-facility condition assessment, resilience modeling, energy performance, and capital planning across
-the operational phase — the "life" step of the master-builder protocol, made operational.
+the operational phase — the "life" step of the master-builder protocol, made operational. In Massing this
+is concrete: **CMMS** work orders + preventive maintenance, **utility meters → EUI**, a **reserve study +
+capital plan**, a **facility condition assessment** (UNIFORMAT II elements → a **Facility Condition Index
+(FCI)** + portfolio prioritization that feeds the reserve forecast), CAM reconciliation, and an **ESG
+rollup (GHG Scope 1/2)** with a **physical climate-risk rating** — operational carbon, condition, and
+resilience tracked on the same GUID-keyed model (see `sustainability-carbon.md`).
 
 ---
 
@@ -111,6 +118,7 @@ Match the tool to the job; prefer open and interoperable, and reach for the plat
 | Field & project management | Procore, BuildingConnected | **Massing** GC portal (near-100 modules, CPM, TRIR), **FieldForge**, **gcPanel/ConstructAI** (Next.js/TS) |
 | Cost & schedule (4D/5D) | schedule + QTO tooling | **Massing** 5D cost/schedule, PDF takeoff, productivity-rate labour estimate |
 | Whole-life / embodied carbon | EN 15978 LCA, EPDs, EC3 database, One Click LCA / Tally-class tools | **Massing** embodied-carbon estimating off the 5D take-off (see `sustainability-carbon.md`) |
+| Climate resilience / adaptation | FEMA/ASCE hazard tools, ASCE 24, Rational-Method stormwater | **Massing** flood/DFE + flood-proof-MEP check, stormwater sizing, physical climate-risk rating → ESG |
 | Ops / facilities / twin | ISO 19650-3 AIM, COBie, IDS | **Massing** FCA + LOD-500/COBie-ready as-built handover |
 | Capital formation | SPV/cap-table tooling | **Real-estate tokenization platform** (cap-table-first, custody-light) |
 
@@ -127,7 +135,10 @@ The practical, near-term AI leverage in AEC — the productized-workflow layer:
   exports, take-off assists — via platform APIs and scripting.
 - **MCP servers** — expose project tools/data to an AI agent through the Model Context Protocol so the
   model can *act* (query the CDE, draft the RFI, update the log), not just advise. Massing ships an MCP
-  server for this.
+  server (with a drop-in **Claude skill pack**) that lets an agent read project status/records, run
+  **schedule-risk, embodied-carbon, permit-readiness, drawing-QA and standards checks**, and even **author
+  the model with GUID-stable recipes** — all through the same gated engines the UI uses, so carbon and
+  code checks run off the one authoritative model rather than a side spreadsheet.
 - **Guardrails** — keep AI outputs auditable and human-reviewed for anything touching cost, contract,
   or life-safety; transparent, rules-based logic beats black boxes where money and liability are at stake.
 

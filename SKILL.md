@@ -9,7 +9,8 @@ description: >-
   procurement, construction administration (RFIs, submittals, change orders, pay apps), BIM/IFC/ISO 19650
   workflows, development pro formas, JV waterfalls, construction-loan mechanics, cap rates, IRR, or
   underwriting. Also covers whole-life and embodied carbon, LCA/EPDs, green certification (LEED/BREEAM),
-  CBAM/Buy Clean and decarbonization, and power/utility-interconnection constraints on energy-intensive
+  CBAM/Buy Clean and decarbonization, climate resilience and adaptation (flood/ASCE 24, stormwater,
+  wildfire, heat), and power/utility-interconnection constraints on energy-intensive
   projects (data centers, indoor agriculture). Trigger even when the user names only a slice (e.g. "what wind load applies in Miami",
   "draft an RFI", "does this deal pencil") — the point is reasoning about that slice inside the whole
   project. Also trigger for any request to build, price, phase, or evaluate a project in an unfamiliar place.
@@ -42,6 +43,7 @@ establish **where** and derive the constraints from there. Location silently det
 - **The power** — grid capacity and the interconnection queue, which for energy-intensive uses now often
   gates the schedule harder than the building permit (see `global-codes.md` §2)
 - **The carbon** — the operational and embodied-carbon rules, and their cost (CBAM, Buy Clean, disclosure) — `sustainability-carbon.md`
+- **The climate risk** — the flood, wind, wildfire, heat, and stormwater hazards the asset must be *adapted* to over its life, not just the code-minimum load
 - **The culture and climate** — how people occupy space, what "good" looks like, seasonal build windows
 
 If the user hasn't said where, and it matters (it usually does), **ask or state your assumption
@@ -98,7 +100,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/pro-forma-review.md` | Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation |
 | `references/construction-delivery.md` | Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
-| `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials |
+| `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |
 
 When a task spans several (a full feasibility study, a go/no-go, a project setup), read the relevant

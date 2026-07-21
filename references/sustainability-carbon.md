@@ -13,7 +13,8 @@ value-engineered, not hand-waved.
 4. Carbon is money (why it hits the pro forma)
 5. The reduction hierarchy (the order of moves)
 6. Method for a master builder
-7. Universal vs local
+7. Adaptation — the other half of climate
+8. Universal vs local
 
 ---
 
@@ -137,7 +138,26 @@ is less money *and* less CO₂e:
 
 ---
 
-## 7. Universal vs local
+## 7. Adaptation — the other half of climate
+
+Carbon is **mitigation** — cutting the emissions the building causes. **Adaptation** is the mirror duty:
+hardening the asset against the climate it will actually face over a 50-year life. A master builder owes
+both, and they trade against each other in the money.
+
+- **Design to the future hazard, not just the historical map.** Flood (ASCE 24 + design flood elevation,
+  MEP above it), intensifying design storms (stormwater/detention via the Rational Method), wind, wildfire
+  (WUI exposure), extreme heat, and drought. `global-codes.md` §4 carries the load/hazard mechanics; the
+  move here is to overlay a forward-looking **physical climate-risk** view (sea-level-rise scenarios,
+  future-weather files) on top of the code minimum.
+- **Resilience is underwriting, not virtue.** Physical climate risk shows up as insurance cost and
+  availability, downtime, capital-reserve draws, and — increasingly — a discount at exit and a mandatory
+  disclosure line. Roll a **physical climate-risk rating** into the same scorecard as the carbon and ESG
+  numbers, and price it in the exit alongside transition risk (§4).
+- **The cheapest resilience is often siting and passivity** — avoid the floodplain, orient and shade for
+  heat, design for passive survivability (habitable without power during an outage). Like carbon, the
+  biggest levers are early and cheap; retrofitting resilience into a built asset is expensive.
+
+## 8. Universal vs local
 
 The **physics of carbon and the LCA method are universal** — the module map, the hotspots (concrete, steel,
 aluminium), the reduction hierarchy, and the "measure with a boundary" discipline travel everywhere. The **mandatory

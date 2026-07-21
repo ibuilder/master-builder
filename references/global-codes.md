@@ -133,10 +133,21 @@ procedure is the same worldwide; only the source document changes.
   hurricane/typhoon zones carry special provisions (e.g., Florida HVHZ, AU cyclonic).
 - **Snow** — ground snow load from the local map; roof snow via exposure/thermal/slope factors.
   Driven by latitude and altitude. US: ASCE 7-22. EU: EN 1991-1-3. Canada: NBCC.
-- **Flood** — design flood elevation from the local floodplain map (US: FEMA FIRM/BFE), plus freeboard.
-  Coastal + riverine + sea-level-rise allowances increasingly required.
+- **Flood** — design flood elevation (DFE) from the local floodplain map (US: FEMA FIRM/BFE) plus
+  freeboard, with **flood-resistant design and construction to ASCE 24** (dry/wet floodproofing, elevating
+  or protecting MEP above the DFE). Coastal + riverine + sea-level-rise allowances increasingly required.
+- **Stormwater** — size on-site drainage and detention from the local rainfall intensity: the **Rational
+  Method** (Q = C·i·A, peak runoff) sets pipe/inlet capacity and detention volume. A permit gate in most
+  jurisdictions, and a resilience question as design storms intensify.
 - **Thermal / climate** — the climate zone sets envelope, insulation, and energy targets (ASHRAE
   climate zones, EU degree-days, NCC climate zones 1–8).
+
+**Design to the future hazard, not just the historical map.** Hazard maps are backward-looking; a
+50-year asset will live through a shifting climate. For flood, wind, wildfire, extreme heat, and drought,
+consider a forward-looking **physical climate-risk** overlay (sea-level-rise scenarios, future-weather
+files, wildfire-urban-interface exposure) alongside the code-minimum load — this is **adaptation**, the
+other half of the climate duty to `sustainability-carbon.md`'s carbon **mitigation**, and it feeds directly
+into the exit/transition risk in `real-estate-finance.md`.
 
 Always state the *parameter you would read* ("look up the basic wind speed for this ZIP on the ASCE
 Hazard Tool") rather than fabricating a number.
