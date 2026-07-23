@@ -16,4 +16,9 @@ Thanks for helping build this out.
 ## Workflow
 1. Fork and branch.
 2. Make the change; if it touches triggering, update the `description` in `SKILL.md` frontmatter.
-3. Open a PR describing what changed and why.
+3. Rerun the build so the packages and the portable bundle stay in sync with the source:
+   ```bash
+   python scripts/build.py
+   ```
+   Everything in `dist/` is generated — never edit those files by hand.
+4. Open a PR describing what changed and why.

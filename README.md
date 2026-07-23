@@ -78,6 +78,26 @@ unzip it, and rename/move the folder so the path is `~/.claude/skills/master-bui
 Point your tooling at `SKILL.md` and the `references/` folder, or drop the folder at
 `.claude/skills/master-builder/` inside a single project to scope it to that project.
 
+## Use it in other assistants (ChatGPT, Gemini, Perplexity, or any model)
+
+A Claude *skill* is a Claude-specific wrapper, but the knowledge inside it is plain, MIT-licensed
+Markdown — so it works in **any** assistant. Grab the one-file bundle and paste it in:
+
+**⬇ [`master-builder.bundle.md`](https://github.com/ibuilder/master-builder/releases/latest/download/master-builder.bundle.md)**
+— the whole skill (the protocol + every reference) concatenated into a single file, with setup notes
+at the top. (Also in the repo at [`dist/master-builder.bundle.md`](dist/master-builder.bundle.md).)
+
+| Assistant | Setup |
+|---|---|
+| **ChatGPT** | New **Custom GPT** (or a Project) → paste the *Master Builder Protocol* section into **Instructions**, and upload `master-builder.bundle.md` (or the individual reference files) as **Knowledge**. |
+| **Google Gemini** | New **Gem** → paste the bundle into the instructions, or attach it as a knowledge file. |
+| **Perplexity** | New **Space** → paste the protocol into the Space's custom instructions and add the bundle (or this repo's link) as a source. |
+| **Any API / open model** | Prepend `master-builder.bundle.md` to your system prompt. |
+
+**Trade-off:** the bundle loads everything at once, so you lose Claude's load-on-demand *progressive
+disclosure* (reading only the reference a task needs). That's fine for large-context models — just
+heavier on tokens. For automatic triggering and on-demand loading, use the native Claude skill above.
+
 ## Structure
 
 ```
@@ -94,12 +114,18 @@ references/
 examples/
   hempstead-vertical-farm-case-study.md   # using the skill to critique the author's own 2021 thesis
   hempstead-corrected-model.xlsx          # the rebuilt, formula-driven feasibility model
-dist/
-  master-builder.skill           # packaged, installable
+scripts/
+  build.py                       # regenerates every dist/ artifact from the source (one build command)
+dist/                            # generated — do not edit by hand
+  master-builder.skill           # installable Claude skill (zip)
+  master-builder.zip             # same package, .zip extension for the claude.ai uploader
+  master-builder.bundle.md       # one-file portable bundle for any other assistant
 ```
 
-Progressive disclosure: `SKILL.md` stays lean (~170 lines) and carries a table pointing to the eight
-reference files, which load only when the task needs them.
+Everything in `dist/` is generated from `SKILL.md` + `references/` by **`python scripts/build.py`** — so
+the packages and the bundle can never drift from the source. Progressive disclosure: `SKILL.md` stays
+lean (~170 lines) and carries a table pointing to the eight reference files, which load only when the
+task needs them.
 
 ## Case study
 
