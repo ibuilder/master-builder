@@ -185,7 +185,9 @@ def main() -> int:
     build_package(DIST / "master-builder.zip")
 
     bundle = build_bundle(ver)
-    (DIST / "master-builder.bundle.md").write_text(bundle, encoding="utf-8", newline="\n")
+    # write_bytes, not write_text(newline=...): the newline kwarg is Python 3.10+, and
+    # writing bytes guarantees LF endings on every OS with no platform translation.
+    (DIST / "master-builder.bundle.md").write_bytes(bundle.encode("utf-8"))
 
     print(f"Built Master Builder v{ver}:")
     for f in ("master-builder.skill", "master-builder.zip", "master-builder.bundle.md"):
