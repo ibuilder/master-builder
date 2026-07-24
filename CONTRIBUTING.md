@@ -21,4 +21,11 @@ Thanks for helping build this out.
    python scripts/build.py
    ```
    Everything in `dist/` is generated — never edit those files by hand.
-4. Open a PR describing what changed and why.
+4. Check your work (CI runs exactly these, on Python 3.9 and 3.12):
+   ```bash
+   python scripts/validate.py            # structure: lean SKILL.md, table ↔ files, links resolve
+   python scripts/mcp_server.py --selftest
+   ```
+5. Open a PR describing what changed and why.
+
+All three scripts are **stdlib-only** — no dependencies, no lockfile, nothing to install. Keep it that way.

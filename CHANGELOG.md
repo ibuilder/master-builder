@@ -2,6 +2,29 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.4.0] — 2026-07-24
+Makes the skill callable as a tool by any MCP-capable agent, and holds the repo to the skill's own
+build doctrine (staged validation, honest status, operational discipline).
+
+### Added
+- `scripts/mcp_server.py` — a **zero-dependency MCP server** (stdio) serving the protocol and the
+  reference library as four read-only tools (`master_builder_get_protocol`, `_list_references`,
+  `_read_reference`, `_search`) plus MCP *resources*. This restores **progressive disclosure** for
+  non-Claude agents: they pull only the reference a task needs instead of the whole corpus. Stdlib-only
+  Python 3.9+ — no SDK to install or pin (the official Python SDK is a `2.0.0b1` pre-release with a
+  renamed API; per `build-doctrine.md` §4 the core must not depend on a moving part). Ships a
+  22-check `--selftest`.
+- `scripts/validate.py` — enforces the authoring rules CONTRIBUTING only stated: frontmatter shape,
+  slug-form `name`, substantive `description`, lean SKILL.md, reference table ↔ files on disk both
+  ways, and that every cross-reference resolves. `build-doctrine.md` §8 (compliance-as-code) applied
+  to the skill itself.
+- `.github/workflows/ci.yml` — on every push/PR (Python 3.9 + 3.12): validate the skill, self-test the
+  MCP server, exercise it over **real stdio**, and fail if `dist/` has drifted from source.
+- README — an MCP server section and a CI badge.
+
+### Changed
+- CONTRIBUTING — contributors run `validate.py` and the MCP self-test; the stdlib-only rule is explicit.
+
 ## [0.3.2] — 2026-07-23
 Portability + reproducible build. The skill's knowledge now ships in a form any assistant can use, and
 all distributables are generated from one source so they can't drift.

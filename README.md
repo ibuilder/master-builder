@@ -1,5 +1,6 @@
 # Master Builder — a Claude Skill for the built environment
 
+[![CI](https://github.com/ibuilder/master-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ibuilder/master-builder/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 ![Skill](https://img.shields.io/badge/type-Claude%20Skill-6366f1)
 ![Domain](https://img.shields.io/badge/domain-AEC%20%C2%B7%20real%20estate-33d17a)
@@ -96,7 +97,35 @@ at the top. (Also in the repo at [`dist/master-builder.bundle.md`](dist/master-b
 
 **Trade-off:** the bundle loads everything at once, so you lose Claude's load-on-demand *progressive
 disclosure* (reading only the reference a task needs). That's fine for large-context models — just
-heavier on tokens. For automatic triggering and on-demand loading, use the native Claude skill above.
+heavier on tokens. If your tool speaks MCP, the server below gives you that back.
+
+## Use it as an MCP server (any MCP-capable agent)
+
+For agents that speak the [Model Context Protocol](https://modelcontextprotocol.io), the repo ships a
+server that hands out the protocol and references **on demand** — so the agent pulls only the reference
+a task needs instead of loading the whole corpus. That restores progressive disclosure outside Claude.
+
+It is **stdlib-only Python 3.9+** — nothing to `pip install`, no SDK to pin, runs offline. Point your
+client at it:
+
+```json
+{
+  "mcpServers": {
+    "master-builder": {
+      "command": "python",
+      "args": ["/absolute/path/to/master-builder/scripts/mcp_server.py"]
+    }
+  }
+}
+```
+
+Four read-only tools: `master_builder_get_protocol`, `master_builder_list_references`,
+`master_builder_read_reference`, `master_builder_search` (plus the same corpus as MCP *resources*).
+Verify it any time with:
+
+```bash
+python scripts/mcp_server.py --selftest
+```
 
 ## Structure
 
@@ -116,6 +145,8 @@ examples/
   hempstead-corrected-model.xlsx          # the rebuilt, formula-driven feasibility model
 scripts/
   build.py                       # regenerates every dist/ artifact from the source (one build command)
+  mcp_server.py                  # zero-dependency MCP server (stdio) — serves the skill on demand
+  validate.py                    # enforces the authoring rules (lean SKILL.md, table ↔ files, links)
 dist/                            # generated — do not edit by hand
   master-builder.skill           # installable Claude skill (zip)
   master-builder.zip             # same package, .zip extension for the claude.ai uploader

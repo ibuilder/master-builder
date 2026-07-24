@@ -152,12 +152,25 @@ def build_bundle(ver: str) -> str:
     return "\n".join(out)
 
 
+# Reproducible builds: zip entries must not carry the wall-clock time, or two builds of
+# identical source produce different bytes and CI's "dist is in sync" check fails forever.
+# 1980-01-01 is the earliest timestamp the zip format can represent.
+ZIP_EPOCH = (1980, 1, 1, 0, 0, 0)
+
+
 def build_package(dest: Path) -> None:
-    """Write the installable Claude skill zip (arcnames use forward slashes on every OS)."""
+    """Write the installable Claude skill zip.
+
+    Arcnames use forward slashes on every OS, and entries carry a fixed timestamp so the
+    output is byte-identical for identical input.
+    """
     dest.parent.mkdir(parents=True, exist_ok=True)
     with zipfile.ZipFile(dest, "w", zipfile.ZIP_DEFLATED) as z:
         for rel in PACKAGE_FILES:
-            z.writestr(f"master-builder/{rel}", read(rel))
+            info = zipfile.ZipInfo(f"master-builder/{rel}", date_time=ZIP_EPOCH)
+            info.compress_type = zipfile.ZIP_DEFLATED
+            info.external_attr = 0o644 << 16  # stable, sane file mode
+            z.writestr(info, read(rel))
 
 
 def main() -> int:

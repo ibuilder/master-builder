@@ -1,0 +1,64 @@
+name: CI
+
+# The skill preaches a staged-validation gate and honest status (references/build-doctrine.md
+# §5, §7, §10) — so the repo holds itself to it. This proves two things on every push:
+#   1. dist/ is genuinely generated from source and has not drifted.
+#   2. the MCP server still speaks the protocol.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # Stdlib-only, so it must work on any supported Python without a lockfile.
+        python-version: ["3.9", "3.12"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Skill structure is intact
+        run: python scripts/validate.py
+
+      - name: MCP server self-test
+        run: python scripts/mcp_server.py --selftest
+
+      - name: MCP server answers over real stdio
+        run: |
+          printf '%s\n' \
+            '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2025-06-18","capabilities":{},"clientInfo":{"name":"ci","version":"1"}}}' \
+            '{"jsonrpc":"2.0","method":"notifications/initialized"}' \
+            '{"jsonrpc":"2.0","id":2,"method":"tools/list"}' \
+            | python scripts/mcp_server.py > /tmp/mcp_out.txt
+          python - <<'PY'
+          import json
+          lines = open('/tmp/mcp_out.txt', encoding='utf-8').read().splitlines()
+          assert len(lines) == 2, f"expected 2 responses (the notification gets none), got {len(lines)}"
+          init, tools = (json.loads(l) for l in lines)
+          assert init['result']['serverInfo']['name'] == 'master-builder'
+          assert len(tools['result']['tools']) == 4, tools
+          print("stdio transport OK:", [t['name'] for t in tools['result']['tools']])
+          PY
+
+      - name: dist/ is in sync with the source (rebuild must be a no-op)
+        run: |
+          python scripts/build.py
+          if ! git diff --quiet -- dist/; then
+            echo "::error::dist/ is out of date. Run 'python scripts/build.py' and commit the result."
+            git diff --stat -- dist/
+            git diff -- dist/ | head -80
+            exit 1
+          fi
+          echo "dist/ is in sync with SKILL.md + references/."
