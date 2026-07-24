@@ -170,6 +170,10 @@ def build_package(dest: Path) -> None:
             info = zipfile.ZipInfo(f"master-builder/{rel}", date_time=ZIP_EPOCH)
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o644 << 16  # stable, sane file mode
+            # ZipInfo defaults create_system to 0 on Windows and 3 elsewhere, which makes
+            # the same content produce different bytes per OS. Pin it so a build on Windows
+            # matches a build on Linux (read_text already normalizes CRLF -> LF).
+            info.create_system = 3
             z.writestr(info, read(rel))
 
 
