@@ -2,6 +2,36 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.7.0] — 2026-07-25
+One skill for the built world, adaptable to any location. Names the organizing principle explicitly —
+**municipal code + climate = the book for a place** — and makes both halves operational.
+
+### Added
+- `references/climate-building-science.md` — the climate half, which the skill had been missing. Loads
+  were covered; the *physics that decides assemblies* was not. Vapour drives from warm-humid to cool-dry
+  (so the correct wall in Minneapolis is the wrong wall in Miami, from the same physics); **every
+  assembly must dry in at least one direction**; the four control layers (water, air, vapour, thermal)
+  and the rule that they must be continuous and connected; **air leakage transports far more moisture
+  than diffusion** — prioritize air-tightness over vapour-barrier fixation; **Köppen** families as the
+  global spine (works anywhere, unlike national zone maps) with what each forces on a building; mixed
+  climates as the genuinely hard case (seasonal reversal — a code-compliant wall can still rot); ground
+  (frost depth, expansive clay, permafrost, radon); durability (corrosion, freeze–thaw, UV, termites);
+  and climate as a schedule/carry driver.
+- `jurisdiction-dossiers.md` §1 — **the localization procedure**: six resolutions (place depth, adopted
+  code stack, the full AHJ set, climate and hazard basis, market and delivery conventions, licensure)
+  that build "the book" for any location on Earth. Plus §2, a **code-family router** with explicit
+  guidance for countries not in the table. The four worked dossiers now each carry their climate too.
+- MCP tool **`master_builder_localize(place)`** — returns the six-resolution worksheet for a named
+  place, served from the reference so there is one source of truth. It deliberately returns the
+  *procedure and what to verify*, never invented local values. Self-test now 25 checks.
+
+### Changed
+- SKILL.md — the ground-in-place rule now leads with the code + climate = the book framing and routes to
+  the localization procedure; building physics added to what location determines; step 5 routes to
+  building science; `description` extended to trigger on envelope, vapour/air barriers, condensation,
+  insulation, and foundations.
+- README — "adapts to anywhere on Earth" and "knows the physics, not just the rules" capabilities.
+
 ## [0.6.0] — 2026-07-25
 Proves the "anywhere on Earth" claim with worked dossiers, and adds a document-intelligence discipline
 distilled from studying open AEC-AI work by others (see Credits in the README).

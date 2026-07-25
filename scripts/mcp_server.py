@@ -37,6 +37,7 @@ import json
 import os
 import re
 import sys
+import unicodedata
 from pathlib import Path
 from typing import Any
 
@@ -139,8 +140,16 @@ def read_reference(name: str) -> str:
     return (REFS_DIR / name).read_text(encoding="utf-8")
 
 
+def _fold(s: str) -> str:
+    """Lowercase and strip accents, so 'Koppen' finds 'Köppen' and 'facade' finds 'façade'."""
+    return "".join(
+        c for c in unicodedata.normalize("NFD", s.lower())
+        if unicodedata.category(c) != "Mn"
+    )
+
+
 def search_corpus(query: str, limit: int = 20) -> list[dict[str, Any]]:
-    """Case-insensitive substring search across the protocol + every reference."""
+    """Accent- and case-insensitive substring search across the protocol + every reference."""
     hits: list[dict[str, Any]] = []
     docs: list[tuple[str, str]] = [("SKILL.md", protocol_text())]
     for name in reference_names():
@@ -148,13 +157,13 @@ def search_corpus(query: str, limit: int = 20) -> list[dict[str, Any]]:
             docs.append((name, read_reference(name)))
         except OSError:
             continue
-    needle = query.lower()
+    needle = _fold(query)
     for doc_name, text in docs:
         heading = ""
         for i, line in enumerate(text.splitlines(), start=1):
             if line.startswith("#"):
                 heading = line.lstrip("#").strip()
-            if needle in line.lower():
+            if needle in _fold(line):
                 hits.append({
                     "source": doc_name,
                     "line": i,
@@ -227,6 +236,33 @@ TOOLS: list[dict[str, Any]] = [
         },
     },
     {
+        "name": "master_builder_localize",
+        "description": (
+            "Get the localization worksheet for a specific place — the six resolutions (place depth, "
+            "adopted code stack, the full AHJ set, climate and hazard basis, market and delivery "
+            "conventions, licensure) that together generate 'the book' governing a building at that "
+            "location. Call this FIRST whenever a built-environment task names a city, country, or site, "
+            "before giving any jurisdiction-specific answer. Returns the procedure and what to verify — "
+            "it does not invent local values; look those up and say which are unverified."
+        ),
+        "inputSchema": {
+            "type": "object",
+            "properties": {
+                "place": {
+                    "type": "string",
+                    "description": "The location, as specifically as known — e.g. 'Austin, Texas', 'Dubai (DDA free zone plot)', 'Vietnam'.",
+                }
+            },
+            "required": ["place"],
+            "additionalProperties": False,
+        },
+        "annotations": {
+            "title": "Localization worksheet for a place",
+            "readOnlyHint": True, "destructiveHint": False,
+            "idempotentHint": True, "openWorldHint": False,
+        },
+    },
+    {
         "name": "master_builder_search",
         "description": (
             "Search the whole Master Builder corpus (protocol + all references) for a term and get "
@@ -271,6 +307,38 @@ def call_tool(name: str, args: dict[str, Any]) -> str:
         if not isinstance(ref, str) or not ref.strip():
             raise ValueError("Parameter 'name' is required — the reference filename, e.g. 'global-codes.md'.")
         return read_reference(ref.strip())
+
+    if name == "master_builder_localize":
+        place = args.get("place")
+        if not isinstance(place, str) or not place.strip():
+            raise ValueError("Parameter 'place' is required — the location to localize for.")
+        place = place.strip()
+        try:
+            dossiers = read_reference("jurisdiction-dossiers.md")
+        except (KeyError, OSError):
+            dossiers = ""
+        # Serve the procedure + router verbatim from the reference: one source of truth.
+        proc = ""
+        start = dossiers.find("## 1. The localization procedure")
+        end = dossiers.find("## 3. Worked dossier")
+        if start != -1 and end != -1:
+            proc = dossiers[start:end].rstrip().rstrip("-").rstrip()
+        return "\n".join([
+            f"# Localizing for: {place}",
+            "",
+            "Work the six resolutions below for this location. Treat every specific value as **to "
+            "verify** until you have checked it against the currently adopted local code and the AHJ's "
+            "live process — then say explicitly which items you verified and which remain assumptions.",
+            "",
+            proc or "(Procedure unavailable — read references/jurisdiction-dossiers.md directly.)",
+            "",
+            "---",
+            "",
+            "**Next:** read `climate-building-science.md` for what this climate forces on the envelope, "
+            "and `global-codes.md` for the code family and load derivation. If a worked dossier in "
+            "`jurisdiction-dossiers.md` covers a comparable jurisdiction, read it for the shape of the "
+            "answer — but never transplant its values.",
+        ])
 
     if name == "master_builder_search":
         query = args.get("query")
@@ -479,7 +547,7 @@ def selftest() -> int:
           handle({"jsonrpc": "2.0", "method": "notifications/initialized"}) is None)
 
     tools = handle({"jsonrpc": "2.0", "id": 3, "method": "tools/list"})["result"]["tools"]
-    check("tools/list returns all 4 tools", len(tools) == 4, f"got {len(tools)}")
+    check("tools/list returns all 5 tools", len(tools) == 5, f"got {len(tools)}")
     check("every tool is annotated read-only",
           all(t["annotations"]["readOnlyHint"] and not t["annotations"]["destructiveHint"] for t in tools))
     check("every tool has a schema and a description",
@@ -522,6 +590,18 @@ def selftest() -> int:
                     "params": {"name": "master_builder_search",
                                "arguments": {"query": "zzzznotpresentzzz"}}})["result"]
     check("empty search returns guidance, not an error", not empty["isError"])
+
+    loc = handle({"jsonrpc": "2.0", "id": 16, "method": "tools/call",
+                  "params": {"name": "master_builder_localize",
+                             "arguments": {"place": "Hanoi, Vietnam"}}})["result"]
+    loc_text = loc["content"][0]["text"]
+    check("localize names the place and serves the six resolutions",
+          not loc["isError"] and "Hanoi, Vietnam" in loc_text
+          and "R1" in loc_text and "R6" in loc_text)
+    check("localize refuses to invent local values",
+          "to verify" in loc_text.lower() and "never invent" in loc_text.lower())
+    check("localize requires a place", handle({"jsonrpc": "2.0", "id": 17, "method": "tools/call",
+          "params": {"name": "master_builder_localize", "arguments": {}}})["result"]["isError"])
 
     badtool = handle({"jsonrpc": "2.0", "id": 10, "method": "tools/call",
                       "params": {"name": "nope", "arguments": {}}})["result"]
