@@ -53,7 +53,8 @@ change/variation, payment, risk allocation, indemnity, LDs, dispute resolution.
 - **JCT (UK)** — traditional UK building contracts.
 
 Internationally, FIDIC is usually the lingua franca; know which book matches the delivery method and
-who carries design risk under it.
+who carries design risk under it. The clause-by-clause fight over *who carries what* — site conditions,
+delay and EOT, LDs, indemnity, and the insurance and bonds behind them — is in `risk-insurance.md`.
 
 ---
 

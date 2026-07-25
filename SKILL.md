@@ -10,8 +10,10 @@ description: >-
   workflows, development pro formas, JV waterfalls, construction-loan mechanics, cap rates, IRR, or
   underwriting. Also covers whole-life and embodied carbon, LCA/EPDs, green certification (LEED/BREEAM),
   CBAM/Buy Clean and decarbonization, climate resilience and adaptation (flood/ASCE 24, stormwater,
-  wildfire, heat), and power/utility-interconnection constraints on energy-intensive
-  projects (data centers, indoor agriculture). Trigger even when the user names only a slice (e.g. "what wind load applies in Miami",
+  wildfire, heat), power/utility-interconnection constraints on energy-intensive projects (data centers,
+  indoor agriculture), construction risk allocation, insurance and surety bonds, and existing buildings —
+  adaptive reuse, renovation, office-to-residential conversion, existing-building code (IEBC), and
+  retrofit/building-performance mandates. Trigger even when the user names only a slice (e.g. "what wind load applies in Miami",
   "draft an RFI", "does this deal pencil") — the point is reasoning about that slice inside the whole
   project. Also trigger for any request to build, price, phase, or evaluate a project in an unfamiliar place.
 ---
@@ -68,6 +70,8 @@ relevant steps and let the rest inform your framing.
    site legally, physically, and financially? First **name what the asset actually is**, stripped of
    marketing — a "vertical-farm tower" that's really a single-story big-box leased as white-boxes is a
    landlord play, and that reframing changes the comps, tenants, and buyers. → `references/development-lifecycle.md`
+   *If a building already stands, the order inverts — the structure is the fixed constraint and the
+   program must be fitted to it.* → `references/adaptive-reuse.md`
 3. **Feasibility & the money** — Does it pencil? Sources and uses, development budget, return
    metrics, and the capital stack are the spine every other decision hangs from. → `references/real-estate-finance.md`
 4. **Regulatory path** — Land use/zoning/planning first, then building code, fire, energy,
@@ -76,8 +80,9 @@ relevant steps and let the rest inform your framing.
    Coordinate before you build; clashes are cheapest to fix in the model. → `references/digital-toolkit.md`
 6. **Delivery strategy** — How to buy it, build it, sequence it, and control it: delivery method,
    contract form, estimate, schedule, procurement, long-leads. → `references/construction-delivery.md`
-7. **Risk** — Name the risks, then *allocate* them (who is best able to carry each — via contract,
-   insurance, contingency, or design) and *mitigate* what remains.
+7. **Risk** — Name the risks, then *allocate* them (to whoever can best control, price, *and* absorb
+   each — via contract, insurance, bond, contingency, or design) and *mitigate* what remains. A risk
+   nobody was assigned is carried by the owner by default. → `references/risk-insurance.md`
 8. **Handover & life** — Commissioning, close-out, operations, whole-life carbon, and eventual
    disposition or recapitalization. A building is a 50-year cash-flow and carbon liability, not a
    one-time event. → `references/sustainability-carbon.md`
@@ -99,6 +104,8 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/real-estate-finance.md` | Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls |
 | `references/pro-forma-review.md` | Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation |
 | `references/construction-delivery.md` | Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls |
+| `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
+| `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
 | `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |

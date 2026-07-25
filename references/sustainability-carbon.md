@@ -108,8 +108,8 @@ is less money *and* less CO₂e:
 
 1. **Build nothing / build less** — challenge the brief; the greenest m² is the one you don't build.
 2. **Build with what exists — reuse & retrofit.** Keeping structure and façade avoids the entire A1–A5 of a new frame,
-   which almost always beats new-build on embodied carbon. This is the carbon case for the **adaptive reuse** already in
-   the lifecycle reference — and often the cheaper deal.
+   which almost always beats new-build on embodied carbon — and it is usually faster to revenue. This is the carbon case
+   for **adaptive reuse**; how to actually screen, code-path, and underwrite one is in `adaptive-reuse.md`.
 3. **Build clever — material efficiency.** Efficient structural grids, right-sized spans, less concrete/steel per m².
    Decided at Schematic Design, alongside cost — the same fork.
 4. **Build efficient — low-carbon materials.** Specify by **EPD**: lower-clinker/SCM concrete mixes, reused or

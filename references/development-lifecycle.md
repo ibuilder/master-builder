@@ -70,7 +70,7 @@ The central deliverable of early development. Combine:
 - **The development pro forma** — sources & uses, development budget, operating pro forma, returns,
   and sensitivities (see `real-estate-finance.md`). This is the number the whole team defends.
 - **Risk register** — entitlement, market, cost, schedule, capital, partner, and force-majeure risks,
-  each with an owner and a mitigation.
+  each with an owner and a mitigation. → `risk-insurance.md`
 
 Output a clear **go / no-go / restructure** recommendation with the key assumptions and the two or
 three variables the outcome is most sensitive to.
@@ -84,7 +84,8 @@ report, Phase I (and if triggered, Phase II) environmental, utility availability
 floodplain, existing-conditions/measured survey for reuse, structural assessment for adaptive reuse,
 and a **facility condition assessment (FCA)** for existing assets. Each finding either confirms the
 underwriting or reprices/kills the deal. Adaptive reuse adds hazmat (asbestos/lead), code-upgrade
-triggers, and existing-building code (IEBC and equivalents).
+triggers, and existing-building code (IEBC and equivalents) — the whole existing-building playbook is
+in `adaptive-reuse.md`.
 
 ---
 

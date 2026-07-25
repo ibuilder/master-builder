@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.4.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.5.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -27,9 +27,11 @@ The one behavior you lose versus the native Claude skill is *progressive disclos
 4. **real-estate-finance.md** — Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls
 5. **pro-forma-review.md** — Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation
 6. **construction-delivery.md** — Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls
-7. **digital-toolkit.md** — BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work
-8. **sustainability-carbon.md** — Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation
-9. **build-doctrine.md** — How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code
+7. **risk-insurance.md** — Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing
+8. **adaptive-reuse.md** — Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards
+9. **digital-toolkit.md** — BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work
+10. **sustainability-carbon.md** — Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation
+11. **build-doctrine.md** — How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code
 
 ====================================================================================================
 
@@ -89,6 +91,8 @@ relevant steps and let the rest inform your framing.
    site legally, physically, and financially? First **name what the asset actually is**, stripped of
    marketing — a "vertical-farm tower" that's really a single-story big-box leased as white-boxes is a
    landlord play, and that reframing changes the comps, tenants, and buyers. → `references/development-lifecycle.md`
+   *If a building already stands, the order inverts — the structure is the fixed constraint and the
+   program must be fitted to it.* → `references/adaptive-reuse.md`
 3. **Feasibility & the money** — Does it pencil? Sources and uses, development budget, return
    metrics, and the capital stack are the spine every other decision hangs from. → `references/real-estate-finance.md`
 4. **Regulatory path** — Land use/zoning/planning first, then building code, fire, energy,
@@ -97,8 +101,9 @@ relevant steps and let the rest inform your framing.
    Coordinate before you build; clashes are cheapest to fix in the model. → `references/digital-toolkit.md`
 6. **Delivery strategy** — How to buy it, build it, sequence it, and control it: delivery method,
    contract form, estimate, schedule, procurement, long-leads. → `references/construction-delivery.md`
-7. **Risk** — Name the risks, then *allocate* them (who is best able to carry each — via contract,
-   insurance, contingency, or design) and *mitigate* what remains.
+7. **Risk** — Name the risks, then *allocate* them (to whoever can best control, price, *and* absorb
+   each — via contract, insurance, bond, contingency, or design) and *mitigate* what remains. A risk
+   nobody was assigned is carried by the owner by default. → `references/risk-insurance.md`
 8. **Handover & life** — Commissioning, close-out, operations, whole-life carbon, and eventual
    disposition or recapitalization. A building is a 50-year cash-flow and carbon liability, not a
    one-time event. → `references/sustainability-carbon.md`
@@ -120,6 +125,8 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/real-estate-finance.md` | Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls |
 | `references/pro-forma-review.md` | Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation |
 | `references/construction-delivery.md` | Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls |
+| `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
+| `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
 | `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |
@@ -471,7 +478,7 @@ The central deliverable of early development. Combine:
 - **The development pro forma** — sources & uses, development budget, operating pro forma, returns,
   and sensitivities (see `real-estate-finance.md`). This is the number the whole team defends.
 - **Risk register** — entitlement, market, cost, schedule, capital, partner, and force-majeure risks,
-  each with an owner and a mitigation.
+  each with an owner and a mitigation. → `risk-insurance.md`
 
 Output a clear **go / no-go / restructure** recommendation with the key assumptions and the two or
 three variables the outcome is most sensitive to.
@@ -485,7 +492,8 @@ report, Phase I (and if triggered, Phase II) environmental, utility availability
 floodplain, existing-conditions/measured survey for reuse, structural assessment for adaptive reuse,
 and a **facility condition assessment (FCA)** for existing assets. Each finding either confirms the
 underwriting or reprices/kills the deal. Adaptive reuse adds hazmat (asbestos/lead), code-upgrade
-triggers, and existing-building code (IEBC and equivalents).
+triggers, and existing-building code (IEBC and equivalents) — the whole existing-building playbook is
+in `adaptive-reuse.md`.
 
 ---
 
@@ -904,7 +912,8 @@ change/variation, payment, risk allocation, indemnity, LDs, dispute resolution.
 - **JCT (UK)** — traditional UK building contracts.
 
 Internationally, FIDIC is usually the lingua franca; know which book matches the delivery method and
-who carries design risk under it.
+who carries design risk under it. The clause-by-clause fight over *who carries what* — site conditions,
+delay and EOT, LDs, indemnity, and the insurance and bonds behind them — is in `risk-insurance.md`.
 
 ---
 
@@ -1018,6 +1027,451 @@ already built:
   their APIs.
 
 Match the tool to the control it serves, and keep the data in open formats so it survives the project.
+
+----------------------------------------------------------------------------------------------------
+
+<!-- reference: risk-insurance.md -->
+
+# Risk, Insurance & Surety
+
+Step 7 of the protocol, in depth. Every other reference tells you how to *do* something; this one tells
+you who carries it when it goes wrong. Read this for risk registers, contractual risk allocation,
+insurance products, bonds, contingency sizing, and the increasingly hard question of whether a project
+is **insurable at all**.
+
+The master builder's discipline: **a risk that has not been named, priced, and assigned to someone is
+carried by the owner by default.** Silence is an allocation — usually the worst one.
+
+## Contents
+1. The risk loop, and the allocation principle
+2. The risk register
+3. Contractual allocation — the clauses that actually fight
+4. Insurance — the products and what each really covers
+5. Surety — bonds are not insurance
+6. The 2026 market, and the insurability problem
+7. Contingency is risk capital
+8. Universal vs local
+
+---
+
+## 1. The risk loop, and the allocation principle
+
+Run it in order, and keep running it — a risk register written at feasibility and never reopened is a
+document, not a control.
+
+1. **Identify** — name the risk in concrete terms. "Market risk" is not a risk; "absorption slower than
+   12 units/month at the underwritten rent" is.
+2. **Assess** — likelihood × impact, in money and in time. Rank. Most registers have 3–5 that matter.
+3. **Allocate** — decide *who carries it*, via contract, insurance, bond, or contingency.
+4. **Mitigate** — reduce what remains through design, sequencing, procurement, or phasing.
+5. **Monitor** — assign an owner and a trigger. A risk with no named owner is unmanaged.
+
+> **The allocation principle: give each risk to the party best able to control, price, and absorb it.**
+> All three. A subcontractor may *control* a risk but be unable to *absorb* it — pushing it down just
+> converts a construction risk into a counterparty-insolvency risk, and you get it back with a claim
+> attached. Risk pushed onto a party that cannot carry it is not transferred; it is disguised.
+
+The corollary developers forget: **risk transfer is never free.** A contractor asked to swallow
+unquantifiable risk prices it — or prices it *badly*, which is worse, because a bid that ignores a real
+risk becomes a change order or a dispute later.
+
+---
+
+## 2. The risk register
+
+The feasibility deliverable (`development-lifecycle.md` §5) and a living document thereafter. Cover, at
+minimum, these families — each with an owner, a mitigation, and a trigger:
+
+- **Entitlement** — approval refused, conditioned, appealed, or simply *late*. Usually the longest pole
+  and the hardest to insure. Mitigate with option/contingency structures, not optimism.
+- **Site & ground** — soils, groundwater, contamination, archaeology, unforeseen conditions. The classic
+  cost wildcard; who carries "differing site conditions" is a contract question (§3).
+- **Design** — incomplete/coordination errors, late changes, scope gaps at buy-out.
+- **Cost** — escalation, tariffs, commodity moves, bid-market conditions (`construction-delivery.md` §3).
+- **Schedule** — long-leads, utility interconnection, weather, labor availability, permit/inspection pace.
+- **Counterparty** — contractor or key-sub insolvency, partner default, tenant credit.
+- **Capital & market** — interest-rate moves, refinancing/take-out risk, absorption, exit-cap movement.
+- **Physical & climate** — flood, wind, wildfire, seismic, extreme heat (`sustainability-carbon.md` §7).
+- **Regulatory & transition** — code cycle changes, carbon/energy mandates, tax and policy shifts.
+- **Force majeure** — the genuinely uncontrollable; note that it usually buys *time*, not *money*.
+
+---
+
+## 3. Contractual allocation — the clauses that actually fight
+
+The contract is the primary risk-allocation instrument; insurance is the backstop behind it. In every
+contract family (AIA, FIDIC, NEC, JCT — `construction-delivery.md` §2), the same handful of clauses
+decide who loses money when things go wrong:
+
+- **Differing / unforeseen site conditions** — does the owner or the contractor carry the ground? FIDIC
+  Red and most owner-design forms leave much of it with the owner; EPC/Silver pushes it to the
+  contractor (and the price reflects that).
+- **Change / variation** — what counts as a change, how it's valued, and the notice period. Most
+  disputes are notice disputes.
+- **Time, EOT, and concurrent delay** — extension of time vs. *money*. A contractor may win time and
+  still absorb its own prolongation cost, depending on whether the delay is excusable *and*
+  compensable. Know which delays are which before you sign.
+- **Liquidated damages (LDs)** — the owner's pre-agreed delay remedy. Must be a genuine pre-estimate of
+  loss, not a penalty, or it may be unenforceable. Usually capped; the cap is the real negotiation.
+- **Indemnity & limitation of liability** — who defends whom, and the overall liability cap (often a
+  percentage of contract value). Watch for consequential-damages waivers — they can quietly exclude the
+  losses the owner actually cares about (lost rent, financing costs).
+- **Waiver of subrogation** — stops one project party's insurer suing another. Standard, important, and
+  routinely deleted by accident.
+- **Retention / retainage** — typically 5–10%, released at substantial completion and after defects.
+- **Defects liability / DLP & warranties** — the tail after handover, and who holds it.
+- **Dispute resolution** — negotiation → mediation/DAB → arbitration/litigation, and the *seat*. On
+  cross-border work this is a commercial decision, not boilerplate.
+
+> Contracts are legal instruments. Reason about the allocation and its commercial consequence, then
+> route the drafting and the final position to **qualified construction counsel** in the project's
+> jurisdiction. (Professional boundaries, per SKILL.md.)
+
+---
+
+## 4. Insurance — the products and what each really covers
+
+Match the product to the phase and the peril. Naming the right policy is half of a builder's
+credibility in a risk conversation.
+
+- **Builder's Risk / Contractors' All Risks (CAR)** — property damage to the *work in progress*, plus
+  materials in transit and stored off-site if endorsed. First-party. The critical extensions are
+  **delay in start-up / advance loss of profits (DSU/ALOP)** — which covers the *financing and revenue*
+  consequence of a covered loss, not just the rebuild — plus **soft costs** and **testing/commissioning**.
+  Watch flood/quake/wind sub-limits and deductibles: in CAT zones the sub-limit, not the policy limit,
+  is your real cover.
+- **Commercial General Liability (CGL)** — third-party bodily injury and property damage. Check
+  completed-operations and the **contractual liability** grant that backs your indemnities.
+- **Professional Indemnity / Errors & Omissions** — design negligence. Carried by designers; under
+  **design-build** the contractor needs it too, and owners should verify the **project-specific** limit
+  rather than a firm-wide one already eroded by other claims.
+- **Workers' compensation / employers' liability** — statutory and non-negotiable.
+- **Environmental / pollution legal liability** — essential on brownfield and adaptive reuse (asbestos,
+  lead, contaminated soil — see the reuse reference).
+- **Wrap-ups — OCIP / CCIP** (owner- or contractor-controlled insurance programs) — one policy covering
+  all enrolled parties on a large project. Buys consistent limits, removes cross-litigation, and can
+  save cost at scale; costs administrative overhead and careful enrollment/audit discipline.
+- **Subcontractor default insurance (SDI, e.g. "Subguard")** — the contractor's alternative to
+  requiring subcontractor bonds; faster to trigger, but it is *the contractor's* asset and carries a
+  deductible and co-pay the owner should understand.
+- **Title, and rep-and-warranty insurance** — on the transaction side.
+- **Existing-structure property** — on renovation, the *existing building* is usually covered by the
+  owner's property policy, not builder's risk. The seam between the two policies is a classic gap;
+  close it deliberately.
+
+---
+
+## 5. Surety — bonds are not insurance
+
+A frequently muddled distinction, and it matters commercially:
+
+- **Insurance** is a two-party risk-transfer: you pay a premium, the insurer expects losses and pays them.
+- **A surety bond** is a three-party guarantee (principal, obligee, surety) that the principal will
+  perform. The surety expects **zero** losses and, if it pays, it **seeks indemnity back from the
+  contractor.** A bond is underwritten credit, not risk transfer.
+
+The instruments:
+- **Performance bond** — guarantees completion if the contractor defaults (commonly 100% of contract value).
+- **Payment / labour-and-material bond** — protects subs and suppliers, and therefore protects the owner
+  from liens.
+- **Bid bond**, **advance-payment**, **retention**, and **warranty/maintenance bonds** for their phases.
+- **Parent-company guarantee** — sometimes offered instead; only as good as the parent's balance sheet.
+
+**Bonding capacity is a real constraint.** A contractor's surety limits both single-project and
+aggregate exposure — a bidder can be technically excellent and simply unbondable at your project's size.
+Test it during prequalification, not at award. Internationally, on-demand bank guarantees are common
+instead of conditional surety bonds; they behave very differently when called.
+
+---
+
+## 6. The 2026 market, and the insurability problem
+
+Insurance has moved from a line item to a **feasibility variable** — in some places it decides whether
+a project happens at all. The current picture (verify at underwriting; this market moves fast):
+
+- **A split market.** Builder's risk has broadly stabilized — single-layer programs seeing roughly
+  **5–7% decreases in non-catastrophe zones** — while **catastrophe-exposed placements ran up ~12%**,
+  and general contractors' overall insurance costs rose sharply (reports of ~22% in 2026). Where the
+  project sits matters more than what it is.
+- **Severe convective storm is the dominant peril, not hurricane.** US insured losses from hail,
+  tornado, and straight-line wind exceeded **$51bn in 2025** — a third consecutive year above $50bn and
+  more than any other natural-catastrophe category. This reprices ordinary inland markets that used to
+  be considered benign.
+- **Combustible construction is hardest to place.** Wood-frame builder's risk remains constrained on
+  fire and weather exposure, though capacity is returning as London markets re-enter.
+- **Ballpark only:** small residential/light commercial builder's risk often lands somewhere around
+  **1–5% of construction value** — a range so wide it is useful only as a sanity check. Get a real quote
+  early; on a CAT-exposed or frame project, insurance can move the pro forma.
+
+> **Underwrite insurability, not just insurance cost.** In wildfire, coastal-wind, and flood-exposed
+> markets, the live questions are whether cover is *available*, at what **deductible and sub-limit**, and
+> whether the **operating** policy at stabilization will still be affordable — an asset that cannot be
+> insured cannot be financed or sold. Rising premiums also hit **NOI directly** (an OpEx line), so they
+> compress value at the exit cap. This is where physical climate risk stops being an ESG topic and
+> becomes a valuation input (`sustainability-carbon.md` §7): **resilience measures are increasingly
+> underwritten and credited**, so hardening the building is partly an insurance-cost play.
+
+Insurance placement is a **licensed broker's** work, and policy wordings decide coverage. Reason about
+what must be covered and who carries it; route the placement, wording, and certificates to a
+construction-specialist broker and counsel.
+
+---
+
+## 7. Contingency is risk capital
+
+Contingency is not padding; it is the retained portion of the risk register — the risks you decided to
+carry rather than transfer. Size it to *risk and design maturity*, not to a habit:
+
+- **Design/development contingency** — held by the owner, shrinking as the design matures (generous at
+  concept, small at CDs). Tied to estimate class (`construction-delivery.md` §3).
+- **Construction contingency** — for what emerges in the field; on adaptive reuse it should be visibly
+  larger because unknowns live behind finishes.
+- **Escalation** — a forecast, not a contingency. Carry it as its own line.
+- **Owner's reserve / interest reserve** — schedule slip costs carry (`real-estate-finance.md` §5).
+
+A useful discipline: **tie the contingency draw to the register.** When a contingency is spent, name the
+risk it retired. A contingency that drains without any risk closing is really an estimating error, and
+you want to learn that early, not at 80% complete.
+
+---
+
+## 8. Universal vs local
+
+**Universal:** the risk loop, the allocation principle, the difference between a bond and a policy, the
+logic of contingency, and the clause families that fight. These travel to every jurisdiction.
+
+**Local and requiring verification:** compulsory cover (workers' comp/employers' liability, decennial
+liability in France/Spain and much of the civil-law world, inherent-defects insurance in the UK),
+statutory bond requirements on public work (US Miller Act and state "Little Miller" acts), enforceability
+of LDs and indemnities, lien rights, and the entire pricing environment. Get local broker and counsel
+input before treating any of the numbers or structures above as settled.
+
+----------------------------------------------------------------------------------------------------
+
+<!-- reference: adaptive-reuse.md -->
+
+# Adaptive Reuse, Retrofit & Existing Buildings
+
+Most of the buildings that will exist in 2050 are already standing. Read this whenever the project
+involves an existing structure — conversion, renovation, retrofit, repositioning, or a
+decarbonization mandate — rather than a clear site.
+
+Working on an existing building inverts the usual order. On raw land the program leads and the
+building follows; here **the building is a fixed constraint that the program must be fitted to.** The
+master builder's first question is not "what do I want to build?" but **"what will this structure
+actually accept, and what does the code make me touch?"**
+
+## Contents
+1. Why reuse now dominates
+2. Screening a candidate — the physical gates
+3. The existing-building code path (choose one, and commit)
+4. Due diligence that only exists on existing buildings
+5. Office-to-residential, specifically
+6. Building performance standards — the retrofit mandate
+7. Underwriting a reuse deal
+8. Universal vs local
+
+---
+
+## 1. Why reuse now dominates
+
+Three forces converged, and they point the same way:
+
+- **Carbon.** Keeping a structure and façade avoids the entire A1–A5 of a new frame, which almost
+  always beats new-build on embodied carbon — the #2 move in the reduction hierarchy
+  (`sustainability-carbon.md` §5). "The greenest building is the one already built" is now a defensible
+  quantitative claim, not a slogan.
+- **Money.** Repriced assets create basis. Manhattan office sale prices fell roughly **45% from their
+  2019 peak**, narrowing the gap to development-site value — the mechanism that makes conversions pencil
+  is a cheap building, not a clever design.
+- **Regulation.** Performance standards and energy mandates (§6) are forcing capital into existing
+  stock whether or not the owner wants a project.
+
+Speed is the other prize: an existing shell with existing utility service and an existing entitlement
+can beat ground-up to revenue — sometimes by years — which is worth real money in carry
+(`real-estate-finance.md` §5). But **reuse trades ground-up's unknowns for a different set**, and they
+hide behind finishes rather than under soil.
+
+---
+
+## 2. Screening a candidate — the physical gates
+
+Kill bad candidates fast and cheaply; the cost of a wrong reuse is discovered late and paid in change
+orders. Screen in roughly this order, because each gate is progressively more expensive to fix:
+
+- **Floor plate and depth.** For residential conversion, the killer metric is **distance from window
+  wall to core**. Deep plates leave interior space no one will pay to live in. Roughly, plates much
+  beyond ~10–12 m (~35–40 ft) window-to-core start failing without light wells, atria, or carving —
+  each of which destroys sellable area and budget.
+- **Structure.** Grid spacing, floor-to-floor height, and **live-load capacity** for the new use.
+  Residential loads are usually lower than office, which helps; assembly, archives, or industrial uses
+  do not. Check slab capacity for new wet areas and any new penetrations.
+- **Floor-to-floor height.** Once you add residential ceilings, new distribution, and any topping slab,
+  low floor-to-floor kills the deal. This is a hard physical constraint.
+- **Façade and window-to-wall.** Operable windows and light for habitable rooms; existing curtain wall
+  is often at end-of-life and thermally hopeless, and a full re-skin is one of the largest line items.
+- **Core, egress, and vertical transport.** Stair count and pressurization, elevator capacity and
+  distribution for a residential population, and where new risers can physically go.
+- **MEP.** Existing systems are usually the wrong topology entirely — central office HVAC does not
+  become per-unit residential without wholesale replacement. Assume replacement; be delighted if not.
+- **Plumbing and waste.** New stacks need vertical alignment through the structure. This quietly drives
+  unit layout more than architecture does.
+
+> **The one-sentence screen:** a good conversion candidate is an older, structurally generous, narrow
+> or irregular building with lots of perimeter — often a pre-war one — not a modern deep-plate tower.
+> Industry screening is blunt for a reason: only a minority of buildings work. Gensler's testing finds
+> roughly **25–30%** of examined buildings viable; Yardi's index rated about **4.6%** of ~2bn sf of
+> office as top-tier immediate candidates and ~19% as second-tier. Most buildings are not candidates,
+> and saying so early is the service.
+
+---
+
+## 3. The existing-building code path (choose one, and commit)
+
+The single most consequential technical decision on a reuse project, and the one most often fumbled.
+Under the **IEBC (2024 edition current)** there are three compliance methods:
+
+- **Prescriptive (Ch. 5)** — treat the alteration essentially as new construction for what you touch.
+  Simple and predictable; applies to alterations, not additions. Often the most expensive.
+- **Work Area (Ch. 6–12)** — the flexible workhorse. Requirements scale with the **scope and scale of
+  work**, classified as **Level 1** (repair/replacement in kind), **Level 2** (reconfiguration of space,
+  new systems), or **Level 3** (work area exceeding 50% of the building area, which triggers the most).
+  Provisions engage only when the level of work warrants — which is what makes phased and partial
+  projects affordable.
+- **Performance (Ch. 13)** — a scored evaluation demonstrating the building maintains or increases the
+  current degree of safety, without full compliance with the other chapters. The escape hatch for
+  buildings that cannot meet prescriptive requirements, and the route for heritage fabric.
+
+> **You must pick one path and the whole design team must follow it — mixing and matching between
+> methods is not permitted.** Choose it at concept, in writing, with the AHJ, because the choice
+> reshapes the scope and budget. Choosing late, or discovering mid-design that a consultant assumed a
+> different path, is a rework event.
+
+The upgrade triggers that reliably surprise people: **change of occupancy** (the big one — it can pull
+in full structural, seismic, egress, and accessibility compliance), crossing a **work-area percentage
+threshold**, **substantial structural alteration**, and **accessibility** obligations on alteration
+(with limits on disproportionate cost). Seismic retrofit triggers in high-seismic jurisdictions can
+alone decide feasibility.
+
+Outside the US the shape recurs under different names — England & Wales apply the Building Regulations
+to the works with heritage flexibility for listed buildings; most jurisdictions have a lighter
+existing-building regime plus a conservation overlay. Identify the equivalent and the AHJ's actual
+practice (`global-codes.md`).
+
+---
+
+## 4. Due diligence that only exists on existing buildings
+
+Add these to the standard scope (`development-lifecycle.md` §6). Each can reprice or kill a deal:
+
+- **Hazardous materials survey** — **asbestos, lead paint, PCBs** (ballasts, caulk), mold, and
+  underground tanks. Pre-1980 buildings should be assumed positive until surveyed. Abatement is
+  expensive, is on the **critical path** (it precedes demolition), and carries its own regulatory
+  regime and liability. This is also why environmental/pollution liability cover matters
+  (`risk-insurance.md` §4).
+- **Structural assessment** — capacity for the new use, existing reinforcement, historic materials
+  (cast iron, unreinforced masonry, early concrete), prior alterations, and corrosion or deflection.
+  Get destructive/exploratory openings; drawings lie and as-builts are optimistic.
+- **Measured survey / reality capture** — the *actual* geometry, not the record set. Laser scan or
+  photogrammetry into a model is now the standard move (`digital-toolkit.md` §4), and scan-to-BIM
+  deviation checking catches the out-of-plumb, out-of-level reality that wrecks prefabricated fit-outs.
+- **Facility condition assessment (FCA)** — element-by-element remaining life, feeding the capital plan.
+- **Existing MEP capacity** — incoming power, water, gas, and sanitary capacity. An upgraded service is
+  a utility-interconnection question with its own queue (`global-codes.md` §2).
+- **Heritage / conservation status** — listing, district, or landmark designation dictates what may be
+  altered, and adds a consent process and a timeline of its own.
+- **Tenancy and vacancy** — existing leases, holdover rights, relocation obligations, and whether the
+  building can actually be emptied to work in it. Phased occupied renovation is a different (harder)
+  project than a vacant one.
+
+> **Contingency must be visibly larger on reuse.** The unknowns are concealed rather than absent. A
+> ground-up contingency applied to a gut renovation is an underwriting error
+> (`risk-insurance.md` §7).
+
+---
+
+## 5. Office-to-residential, specifically
+
+The defining reuse trade of this cycle, and now at genuine scale — **a record ~11.8 million sf of
+office-to-residential completed or under construction in 2025**, with roughly **70,700 units** in that
+year's pipeline. Worth understanding on its own terms:
+
+- **What makes it work:** a basis low enough to absorb heavy conversion cost; a plate that daylights;
+  adequate floor-to-floor; a location where residential rent clears well above office rent per sf; and
+  usually a **public incentive** (tax abatement, zoning relief, or a conversion program).
+- **What makes it fail:** deep plates, low floor-to-floor, façades that must be wholly replaced,
+  seismic or egress triggers, condo/legal complexity, and sellers still anchored to pre-2020 valuations.
+- **Zoning is often no longer the binding constraint** — many cities have relaxed conversion rules —
+  which pushes the constraint back onto **physics and cost**, where it is harder to lobby away.
+- **Cost is not "cheaper than new" by default.** Conversion is *faster* and *lower-carbon* far more
+  reliably than it is *cheaper per sf*. Underwrite the actual scope, not the intuition.
+
+The same logic extends to the other live conversions — hotel↔residential (naturally compatible: wet
+stacks and small bays already exist), retail/big-box to industrial, medical, or fulfilment (the
+Hempstead case study in `examples/` is exactly this), and office to lab or data center (usually blocked
+by structural loading and power, not architecture).
+
+---
+
+## 6. Building performance standards — the retrofit mandate
+
+A growing class of project where the trigger is **regulatory, not opportunistic**: the owner must act
+on an existing building or pay. Underwrite these as scheduled capital events with hard dates.
+
+- **US — building performance standards (BPS).** **50+ US cities and states** now impose them. The
+  archetype is **NYC Local Law 97**: emissions caps for most buildings over 25,000 sf, tightening in
+  **2030**, with penalties of **$268 per metric ton CO₂e over the cap, annually**, plus late-filing
+  penalties (~$0.50/sf/month) and severe penalties for false statements. Reporting is engineer-certified.
+  Similar regimes run in Boston (BERDO), Washington DC, Denver, St. Louis, Colorado, Maryland, and
+  Washington State.
+- **EU — EPBD recast and MEPS.** Member-state transposition landed around **May 2026**. **Minimum energy
+  performance standards** target the **worst-performing 15–20%** of stock first: non-residential to
+  roughly class **D by 2030**, residential by about **2033**, with all new buildings **zero-emission by
+  2030**. This is the "renovation wave" — a mandated, dated retrofit market.
+- **UK — MEES** minimum EPC ratings gate the *legal right to let* commercial space, which turns an
+  energy rating into a leasing constraint.
+
+The practical consequence: **a non-compliant building is a discounted building.** Penalties, forced
+capex, and un-lettability all land in the pro forma, and buyers price them. Conversely a deep retrofit
+that clears the standard for a decade is a value-creation play, not a cost. Sequence retrofit work with
+lease rollover — you can rarely do envelope and systems work around a full building.
+
+---
+
+## 7. Underwriting a reuse deal
+
+What changes versus ground-up (read alongside `real-estate-finance.md` and `pro-forma-review.md`):
+
+- **Basis is the whole thesis.** Conversion economics are driven by acquisition price far more than by
+  design cleverness. If the seller's price assumes the old use, there is no deal — walk.
+- **Cost certainty arrives later**, so hold a bigger contingency longer, and use a delivery method that
+  buys preconstruction investigation (CMAR/negotiated GC) rather than hard-bidding an unknown building.
+- **Phasing and partial occupancy** can fund the work but complicate code path, logistics, and safety.
+- **Schedule advantage is real** — an existing shell and existing service can beat ground-up to revenue;
+  put that in the carry, not just the narrative.
+- **Incentives are frequently load-bearing.** Historic tax credits (US federal 20% rehabilitation credit
+  for certified historic structures, plus state programs), conversion abatements, brownfield credits,
+  and energy incentives can be the margin. Underwrite them with their *conditions and timing* — a
+  credit contingent on approvals you have not obtained is not yet capital.
+- **Abatement and structural work sit on the critical path** early, so the risk is front-loaded — which
+  is good: it is retired before the largest spend.
+- **Whole-life carbon is a genuine selling point** to institutional buyers and lenders with transition
+  commitments (`sustainability-carbon.md` §4).
+
+---
+
+## 8. Universal vs local
+
+**Universal:** the physical screen (plate depth, floor-to-floor, structure, risers), the inverted
+program-follows-building logic, the concealed-unknowns contingency rule, the reality-capture-first
+method, and the economics of basis-driven conversion. These apply to any existing building anywhere.
+
+**Local and requiring verification:** the existing-building code and its compliance methods (IEBC
+editions and amendments, or the national equivalent), change-of-occupancy and seismic-retrofit triggers,
+accessibility obligations on alteration, heritage designation and consent, hazmat regulation, the
+specific building-performance standard and its caps, penalties and dates, and every incentive program.
+All of these move on short cycles — **web-search the current rule for the jurisdiction** before quoting
+a threshold, a penalty, or a credit.
 
 ----------------------------------------------------------------------------------------------------
 
@@ -1288,8 +1742,8 @@ is less money *and* less CO₂e:
 
 1. **Build nothing / build less** — challenge the brief; the greenest m² is the one you don't build.
 2. **Build with what exists — reuse & retrofit.** Keeping structure and façade avoids the entire A1–A5 of a new frame,
-   which almost always beats new-build on embodied carbon. This is the carbon case for the **adaptive reuse** already in
-   the lifecycle reference — and often the cheaper deal.
+   which almost always beats new-build on embodied carbon — and it is usually faster to revenue. This is the carbon case
+   for **adaptive reuse**; how to actually screen, code-path, and underwrite one is in `adaptive-reuse.md`.
 3. **Build clever — material efficiency.** Efficient structural grids, right-sized spans, less concrete/steel per m².
    Decided at Schematic Design, alongside cost — the same fork.
 4. **Build efficient — low-carbon materials.** Specify by **EPD**: lower-clinker/SCM concrete mixes, reused or
@@ -1483,4 +1937,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.4.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.5.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

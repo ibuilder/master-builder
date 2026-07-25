@@ -2,6 +2,36 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.5.0] — 2026-07-25
+Content pass. Closes the one structural hole in the protocol and gives existing buildings the depth the
+skill kept asserting they deserved.
+
+### Added
+- `references/risk-insurance.md` — **fills the only protocol step (7, Risk) that had no reference behind
+  it.** The risk loop and the allocation principle (control *and* price *and* absorb — risk pushed onto a
+  party that can't carry it isn't transferred, it's disguised), the risk register families, the contract
+  clauses that actually fight (differing site conditions, EOT/concurrent delay, LDs, indemnity, waiver of
+  subrogation), insurance products (builder's risk/CAR with DSU/ALOP, CGL, PI, wrap-ups, SDI), why a
+  surety bond is credit rather than risk transfer, the 2026 market split (non-CAT rate relief vs ~12%
+  CAT-zone increases; severe convective storm >$51bn US insured losses in 2025), **insurability as a
+  feasibility variable**, and contingency as retained risk capital.
+- `references/adaptive-reuse.md` — existing buildings on their own terms: why reuse now dominates
+  (carbon + repriced basis + mandates), the physical screen that kills candidates fast (plate depth,
+  floor-to-floor, structure, risers), the **IEBC 2024 compliance paths — prescriptive / work-area /
+  performance — and the rule that you must pick one and not mix**, change-of-occupancy and work-area
+  triggers, hazmat/structural/reality-capture due diligence, office-to-residential economics (record
+  ~11.8M sf in 2025; only ~25–30% of buildings viable), building performance standards (NYC LL97 at
+  $268/tCO₂e over cap, 50+ US jurisdictions, EU EPBD MEPS to class D by 2030/2033), and how underwriting
+  a reuse deal differs.
+
+### Changed
+- SKILL.md — protocol step 7 now routes to `risk-insurance.md` and states the allocation principle;
+  step 2 notes that with an existing building the order inverts (structure constrains program) and routes
+  to `adaptive-reuse.md`; both added to the reference table; `description` extended to trigger on risk,
+  insurance, surety, conversion, IEBC, and retrofit mandates.
+- Reciprocal cross-links added from `development-lifecycle.md` (risk register, adaptive-reuse DD),
+  `sustainability-carbon.md` (reuse hierarchy), and `construction-delivery.md` (contract risk clauses).
+
 ## [0.4.0] — 2026-07-24
 Makes the skill callable as a tool by any MCP-capable agent, and holds the repo to the skill's own
 build doctrine (staged validation, honest status, operational discipline).

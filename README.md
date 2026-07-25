@@ -31,6 +31,12 @@ it reasons about that fragment inside the whole.
   cost and a risk (CBAM, Buy Clean, LEED v5, transition risk), climate resilience as adaptation the asset
   is underwritten against (flood/ASCE 24, stormwater, wildfire, heat), and the utility-interconnection
   queue as the schedule gate it has become for energy-intensive projects.
+- **Allocates risk instead of naming it.** Who can control, price, *and* absorb each risk — through the
+  contract clauses that actually fight, the right insurance product, a bond, or contingency — plus
+  whether the project is *insurable* at all in a hardening climate market.
+- **Works on buildings that already exist.** Conversion and retrofit on their own terms: the physical
+  screen, the existing-building code path (IEBC), hazmat and structural due diligence,
+  office-to-residential economics, and building-performance mandates like LL97 and EU MEPS.
 
 ## Install
 
@@ -136,6 +142,8 @@ references/
   development-lifecycle.md        # origination → feasibility → entitlements → design gates → ops → exit
   real-estate-finance.md         # pro formas, returns, capital stack, construction loans, JV waterfalls
   construction-delivery.md        # delivery methods, contracts (AIA/FIDIC/NEC/JCT), estimating, scheduling
+  risk-insurance.md              # risk allocation, contract clauses, insurance, surety, insurability, contingency
+  adaptive-reuse.md              # existing buildings — conversion, IEBC code paths, hazmat DD, retrofit mandates
   digital-toolkit.md             # BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, the software map
   sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk, resilience
   build-doctrine.md              # cross-cutting engineering lessons for building any system
@@ -155,7 +163,7 @@ dist/                            # generated — do not edit by hand
 
 Everything in `dist/` is generated from `SKILL.md` + `references/` by **`python scripts/build.py`** — so
 the packages and the bundle can never drift from the source. Progressive disclosure: `SKILL.md` stays
-lean (~170 lines) and carries a table pointing to the eight reference files, which load only when the
+lean (~170 lines) and carries a table pointing to the ten reference files, which load only when the
 task needs them.
 
 ## Case study
