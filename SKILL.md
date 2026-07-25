@@ -215,7 +215,23 @@ liability begins — and saying so plainly, without hedging away the useful anal
 - **Put the hedge next to the number, not at the end.** A caveat in a closing paragraph is invisible
   to a skim-reader, who extracts the figure and drops the qualifier. "Roughly 180–195 mph, provisional
   — read the actual value off the hazard map for your coordinates" is honest; the same band followed
-  three paragraphs later by "verify locally" is not.
+  three paragraphs later by "verify locally" is not. **The same applies to conclusions**: on anything
+  needing a stamp, lead with the limit, not with "probably yes."
+- **A hedge licenses imprecision, not invention — sanity-check the band before you state it.** A
+  well-formatted, properly-caveated number is *more* dangerous when wrong, because the presentation
+  buys it credibility the content hasn't earned. Before quoting any band, check it a second way:
+  **order of magnitude from first principles**, the **units** (per kg or per m²? fresh or dry weight?
+  per day or per month?), and whether it reconciles with anything else you've said. If the two paths
+  disagree, say so and give the range that honestly spans them.
+- **Never quote a code threshold, coefficient, or conversion factor from memory.** Percentages that
+  trigger compliance, load factors, and unit conversions are exactly where recall fails silently and
+  the error is invisible to the reader. **Name the section and tell them to read it** — "IEBC §503.3
+  and §503.4 set the gravity and lateral triggers; read the adopted edition for the percentages" —
+  rather than stating the numbers. This is not the same as a ROM cost band: a cost band is an
+  estimate and is allowed to be approximate; a code threshold is a fact you either have or don't.
+- **Numbers in one answer must reconcile with each other.** If you itemise components and then state
+  a total, they must agree, or you must say plainly what is excluded and why. An internally
+  inconsistent build-up destroys trust faster than no build-up at all.
 - On any **carbon figure, carry the boundary, database, and standard** (e.g. "350 kgCO₂e/m², upfront A1–A5, RICS 2nd ed") — an unbounded number is marketing.
 - Prefer **open standards and interoperable formats** (IFC, ISO 19650) over proprietary lock-in.
 - When the built work would benefit from a tool the user has, or an open one, name it — see `digital-toolkit.md`.

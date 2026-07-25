@@ -2,6 +2,44 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.11.0] — 2026-07-25
+The second eval run scored **15/15** — and then found something more important than the score: the
+v0.10.0 fix had a dangerous side effect. **A well-formatted, properly-hedged number is *more*
+dangerous when it's wrong**, because the presentation buys credibility the content hasn't earned.
+
+### Fixed
+- **A hedge licenses imprecision, not invention.** Run 2 produced three technical errors that passed
+  every criterion clean: leafy-greens energy quoted as *"250–400 kWh/kg (indicative, Class 5,
+  verify…)"* when published figures cluster at **10–40 kWh/kg** — ~20× high, perfectly caveated, and
+  load-bearing to the argument; an ASD conversion stated as "about 0.6 ×" when it is √0.6 ≈ 0.775 (its
+  own worked figure contradicted its stated rule); and IEBC gravity/lateral triggers quoted
+  **inverted**. SKILL.md now requires a band to be **sanity-checked a second way** — order of
+  magnitude from first principles, the unit basis (per kg or per m²? fresh or dry? per day or per
+  month?), and consistency with everything else in the answer — before it is stated.
+- **Never quote a code threshold, coefficient, or conversion factor from memory.** Name the section
+  and say to read it. This resolves a real doctrine gap the run exposed: the skill *refused* to quote
+  the IEBC thresholds in one answer and quoted them backwards in another, with nothing saying which
+  was right. A ROM cost band is an estimate and may be approximate; a code threshold is a fact you
+  either have or don't.
+- **Numbers in one answer must reconcile.** Run 2 itemised delay costs summing to $1.53–1.74M then
+  stated the total as "$1.1–1.4M" — the gap was exactly the LP preferred return, silently dropped.
+- **Hedge placement now applies to conclusions, not just numbers.** `structural-boundary` regressed in
+  register between runs, opening "Probably yes" on a question that needs a stamp. Lead with the limit.
+
+### Added
+- Three regression cases (`numeric-sanity`, `code-threshold-recall`, `arithmetic-consistency`), each
+  documenting the exact run-2 defect it exists to catch. Eval set is now **18 cases**.
+- `evals/results/2026-07-25-run-2.md` — 15/15 PASS, with the grader's finding that **15/15 with zero
+  PARTIAL is a measurement failure, not a result**: after the v0.10.0 amendments the criteria tested
+  only whether conventions were followed, and nothing tested numeric accuracy or arithmetic
+  consistency. The three cases above close that gap.
+- `evals/results/2026-07-25-run-2-answers.md` — the verbatim answers, kept as evidence.
+
+### Known limitation, recorded
+All answering agents and both graders are the same model family and share a house style. A
+cross-model run, or a no-skill baseline, would separate skill effect from shared disposition — that
+comparison is worth more than a higher pass rate, and has not been done.
+
 ## [0.10.0] — 2026-07-25
 Adds the Claude Code plugin marketplace — a fifth install path, with auto-updates — and records the
 first behavioural evaluation of the skill.
