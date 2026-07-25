@@ -91,9 +91,25 @@ between them from going unnoticed.
 ## Install
 
 A "skill" is just a folder — `SKILL.md` plus the `references/`. Pick the one path below that matches how
-you use Claude. You only need to do this once.
+you use Claude. You only need to do this once. (Using something other than Claude? See
+[other assistants](#use-it-in-other-assistants-chatgpt-gemini-perplexity-or-any-model) and the
+[MCP server](#use-it-as-an-mcp-server-any-mcp-capable-agent) below.)
 
-### Option 1 — one command (Claude Code, or the Claude desktop app)
+### Option 1 — plugin marketplace (Claude Code, with auto-updates)
+
+The tidiest route if you use Claude Code. Two commands, typed inside Claude Code:
+
+```
+/plugin marketplace add ibuilder/master-builder
+```
+```
+/plugin install master-builder@ibuilder
+```
+
+Later, pull updates with `/plugin marketplace update`. Skills installed this way are namespaced —
+`/master-builder:master-builder` — and still trigger automatically on building questions.
+
+### Option 2 — one command (Claude Code, or the Claude desktop app)
 
 Paste this into your terminal. It drops the skill into your personal skills folder, which **both Claude
 Code and the Claude desktop app read from** — so you install once and it works in both:
@@ -118,7 +134,7 @@ git -C ~/.claude/skills/master-builder pull      # Windows: git -C "$env:USERPRO
 *No git?* [Download the ZIP](https://github.com/ibuilder/master-builder/archive/refs/heads/main.zip),
 unzip it, and rename/move the folder so the path is `~/.claude/skills/master-builder/SKILL.md`.
 
-### Option 2 — no terminal (Claude.ai in a browser, or the desktop app UI)
+### Option 3 — no terminal (Claude.ai in a browser, or the desktop app UI)
 
 1. In Claude, open **Settings → Capabilities** and switch on **Code Execution** and **File Creation**
    (Skills need these turned on).
@@ -202,6 +218,11 @@ references/
   sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk, resilience
   build-doctrine.md              # cross-cutting engineering lessons for building any system
   pro-forma-review.md            # forensic model/deal audit — reframe, reconcile, defect checklist
+.claude-plugin/
+  marketplace.json               # plugin marketplace catalog (/plugin marketplace add ibuilder/master-builder)
+plugin/                          # generated — the skill in the layout a plugin expects
+  .claude-plugin/plugin.json
+  skills/master-builder/         # mirror of SKILL.md + references/, built by scripts/build.py
 docs/
   banner.svg                     # README banner — cathedral bay in construction-document convention
 examples/

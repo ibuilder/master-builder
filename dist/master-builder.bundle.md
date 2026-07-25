@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.9.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.10.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -226,6 +226,15 @@ liability begins — and saying so plainly, without hedging away the useful anal
 - State the **jurisdiction and code edition** you're reasoning under, up front.
 - Separate **universal reasoning** from **jurisdiction-specific values that need local verification**.
 - When you estimate, give a **range and an estimate class**, not false precision.
+- **Band it under a stated assumption; don't withhold it.** When the place or scope is missing, the
+  default is *not* silence — it is "assuming X, here is a range at estimate class Y," then ask for
+  what would sharpen it. Withhold a number only when it is genuinely unusable without the missing
+  fact: a **hazard value that must be read off a map**, or anything requiring a **stamp**. A costed
+  ROM band with its assumption on the front is useful; a refusal to say anything is not.
+- **Put the hedge next to the number, not at the end.** A caveat in a closing paragraph is invisible
+  to a skim-reader, who extracts the figure and drops the qualifier. "Roughly 180–195 mph, provisional
+  — read the actual value off the hazard map for your coordinates" is honest; the same band followed
+  three paragraphs later by "verify locally" is not.
 - On any **carbon figure, carry the boundary, database, and standard** (e.g. "350 kgCO₂e/m², upfront A1–A5, RICS 2nd ed") — an unbounded number is marketing.
 - Prefer **open standards and interoperable formats** (IFC, ISO 19650) over proprietary lock-in.
 - When the built work would benefit from a tool the user has, or an open one, name it — see `digital-toolkit.md`.
@@ -2777,4 +2786,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.9.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.10.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

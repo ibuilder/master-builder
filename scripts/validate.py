@@ -112,6 +112,46 @@ def main() -> int:
                 bad_links.append(f"{src} -> {target}")
     check("all cross-references point at real files", not bad_links, "; ".join(sorted(set(bad_links))))
 
+    # --- plugin marketplace manifests ------------------------------------------------
+    mp_path = ROOT / ".claude-plugin" / "marketplace.json"
+    if mp_path.is_file():
+        import json
+        try:
+            mp = json.loads(mp_path.read_text(encoding="utf-8"))
+        except json.JSONDecodeError as exc:
+            check("marketplace.json is valid JSON", False, str(exc))
+            mp = None
+        if mp:
+            check("marketplace.json has name + owner.name + plugins",
+                  bool(mp.get("name")) and bool(mp.get("owner", {}).get("name")) and bool(mp.get("plugins")))
+            entry = (mp.get("plugins") or [{}])[0]
+            check("plugin entry has name + source",
+                  bool(entry.get("name")) and bool(entry.get("source")))
+            src = ROOT / str(entry.get("source", "")).lstrip("./")
+            check("plugin source directory exists", src.is_dir(), str(src))
+            # A plugin's skills load from skills/<name>/SKILL.md under its source.
+            plugin_skill = src / "skills" / entry.get("name", "") / "SKILL.md"
+            check("plugin skill resolves at skills/<name>/SKILL.md",
+                  plugin_skill.is_file(), str(plugin_skill))
+            if plugin_skill.is_file():
+                check("plugin skill copy matches the source SKILL.md",
+                      plugin_skill.read_text(encoding="utf-8") == text,
+                      "run: python scripts/build.py")
+            pj_path = src / ".claude-plugin" / "plugin.json"
+            check("plugin.json exists", pj_path.is_file(), str(pj_path))
+            if pj_path.is_file():
+                pj = json.loads(pj_path.read_text(encoding="utf-8"))
+                check("plugin.json name matches the marketplace entry",
+                      pj.get("name") == entry.get("name"),
+                      f"{pj.get('name')!r} vs {entry.get('name')!r}")
+                # Versions must agree, or users install something mislabelled.
+                import re as _re
+                m = _re.search(r"^##\s*\[(\d+\.\d+\.\d+)\]", (ROOT / "CHANGELOG.md").read_text(encoding="utf-8"), _re.M)
+                ver = m.group(1) if m else None
+                check("marketplace, plugin.json and CHANGELOG versions agree",
+                      ver is not None and entry.get("version") == ver and pj.get("version") == ver,
+                      f"changelog={ver} marketplace={entry.get('version')} plugin={pj.get('version')}")
+
     print()
     if warnings:
         print(f"{len(warnings)} warning(s): {', '.join(warnings)}")

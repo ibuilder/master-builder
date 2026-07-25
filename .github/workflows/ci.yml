@@ -70,13 +70,13 @@ jobs:
           print("stdio transport OK:", sorted(names))
           PY
 
-      - name: dist/ is in sync with the source (rebuild must be a no-op)
+      - name: dist/ and plugin/ are in sync with the source (rebuild must be a no-op)
         run: |
           python scripts/build.py
-          if ! git diff --quiet -- dist/; then
-            echo "::error::dist/ is out of date. Run 'python scripts/build.py' and commit the result."
-            git diff --stat -- dist/
-            git diff -- dist/ | head -80
+          if ! git diff --quiet -- dist/ plugin/; then
+            echo "::error::Generated files are out of date. Run 'python scripts/build.py' and commit the result."
+            git diff --stat -- dist/ plugin/
+            git diff -- dist/ plugin/ | head -80
             exit 1
           fi
-          echo "dist/ is in sync with SKILL.md + references/."
+          echo "dist/ and plugin/ are in sync with SKILL.md + references/."

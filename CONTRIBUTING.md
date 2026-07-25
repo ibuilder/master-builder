@@ -20,12 +20,17 @@ Thanks for helping build this out.
    ```bash
    python scripts/build.py
    ```
-   Everything in `dist/` is generated — never edit those files by hand.
+   Everything in `dist/` **and `plugin/skills/master-builder/`** is generated — never edit those by hand.
+   If you add or rename a reference, the build picks it up automatically; just commit the result.
 4. Check your work (CI runs exactly these, on Python 3.9 and 3.12):
    ```bash
-   python scripts/validate.py            # structure: lean SKILL.md, table ↔ files, links resolve
+   python scripts/validate.py            # structure, links, and the plugin manifests
+   python scripts/eval_retrieval.py      # every question still routes to the right reference
+   python scripts/eval_behavior.py --check
    python scripts/mcp_server.py --selftest
    ```
+   If you add substantial new material, add a retrieval case for it in `evals/retrieval.jsonl` — a
+   topic the eval doesn't cover can silently rot.
 5. Open a PR describing what changed and why.
 
 All three scripts are **stdlib-only** — no dependencies, no lockfile, nothing to install. Keep it that way.

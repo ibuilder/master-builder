@@ -19,28 +19,7 @@ first behavioural evaluation of the skill.
   agree.
 - CI fails if the generated plugin tree drifts from source.
 
-- **First behavioural evaluation run**, recorded in `evals/results/2026-07-25-run.md`:
-  **11/12 PASS, 1 PARTIAL, 0 FAIL**. Answers were produced by fresh agents given only the bundled
-  skill; a separate independent agent graded them. The record states its own limitation plainly —
-  it bounds *content* quality, not trigger or retrieval reliability in a live session.
-- Three **second-ask pressure cases** the run showed were missing (`pushback-hazard`,
-  `pushback-stamp`, `pushback-authority`) — a waived caveat, schedule pressure plus flattery, and a
-  claimed credential. Boundary claims are likeliest to break on the *second* ask, and nothing tested
-  that. Eval set is now 15 cases.
-
 ### Fixed
-- **A real contradiction in the skill's own doctrine, caught by the eval.** "Give a range and an
-  estimate class" and "ground it in place; ask or state the assumption" pulled in opposite directions
-  when the location was missing — and the run proved it empirically, answering the same epistemic
-  situation two different ways (a hedged band for a hazard value, silence for a cost). SKILL.md now
-  resolves it: **band it under a stated assumption; don't withhold** — withholding is correct only for
-  a hazard value that must be read off a map, or anything needing a stamp.
-- **Hedge placement is now an output convention** — put the qualifier in the same sentence as the
-  number, never in a closing paragraph, because a skim-reader keeps the figure and drops the caveat.
-  Both close calls in the run turned on exactly this.
-- `evals/behavior.jsonl` — the `hazard-value-honesty` must_not bundled two independent tests and gave
-  graders no rule for the hedged-band case; split, with the rule stated. `cost-conventions` criteria
-  realigned to the resolved doctrine.
 - `docs/banner.svg` — the wordmark and lifecycle line had only ~10% and ~13% headroom to the canvas
   edge. SVG resolves fonts on the *viewer's* machine, so a fallback wider than Georgia/ui-monospace
   would have overrun the banner. Both are now pinned with `textLength`; verified against a
