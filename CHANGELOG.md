@@ -2,6 +2,30 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.8.0] — 2026-07-25
+Proves the skill works. Seven releases had shipped features with **no validation of answer quality** —
+by its own `build-doctrine.md` §5 standard ("never skip a stage"; "the most important milestone is
+proving the edge") the repo was at the shipped-but-unvalidated stage it warns about. This closes it.
+
+### Added
+- `evals/retrieval.jsonl` + `scripts/eval_retrieval.py` — **26 realistic questions, each asserted to
+  route to the reference a builder would reach for.** Scores every reference against the question's
+  salient terms and requires the expected one to rank first. Catches two real regressions: **coverage
+  loss** (a topic quietly stops being covered) and **placement drift** (content migrates to the wrong
+  file, so progressive disclosure pulls the wrong reference). CI-enforced; currently 26/26.
+- `evals/behavior.jsonl` + `scripts/eval_behavior.py` — **12 questions with the conventions each answer
+  must obey**: state jurisdiction and code edition, carry units + currency + date, give a range and an
+  estimate class, put a boundary on any carbon figure, route life-safety to a stamp, report audit
+  coverage, and **refuse to fabricate a hazard value**. CI validates the set's structure; grading needs
+  a model with the skill loaded, and the runner says so rather than faking a score.
+- CI gains both eval steps; README gains a "How it's validated" table that marks plainly which gates are
+  automated and which are not.
+
+### Changed
+- `construction-delivery.md` §3 — the retrieval eval surfaced a genuine seam: escalation is an
+  *estimating* topic but "who carries commodity risk" is an *allocation* one, and the two files did not
+  cross-link. Added the pointer to `risk-insurance.md` §3.
+
 ## [0.7.0] — 2026-07-25
 One skill for the built world, adaptable to any location. Names the organizing principle explicitly —
 **municipal code + climate = the book for a place** — and makes both halves operational.

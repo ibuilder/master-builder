@@ -76,7 +76,8 @@ design maturity and risk. State currency + date on every number.
 > ~20% and aluminium ~33% year-over-year into early 2026, with nonresidential input prices running at
 > their fastest pace since 2022 and aggregate cost escalation around ~8%. Treat metals, and anything
 > imported, as volatile: get **firm quotes with expiry dates**, negotiate **price-escalation / material-cost
-> clauses** (who carries the tariff and commodity risk), buy out and lock long-leads early, and carry
+> clauses** (who carries the tariff and commodity risk — the allocation question, and the clauses that
+> settle it, are in `risk-insurance.md` §3), buy out and lock long-leads early, and carry
 > escalation explicitly rather than burying it. In the EU, **CBAM** now adds a carbon cost to imported
 > steel/cement/aluminium (see `sustainability-carbon.md`). Confirm current tariff and commodity levels at
 > estimate time — they move on policy, not on cycles.

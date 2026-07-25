@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.7.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.8.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -1445,7 +1445,8 @@ design maturity and risk. State currency + date on every number.
 > ~20% and aluminium ~33% year-over-year into early 2026, with nonresidential input prices running at
 > their fastest pace since 2022 and aggregate cost escalation around ~8%. Treat metals, and anything
 > imported, as volatile: get **firm quotes with expiry dates**, negotiate **price-escalation / material-cost
-> clauses** (who carries the tariff and commodity risk), buy out and lock long-leads early, and carry
+> clauses** (who carries the tariff and commodity risk — the allocation question, and the clauses that
+> settle it, are in `risk-insurance.md` §3), buy out and lock long-leads early, and carry
 > escalation explicitly rather than burying it. In the EU, **CBAM** now adds a carbon cost to imported
 > steel/cement/aluminium (see `sustainability-carbon.md`). Confirm current tariff and commodity levels at
 > estimate time — they move on policy, not on cycles.
@@ -2731,4 +2732,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.7.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.8.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

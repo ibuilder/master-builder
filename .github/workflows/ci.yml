@@ -32,6 +32,12 @@ jobs:
       - name: Skill structure is intact
         run: python scripts/validate.py
 
+      - name: Retrieval eval — every question routes to the right reference
+        run: python scripts/eval_retrieval.py
+
+      - name: Behaviour eval set is well-formed
+        run: python scripts/eval_behavior.py --check
+
       - name: MCP server self-test
         run: python scripts/mcp_server.py --selftest
 

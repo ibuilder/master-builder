@@ -165,10 +165,15 @@ references/
 examples/
   hempstead-vertical-farm-case-study.md   # using the skill to critique the author's own 2021 thesis
   hempstead-corrected-model.xlsx          # the rebuilt, formula-driven feasibility model
+evals/
+  retrieval.jsonl                # 26 real questions -> the reference each must route to (CI-enforced)
+  behavior.jsonl                 # 12 questions + the conventions the answer must obey (model-graded)
 scripts/
   build.py                       # regenerates every dist/ artifact from the source (one build command)
   mcp_server.py                  # zero-dependency MCP server (stdio) — serves the skill on demand
   validate.py                    # enforces the authoring rules (lean SKILL.md, table ↔ files, links)
+  eval_retrieval.py              # proves the corpus answers real questions, from the right file
+  eval_behavior.py               # validates + prints the behavioural grading sheet
 dist/                            # generated — do not edit by hand
   master-builder.skill           # installable Claude skill (zip)
   master-builder.zip             # same package, .zip extension for the claude.ai uploader
@@ -179,6 +184,31 @@ Everything in `dist/` is generated from `SKILL.md` + `references/` by **`python 
 the packages and the bundle can never drift from the source. Progressive disclosure: `SKILL.md` stays
 lean (~170 lines) and carries a table pointing to the thirteen reference files, which load only when the
 task needs them.
+
+## How it's validated
+
+The skill preaches a staged-validation gate and honest status ([`build-doctrine.md`](references/build-doctrine.md)
+§5, §7), so it's held to the same standard. Four gates run on every push, on Python 3.9 and 3.12:
+
+| Gate | What it proves | Automated? |
+|---|---|---|
+| `validate.py` | The skill is well-formed — frontmatter, lean `SKILL.md`, reference table ↔ files both ways, every cross-link resolves | ✅ CI |
+| `eval_retrieval.py` | **26 real questions each route to the reference a builder would reach for** — catches coverage loss and content drifting into the wrong file | ✅ CI |
+| `eval_behavior.py --check` | The behavioural eval set is well-formed | ✅ CI |
+| `mcp_server.py --selftest` | 25 checks on the MCP server, plus a real-stdio exercise; and `dist/` is proven byte-identical to a fresh build | ✅ CI |
+
+**What is *not* automated, stated plainly:** [`evals/behavior.jsonl`](evals/behavior.jsonl) holds 12
+questions with the conventions each answer must obey — states its jurisdiction and code edition, carries
+units + currency + date, gives a range and an estimate class, puts a boundary on any carbon figure,
+routes life-safety to a stamp, and **refuses to fabricate a hazard value**. Grading those requires
+running a model with the skill loaded, so CI validates the set but does not score it:
+
+```bash
+python scripts/eval_behavior.py     # prints the grading sheet
+```
+
+Claiming a green tick for a check that never ran would be exactly the false assurance the skill warns
+about ([`document-intelligence.md`](references/document-intelligence.md) §5).
 
 ## Case study
 
