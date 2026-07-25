@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.5.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.6.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -23,15 +23,17 @@ The one behavior you lose versus the native Claude skill is *progressive disclos
 
 1. **The Master Builder Protocol** — the core reasoning method (from `SKILL.md`).
 2. **global-codes.md** — Any jurisdiction, code, permit, load, or "is this allowed / how is it done in country X"
-3. **development-lifecycle.md** — Site selection, feasibility, entitlements, due diligence, phase gates, stakeholders
-4. **real-estate-finance.md** — Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls
-5. **pro-forma-review.md** — Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation
-6. **construction-delivery.md** — Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls
-7. **risk-insurance.md** — Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing
-8. **adaptive-reuse.md** — Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards
-9. **digital-toolkit.md** — BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work
-10. **sustainability-carbon.md** — Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation
-11. **build-doctrine.md** — How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code
+3. **jurisdiction-dossiers.md** — Worked country dossiers (UK, UAE, Australia, Canada) + a template — the unfamiliar-jurisdiction method, demonstrated
+4. **development-lifecycle.md** — Site selection, feasibility, entitlements, due diligence, phase gates, stakeholders
+5. **real-estate-finance.md** — Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls
+6. **pro-forma-review.md** — Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation
+7. **construction-delivery.md** — Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls
+8. **risk-insurance.md** — Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing
+9. **adaptive-reuse.md** — Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards
+10. **digital-toolkit.md** — BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work
+11. **document-intelligence.md** — Extracting trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, confidence by provenance, coverage-aware audit
+12. **sustainability-carbon.md** — Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation
+13. **build-doctrine.md** — How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code
 
 ====================================================================================================
 
@@ -86,7 +88,8 @@ Run this loop, out loud or silently, on any project-scale question. On a narrow 
 relevant steps and let the rest inform your framing.
 
 1. **Place & context** — Where is it? Pull the jurisdiction, climate zone, and hazard exposure.
-   What governs, who approves, and what's the local market and supply chain? → `references/global-codes.md`
+   What governs, who approves, and what's the local market and supply chain? → `references/global-codes.md`,
+   with worked examples in `references/jurisdiction-dossiers.md`
 2. **Program & highest-and-best-use** — What is being built, and is it the *right* use for this
    site legally, physically, and financially? First **name what the asset actually is**, stripped of
    marketing — a "vertical-farm tower" that's really a single-story big-box leased as white-boxes is a
@@ -100,7 +103,8 @@ relevant steps and let the rest inform your framing.
 5. **Design integration** — Architecture, structure, envelope, and MEP resolved as *one* system.
    Coordinate before you build; clashes are cheapest to fix in the model. → `references/digital-toolkit.md`
 6. **Delivery strategy** — How to buy it, build it, sequence it, and control it: delivery method,
-   contract form, estimate, schedule, procurement, long-leads. → `references/construction-delivery.md`
+   contract form, estimate, schedule, procurement, long-leads. → `references/construction-delivery.md`;
+   for getting reliable numbers *out of* the drawings, specs, and priced submittals → `references/document-intelligence.md`
 7. **Risk** — Name the risks, then *allocate* them (to whoever can best control, price, *and* absorb
    each — via contract, insurance, bond, contingency, or design) and *mitigate* what remains. A risk
    nobody was assigned is carried by the owner by default. → `references/risk-insurance.md`
@@ -121,6 +125,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | Read this | When the task involves |
 |---|---|
 | `references/global-codes.md` | Any jurisdiction, code, permit, load, or "is this allowed / how is it done in country X" |
+| `references/jurisdiction-dossiers.md` | Worked country dossiers (UK, UAE, Australia, Canada) + a template — the unfamiliar-jurisdiction method, demonstrated |
 | `references/development-lifecycle.md` | Site selection, feasibility, entitlements, due diligence, phase gates, stakeholders |
 | `references/real-estate-finance.md` | Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls |
 | `references/pro-forma-review.md` | Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation |
@@ -128,6 +133,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
 | `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
+| `references/document-intelligence.md` | Extracting trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, confidence by provenance, coverage-aware audit |
 | `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |
 
@@ -300,10 +306,18 @@ National building regulations sit on top (e.g., England & Wales **Building Regul
 Documents A–S**; Germany Musterbauordnung/LBO).
 
 **Commonwealth / NCC & NBCC.**
-Australia: **National Construction Code (NCC 2025)**, 3 volumes (Vol 1 commercial/BCA, Vol 2 residential,
+Australia: **National Construction Code**, 3 volumes (Vol 1 commercial/BCA, Vol 2 residential,
 Vol 3 plumbing), given legal effect by each State/Territory; strong bushfire (AS 3959), cyclone, and
-Section J energy provisions. Canada: **National Building Code of Canada (NBCC)**, adopted/adapted by
-provinces (e.g., Ontario, BC, Québec/CCQ); cold-climate and snow driven. New Zealand: NZBC (performance-based).
+Section J energy provisions. **NCC 2025 published 1 May 2026, but adoption is staggered and partly
+deferred** — some jurisdictions from May 2026, others not until May 2027, with one freezing changes
+outright. Canada: **National Building Code of Canada (NBCC 2025**, released December 2025, succeeding
+2020 — GHG emissions appear as a formal objective for the first time**)**, which has *no force in law*
+until a province adopts it, with modifications (Ontario, BC, Québec/CCQ); cold-climate and snow driven.
+New Zealand: NZBC (performance-based).
+
+> Both are the same trap: **the published edition is not the enforced edition.** Always ask which
+> edition *this* state/province has actually adopted, and on what date — see the worked examples in
+> `jurisdiction-dossiers.md`.
 
 **Indian standards.**
 **National Building Code of India (NBC 2016)** + Bureau of Indian Standards **IS codes**: IS 456
@@ -401,6 +415,205 @@ Any value you recall may be a cycle out of date. For authoritative current figur
 an allowable area, an energy or **carbon** target, a setback — **web-search the exact edition and AHJ**
 rather than relying on memory, and tell the user the value must be confirmed against the adopted local
 code. For the fast-moving carbon and embodied-carbon layer, see `sustainability-carbon.md`.
+
+----------------------------------------------------------------------------------------------------
+
+<!-- reference: jurisdiction-dossiers.md -->
+
+# Jurisdiction Dossiers — the method, worked
+
+`global-codes.md` gives the *method* for reading an unfamiliar jurisdiction. This file **works that
+method through real places**, so the method is demonstrated rather than merely asserted. Read it for a
+worked example when you land somewhere new, and use §6's template to write the dossier for a
+jurisdiction you're actually working in.
+
+Each dossier below was chosen because it teaches a **different structural lesson.** Learn the four
+lessons and you can read almost anywhere:
+
+| Jurisdiction | The lesson it teaches |
+|---|---|
+| **England & Wales** | The *regulator* can be the biggest schedule risk on the project |
+| **Dubai, UAE** | The AHJ depends on *which plot you are standing on* |
+| **Australia** | The published edition is not the *adopted* edition |
+| **Canada** | A model code has no force in law until a province enacts it |
+
+> **Every value below is provisional and must be confirmed against the currently adopted local code
+> and the AHJ's live process.** Dossiers are the fastest-decaying content in this skill — editions,
+> fees, and processing times move constantly. Use these for *structure and the questions to ask*;
+> web-search the current numbers. (`global-codes.md` §7.)
+
+---
+
+## 1. England & Wales — when the regulator is the schedule
+
+**Code family.** Eurocodes + UK National Annexes for structure, sitting under the **Building Regulations**
+and their **Approved Documents A–S** (A structure, B fire, L conservation of fuel & power, M access,
+S infrastructure for EVs). Performance-based: the Approved Documents are guidance showing *one* way to
+comply, not the only way.
+
+**The two-track approval.** These run separately and are often confused:
+1. **Planning permission** — the land-use track, from the Local Planning Authority. Adds
+   **Section 106** agreements / **Community Infrastructure Levy**, conservation-area and listed-building
+   consent, and local plan policy.
+2. **Building control** — the technical track, historically via the council or an Approved Inspector.
+
+**The lesson — the Building Safety Act 2022 regime.** For **higher-risk buildings (HRBs**, broadly ≥18 m
+or 7+ storeys with 2+ residential units**)**, building control moved to the **Building Safety Regulator
+(BSR)**, with three hard **gateways**: Gateway 1 (planning), **Gateway 2 (pre-construction — you may not
+start work without approval)**, and Gateway 3 (completion, before occupation).
+
+Gateway 2 has been the defining programme risk of this cycle. Against a **12-week** statutory target,
+reported averages ran to **25+ weeks and as high as ~9 months**, with **roughly 45–50% of applications
+rejected** — predominantly for incomplete or non-compliant submissions rather than bad design. A
+dedicated BSR unit has since pulled newer cases back toward ~12 weeks, but retrofit/remediation cases
+remain congested.
+
+**What a master builder does with that:**
+- **Underwrite Gateway 2 as a financing-cost line, not an administrative step.** Months of carry on a
+  stalled HRB is real money (`real-estate-finance.md` §5), and it lands *between* land spend and revenue.
+- **Design completeness is the schedule.** The rejection rate is a documentation problem. Submit late
+  and complete rather than early and thin — a rejection restarts the clock.
+- **You cannot start work at Gateway 2, and cannot occupy at Gateway 3.** Both are hard stops; neither
+  can be worked around with a phased start.
+- The regime also creates **dutyholder roles** (client, principal designer, principal contractor) with
+  competence obligations, and a **golden thread** of information — an information-management duty that
+  maps directly onto ISO 19650 practice (`digital-toolkit.md`).
+
+**Also:** CDM 2015 for construction safety; JCT or NEC contracts (`construction-delivery.md` §2);
+**MEES** minimum EPC ratings gating the right to let (`adaptive-reuse.md` §6).
+
+---
+
+## 2. Dubai, UAE — the AHJ depends on the plot
+
+**Code family.** ICC-influenced hybrid. The **Dubai Building Code** consolidates local requirements, over
+federal UAE fire and life-safety rules. Abu Dhabi runs its own (ADIBC, plus **Estidama Pearl** ratings);
+Saudi Arabia runs the **SBC**.
+
+**The lesson — one city, several building authorities.** Which authority approves your project is
+determined by **where the plot sits**, not by what you are building:
+- **Dubai Municipality (DM)** — mainland plots.
+- **Dubai Development Authority (DDA)** — designated free-zone districts (e.g. TECOM, media/internet
+  city areas).
+- **Trakhees (PCFC)** — Nakheel-developed communities and JAFZA.
+- Plus master-developer design review (Emaar, Nakheel and similar) as a *private* approval layer that
+  behaves like a regulator.
+
+**And a mandatory parallel authority: Civil Defence (DCD).** Fire and life-safety approval runs
+*alongside* the building permit, not inside it, and the **Building Completion Certificate cannot issue
+without the Civil Defence NOC.** In much of the Gulf the fire authority is the most powerful AHJ on the
+job; treat it as a first-class approval track with its own submissions, inspections, and float.
+
+**What a master builder does with that:**
+- **Establish the authority before the design.** The same tower on two adjacent plots can face different
+  submission requirements, review durations, and fee structures.
+- **Run Civil Defence as a parallel critical path**, resourced from day one — not as a closeout task.
+- Expect **licensed local consultants** and registered contractors; engagement of a locally licensed
+  engineer of record is generally mandatory.
+- Climate drives the engineering: extreme summer heat and humidity, high cooling loads and district
+  cooling, salt/sabkha ground conditions, and specific façade and fire-performance scrutiny.
+- Commercially: **FIDIC** is the contract lingua franca, and payment/security terms deserve attention.
+
+---
+
+## 3. Australia — published ≠ adopted
+
+**Code family.** The **National Construction Code (NCC)** — Volume 1 (commercial/BCA), Volume 2
+(residential), Volume 3 (plumbing) — a **performance-based** code with Performance Requirements met by
+either Deemed-to-Satisfy provisions or a **Performance Solution** (`global-codes.md` §5). Loads come from
+**AS/NZS 1170** (with cyclonic regions), bushfire from **AS 3959**, energy from Section J.
+
+**The lesson — a national code with state-by-state legal effect and staggered adoption.** The NCC is
+written nationally by the ABCB but has force only when each State/Territory calls it up. **NCC 2025 was
+published 1 May 2026**, and adoption promptly fragmented: some jurisdictions adopting from **May 2026**
+(one with a six-month transition), others deferring to **May 2027** (with voluntary early adoption
+available in at least one), and another electing to freeze the proposed changes.
+
+So in 2026 the honest answer to "what code applies in Australia?" is: **it depends on the state and the
+date your application is lodged**, and two projects a border apart can be on different editions of the
+same national code.
+
+**What a master builder does with that:**
+- **Ask which state, and which lodgement date.** Never quote "NCC 2025" as though it were uniformly in force.
+- Watch **transition windows** — a project can often elect the old or new edition during transition, and
+  that election has cost consequences (energy and accessibility provisions especially).
+- **Certification is largely private** — a registered building surveyor/certifier issues approvals; the
+  council role is narrower than in the US or UK.
+- Hazard exposure is defining: **bushfire (BAL ratings)**, cyclone regions in the north, flood, and
+  extreme heat.
+
+---
+
+## 4. Canada — a model code is not a law
+
+**Code family.** The **National Building Code of Canada (NBCC)**, developed nationally, alongside the
+national fire, plumbing and energy codes. **NBCC 2025 was released in December 2025**, succeeding the
+2020 edition, and notably introduces **greenhouse-gas emissions as a formal code objective for the first
+time** (with performance tiers provinces may adopt), plus expanded accessibility, wider allowance for
+**mass timber**, and radon provisions.
+
+**The lesson — the model code has no legal force until a province or territory enacts it**, and each may
+amend it. Ontario, British Columbia, Alberta and Québec (which additionally runs its own construction
+regime and the **CCQ** labour framework) all differ. Adoption lags the national release, and lag lengths
+differ by province.
+
+**What a master builder does with that:**
+- **Cite the provincial code, never the national one** — "OBC" or "BCBC," with its edition, not "NBCC."
+- **Energy/GHG tiers are the live variable.** Provinces adopt different performance tiers on different
+  timetables (BC's Energy Step Code is the archetype), and the tier determines envelope and systems cost.
+  Confirm the tier in force in that municipality — some municipalities elect higher tiers than the province.
+- **Snow and cold govern** — ground snow loads, frost depth for foundations, thermal bridging, and a
+  seasonal build window that shapes the schedule (and therefore the carry).
+- Seismic on the west coast (Vancouver/Victoria) is a major driver; so is permafrost in the north.
+
+---
+
+## 5. Reading a jurisdiction you have no dossier for
+
+Cross-cutting patterns worth carrying anywhere, drawn from the four above:
+
+- **Separate the land-use track from the technical track.** Almost everywhere has both, under different
+  names, with different authorities and timelines. Confusing them is the most common planning error.
+- **Find the authority that can say no last.** Fire/civil defence, a heritage body, a master developer,
+  a utility, or an environmental regulator often outranks the building department in practice.
+- **"Current edition" is a trap.** Ask what is *adopted*, by whom, effective when, with what local
+  amendments and transition provisions.
+- **Find out who may stamp.** Local licensure and a local engineer/architect of record are mandatory in
+  most of the world, whatever your own credentials.
+- **Price the approval time.** Approval duration is a financing cost; in some regimes (see §1) it is the
+  single largest schedule risk on the project.
+
+---
+
+## 6. Dossier template — for contributing a new jurisdiction
+
+Contributions are welcome (see `CONTRIBUTING.md`). Keep each dossier short, structural, and honest about
+what must be verified — a dossier that hard-codes fees and durations rots quickly, while one that names
+the *authorities and the questions* stays useful.
+
+```markdown
+## <Jurisdiction> — <the one structural lesson it teaches>
+
+**Code family.** <ICC / Eurocode+NA / NCC / NBCC / IS-NBC / GB / BSL / national>, current edition(s),
+and the loading standards.
+
+**Land-use / planning track.** Authority, instrument, typical duration, notable levies or agreements.
+
+**Technical / building-control track.** Authority (the AHJ), submission stages, inspections, the
+completion certificate, and any separate fire/civil-defence or specialist authority.
+
+**Overlays.** Heritage, coastal/flood, seismic, bushfire/wildfire, environmental, aviation, military.
+
+**Loads & climate.** The hazard basis and the source maps to read (never invent values).
+
+**Licensure.** Who may design, who may stamp, whether a local engineer of record is mandatory.
+
+**Contracts & commercial norms.** Standard forms, retention, security, payment regime, dispute route.
+
+**The trap.** The one thing that surprises a competent outsider — the real value of the dossier.
+
+**Verify.** What must be checked live before committing numbers.
+```
 
 ----------------------------------------------------------------------------------------------------
 
@@ -768,7 +981,8 @@ be honest about what's wrong — optimism in a pro forma is a defect, not a cour
 4. The three-questions test for any assumption
 5. Cost-concentration & the one big move
 6. Validate demand before capital
-7. How to deliver the critique
+7. Report what you could not check
+8. How to deliver the critique
 
 ---
 
@@ -844,7 +1058,22 @@ the first unit proves the unit economics (and the real operating cost) before th
 cash flow instead of a single day-one bet. This is the `build-doctrine.md` staged-validation gate
 applied to real estate: prove the edge on a small, real slice before scaling.
 
-## 7. How to deliver the critique
+## 7. Report what you could *not* check
+
+A review that ends "I found no problems" without saying what it was able to examine manufactures false
+assurance — the most dangerous output an auditor can produce. A model reviewed without the rent roll, the
+signed leases, or the loan term sheet can look clean and still be wrong in exactly the places you
+couldn't see.
+
+**Always deliver findings and coverage together.** Say plainly which checks ran, which didn't, and why:
+*"Reconciliation and NOI arithmetic: checked. Unit-price and hard-cost reasonableness: **not** checked —
+no GC estimate or comparable cost data supplied. Exit cap: not testable — no local comps provided."*
+
+Absence of a finding is not evidence of soundness; it is often just a **sourcing gap**. Naming the gap
+both protects the reader and tells them exactly what to send you next. (The same rule, applied to
+drawing and change-order review, is in `document-intelligence.md` §5.)
+
+## 8. How to deliver the critique
 
 Lead with a one-line verdict (feasible / conditional / no-go) and the honest return, not the sponsor's.
 Credit what's genuinely strong first — a critique lands better when it's clearly fair. Then separate
@@ -985,6 +1214,20 @@ The daily machinery of building. Each artifact is both a communication and a con
   schedule; a late submittal is a late long-lead is a late project.
 - **Change management** — change events → potential change orders → **change orders (COs)**, each with
   cost + time impact; track **change-event cost exposure** against contingency.
+  **Auditing a priced CO (owner side)** is a distinct skill and normally an hour or more of PM time per
+  change. Four checks, in order of how reliably they find money:
+  1. **Markup / O&P / bond caps** — is the applied markup within the contract's cap, and is it
+     **stacked**? Overhead-and-profit taken again at each tier (sub → sub-sub → GC), or a bond/insurance
+     percentage applied on top of a marked-up base, quietly compounds. Check the contract exhibit.
+  2. **Unit-price inflation** — line rates against the contract's rate schedule or the awarded bid tab.
+     Rates that were competitive at bid often are not in a change.
+  3. **Labor-rate padding** — billed rates and classifications against the agreed labor-rate schedule
+     (and, on T&M tickets, whether the classification billed matches the work performed).
+  4. **Quantity tie-out** — claimed quantities against the drawing set or an independent takeoff.
+  Recompute every extension from quantity × rate rather than trusting a printed total, and report each
+  finding as *a dollar amount with a page reference*. Distinguish arithmetic findings (assertable) from
+  judgment ("is 42 hours reasonable?" — surface it, don't rule on it). The method, and the extraction
+  traps that make naive checking produce false positives, are in `document-intelligence.md`.
 - **Payment applications** — **AIA G702/G703** (or local equivalent): the schedule of values, percent
   complete, stored materials, and retainage that drive the monthly draw. Ties directly to the lender
   draw (finance ref §5).
@@ -1609,9 +1852,20 @@ When a task calls for one of these, name it and use it rather than re-deriving t
 
 The practical, near-term AI leverage in AEC — the productized-workflow layer:
 - **Document workflows** — RFI drafting from context, submittal-log analysis, spec/submittal
-  cross-checking, drawing-set Q&A (FieldForge is exactly this productized).
+  cross-checking, drawing-set Q&A (FieldForge is exactly this productized). The reliability
+  discipline this demands — index once and query many, tag every number with its provenance and
+  confidence, and never report "0 findings" without saying which checks could run — is its own
+  reference: `document-intelligence.md`. Treat it as mandatory reading before building or trusting any
+  drawing/spec/change-order tooling.
 - **Automation of the repetitive** — Procore submittal-date automation, pay-app generation, CSV/report
   exports, take-off assists — via platform APIs and scripting.
+- **Driving the incumbent authoring tools.** Most of the industry runs Revit, AutoCAD, Navisworks,
+  MicroStation, Dynamo, 3ds Max, and Grasshopper — and a growing set of **MCP connectors now let an
+  agent drive those applications directly** (place and edit elements, run clash, build and execute
+  Dynamo/Grasshopper graphs). This is the pragmatic bridge between openBIM ideals and the tools a
+  project actually uses: the agent operates the incumbent tool, while IFC remains the interchange the
+  data must survive in. Judge such connectors on token discipline, whether edits are addressable by a
+  stable ID, and whether destructive operations are gated.
 - **MCP servers** — expose project tools/data to an AI agent through the Model Context Protocol so the
   model can *act* (query the CDE, draft the RFI, update the log), not just advise. Massing ships an MCP
   server (with a drop-in **Claude skill pack**) that lets an agent read project status/records, run
@@ -1627,6 +1881,265 @@ their time on judgment — the part of building that is, and should remain, huma
 > For the deeper engineering principles behind these tools — source-of-truth, GUID identity, the
 > staged-validation gate, hard rails on irreversible actions, and compliance-as-code — see
 > `build-doctrine.md`.
+
+----------------------------------------------------------------------------------------------------
+
+<!-- reference: document-intelligence.md -->
+
+# Construction Document Intelligence
+
+Most of a project's truth is trapped in documents — a 500-page spec book, an 89-sheet drawing set, a
+change-order proposal, a pay application. Read this when the task is to **extract reliable numbers from
+construction documents**, cross-check documents against each other, or build tooling that does.
+
+The governing idea: **a number's trustworthiness is a property of how it was derived, not of how
+confident it sounds.** A count read from a door schedule and a length scaled off pixels are not the same
+kind of fact, and presenting them with equal certainty is the defect. Everything below follows from that.
+
+## Contents
+1. Index once, query many
+2. Confidence by provenance — the reliability rule
+3. Sanity checks: encode what is physically possible
+4. Never trust a column that survived text-linearisation
+5. Coverage-aware findings — "0 findings" is not a clean bill of health
+6. Cross-document coordination — where change orders are born
+7. Units, grades, and canonical identity
+8. Writing back to documents — never in place
+9. Deterministic finding vs. judgment call
+10. Applying it
+
+---
+
+## 1. Index once, query many
+
+Contractors receive **flattened PDFs, not the model** — the structured data that existed in BIM is
+discarded on export. But a native construction PDF still carries a **vector text layer** holding the real
+sheet numbers, tags, schedules, and printed dimensions. That layer is the cheap, accurate path in.
+
+There are three ways to answer a question about a drawing set, and they are not close:
+
+| Approach | Cost | Reliability |
+|---|---|---|
+| Feed raw drawing **images** into the prompt | Highest | Lowest — the model infers from pixels and mis-weights detail buried in a huge context |
+| Read the **vector text** each time | Moderate | Good |
+| **Build an index once, then query it** | Lowest | Highest — deterministic and repeatable |
+
+So: **parse the set once into a structured store (a small database), then answer every subsequent
+question from that store.** Reported token savings on real sets run to one or two orders of magnitude,
+but the reliability gain matters more — the same question asked twice returns the same answer, and every
+answer can cite the sheet it came from.
+
+This is `build-doctrine.md` §2 ("do heavy work at the right layer; stream light artifacts") applied to
+documents, and §1 (stable identity) applied to sheets and marks.
+
+> **Build a map before you build the index's consumers.** A one-page **sheet index** — every sheet, its
+> discipline, its scale, and what is on it — lets you query straight to the sheet that holds the answer
+> instead of scanning everything. It is progressive disclosure for a drawing set: read the map first,
+> then open only what the task needs.
+
+Two-pass extraction is usually the right shape: a **fast pass** over every sheet for tags, scales, and
+printed dimensions, then a **slow, targeted pass** (table/schedule detection is expensive) aimed only at
+the sheets that actually carry schedules. Cache the result; a rebuilt index should be a no-op.
+
+> **Use the right technique for the right job — this is not "text always beats vision."** Pattern
+> matching over the text layer is the correct tool for **extracting known, structured things** (a tag
+> format, `F'c = X MPa`, a schedule row). It is the *wrong* tool for **classifying a sheet**, because
+> title blocks, naming, and layout vary wildly between offices and no regex survives that variation. For
+> "what kind of drawing is this and what's on it," read the rendered sheet with vision. Rule of thumb:
+> **vision to classify and orient; text to extract and count; the database to answer.**
+
+---
+
+## 2. Confidence by provenance — the reliability rule
+
+Tag every extracted number with **how it was obtained**, and carry that tag all the way to the user. A
+workable ladder for drawings:
+
+| What you want | How it's derived | Confidence |
+|---|---|---|
+| Count of an element type | Read from a **schedule table** (door/window/column schedule) | **High** |
+| Count of an element type | Counted from **tag callouts** on sheets | **Medium** — tags get missed, duplicated across sheets, or repeated in details |
+| A dimension | The designer **printed it** on the sheet (`205'-6"`) | **High** |
+| A distance | **Scaled from pixels** via the scale bar | **Low** — never quote without a sanity check |
+| A value from prose | Regex/LLM extraction from paragraph text | **Medium** — verify against the source page |
+
+Two rules follow:
+- **State the confidence whenever you hand over the number.** "147 doors (high — from the door schedule
+  on A-601)" is a usable fact; "147 doors" is a liability.
+- **Flag the derivation path when it is weak.** A number that came from reading a *scanned image* rather
+  than vector text must be marked as such and verified against the source page by a human. A
+  picture-read number must never be presented with the same certainty as vector text.
+
+This is the estimate-class discipline (`construction-delivery.md` §3) and honest-status doctrine
+(`build-doctrine.md` §7) applied to extraction: **a ROM is not a GMP, and a scaled pixel is not a
+printed dimension.**
+
+---
+
+## 3. Sanity checks: encode what is physically possible
+
+Extraction fails loudly if you let it. Encode domain bounds so nonsense is caught at extraction time
+rather than in a bid:
+
+- A measured run **longer than the building footprint** is wrong.
+- A door count exceeding the room count by an order of magnitude is wrong.
+- A concrete strength of 2.5 psi or 250,000 psi is a unit error, not a mix design.
+- A single line item that is a large fraction of the whole contract deserves a second look
+  (`pro-forma-review.md` §5).
+
+Store the check result alongside the value (`passed` / `flagged`) and make the flagged set queryable —
+"show me everything that failed sanity" is the highest-yield review a human can run. This is
+**compliance-as-code** (`build-doctrine.md` §8): make the invalid state visible at creation.
+
+---
+
+## 4. Never trust a column that survived text-linearisation
+
+A specific, expensive trap worth naming precisely.
+
+When a PDF is linearised to text, **column alignment is not preserved reliably**. In a priced
+change-order or schedule-of-values table, the extended amount printed in the right-hand column often
+lands on a *different text line* than the description it belongs to. Tie out against those extracted
+extensions and you will manufacture discrepancies on a document whose arithmetic is perfectly correct —
+and you will burn your credibility with the person you handed the report to.
+
+**The rule: read the atomic inputs, then recompute.** Take *quantity* and *rate* from the line, compute
+`quantity × rate` yourself, and compare that to the total. Never treat a linearised `$` column as
+authoritative. If you catch yourself thinking "let me just check the printed total," stop — that is the
+failure mode.
+
+Generalized: **prefer values you can recompute from primitives over values you merely read**, wherever
+layout may have been destroyed in extraction.
+
+---
+
+## 5. Coverage-aware findings — "0 findings" is not a clean bill of health
+
+The most important rule in this file, and the one most often missing from audit tooling.
+
+An audit that reports "no issues found" without saying **which checks actually ran** is worse than no
+audit, because it manufactures false assurance. A change order checked without the contract's rate
+schedule can return zero findings while being riddled with unit-price inflation — the check simply could
+not see it. An image-only PDF yields zero extracted sheets; that is a **sourcing gap, not a clean set**.
+
+**Always report coverage alongside findings:**
+
+```
+0 findings — but only 2 of 4 checks had the data to run
+  [checked]     markup / O&P caps
+  [checked]     labor rates            (rate schedule supplied)
+  [NOT CHECKED] unit prices            — no contract rate schedule provided
+  [NOT CHECKED] quantities vs drawing  — no drawing set provided
+```
+
+Say the same thing in prose when you report to a human: *what was verified, what was not, and why.*
+Absence of evidence is not evidence of absence, and a reviewer who learns that the hard way stops
+trusting the tool — correctly. This is the document-review expression of `pro-forma-review.md`'s
+reconciliation discipline and the honest-status rule.
+
+---
+
+## 6. Cross-document coordination — where change orders are born
+
+A project is described by several documents that are **written by different people at different times
+and almost never fully agree.** The spec book says minimum f′c = 30 MPa; the structural drawings show
+25/30/35 MPa mixes by element; the drawings cite ASTM A307 for anchor bolts and the spec never mentions
+it. Each of those gaps is a coordination item that, undetected, becomes an RFI at best and a change order
+at worst.
+
+Comparing a 500-page spec against a 50-sheet set by eye is hours of an estimator's time and is
+unreliable. Indexing both and **joining them fact-by-fact** takes seconds and cites the page on each
+side. High-value fact families to compare:
+
+- **Material strengths** — concrete f′c, masonry f′m, steel grades.
+- **Reinforcement** — spec and grade (ASTM A615 Grade 60; CSA G30.18 Grade 400W).
+- **Referenced standards coverage** — a standard cited on the drawings but absent from the spec (or vice
+  versa) is a real gap.
+- **Schedules vs. plans** — quantities and marks that disagree between the schedule and the sheet.
+- **Finishes, assemblies, and rated construction** — where the fire rating on the drawing meets the
+  assembly in the spec.
+
+**Report each result in one of five states, and cite both pages:** `MATCH`, `MISMATCH`, `VERIFY`,
+`SPEC-ONLY`, `DRAWING-ONLY`.
+
+> **A flagged join is a coordination item to confirm, not a defect to allege.** The tool finds where two
+> documents disagree; a human decides which one governs — the contract documents have an order of
+> precedence, and it is often the spec. Overclaiming here is how a useful report becomes an argument.
+
+This is the same instinct as the **decision-readiness / RFI-prevention audit** in `digital-toolkit.md`:
+resolve the conflict before it costs money, and do it on paper rather than in the field.
+
+---
+
+## 7. Units, grades, and canonical identity
+
+Cross-document comparison fails on naming long before it fails on logic:
+
+- **Normalize units before comparing**, and keep one canonical internal unit (e.g. everything to psi;
+  MPa → psi ×145.038). Cross-unit projects are common and dangerous — metric drawings bid against an
+  imperial spec, or a metric spec with imperial rebar callouts.
+- **Canonicalize designations** so the same thing matches itself: `ACI 318-14` must match `ACI 318`;
+  `ASTM A615/A615M` must match `ASTM A615`. Edition suffixes and dual-designation slashes are the two
+  usual culprits.
+- **Equivalent grades across regimes** are not string-equal: ASTM A615 Grade 60 vs CSA G30.18 Grade 400W
+  describe comparable reinforcement in different systems. Map deliberately; never assume.
+- Keep the **stable identity** of a sheet or a mark (sheet number + revision, door mark) as the key
+  everything else hangs from — `build-doctrine.md` §1. Identity drift is the root of most false mismatches.
+
+---
+
+## 8. Writing back to documents — never in place
+
+Extraction is read-only and safe. **Modifying** documents — bulk stamps, revision clouds, markup edits
+across a set — is not, and it earns the irreversible-action rails from `build-doctrine.md` §6:
+
+- **Never modify the source file.** Write to a new output; the original stays pristine and re-runnable.
+- **Emit a register of what changed** — every stamp, edit, and clouded region, as a list a human can
+  audit. A bulk operation without a record of what it touched is unreviewable.
+- **Confirm the operation before running it at scale.** State the source, the target sheets, and the
+  exact operation, and get a human yes. A mis-scoped bulk markup across an 89-sheet set is expensive to
+  unpick.
+- Remember what a markup *is*: on an issued drawing it is a **contractual communication**. "Not for
+  Construction" applied to the wrong sheets, or removed from the right ones, has consequences beyond the
+  PDF.
+
+## 9. Deterministic finding vs. judgment call
+
+Separate the two and never blur them:
+
+- **Deterministic finding** — a fact that arithmetic or a document join settles. "The markup applied is
+  22%; the contract caps it at 15% — the overcharge is $1,320.32, page 4." This can be asserted.
+- **Judgment call** — "is 42 hours reasonable for this scope?" This must be *surfaced for a human*, with
+  the evidence, and not ruled on.
+
+For an owner-side reviewer, a wrong accusation is far more costly than a missed catch: it damages the
+relationship and the reviewer's credibility in one move. **Bias toward silence on judgment and precision
+on arithmetic.** This mirrors the split in `pro-forma-review.md` §7 between model-integrity issues
+(arithmetic that must be fixed) and judgment issues (assumptions that must be defended) — they are
+addressed differently and must be reported differently.
+
+---
+
+## 10. Applying it
+
+When building or evaluating any construction-document tooling — or doing the review by hand — run these:
+
+- Is there an **index built once** and queried many times, rather than re-reading source documents?
+- Is there a **map** (sheet index / spec index) read before the detail?
+- Does every number carry its **provenance and confidence**, all the way to the user?
+- Are there **sanity bounds** encoded, and can you list what failed them?
+- Are values **recomputed from primitives** rather than trusted from a possibly-mangled layout?
+- Does the output report **coverage** — which checks ran and which could not, and why?
+- Are cross-document results **page-anchored on both sides** and stated as items to confirm?
+- Are **units and designations canonicalized** before anything is compared?
+- Are **deterministic findings and judgment calls** clearly separated?
+- Is the human kept as the decider on anything contractual, and is the tool's output **auditable**?
+
+> **Attribution.** The practical lessons in §§1–8 — index-once/query-many, confidence-by-provenance,
+> the text-linearisation trap, and coverage-aware reporting — were sharpened by studying the open
+> `autoConst` construction-document skills by Hamza Abdul Jabbar
+> (github.com/hamzaabduljabbar), which implement these ideas as working tools. The doctrine here is
+> written independently for this skill; the tools themselves are separate projects with their own terms.
 
 ----------------------------------------------------------------------------------------------------
 
@@ -1937,4 +2450,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.5.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.6.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

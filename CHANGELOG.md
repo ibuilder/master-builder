@@ -2,6 +2,39 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.6.0] — 2026-07-25
+Proves the "anywhere on Earth" claim with worked dossiers, and adds a document-intelligence discipline
+distilled from studying open AEC-AI work by others (see Credits in the README).
+
+### Added
+- `references/jurisdiction-dossiers.md` — the unfamiliar-jurisdiction method **demonstrated**, not just
+  described. Four dossiers, each teaching a different structural lesson: **England & Wales** (the
+  regulator can be the schedule — Building Safety Act Gateway 2 running 25+ weeks against a 12-week
+  target with ~45–50% rejection), **Dubai** (the AHJ depends on which plot you stand on — DM / DDA /
+  Trakhees, with Civil Defence as a mandatory parallel track), **Australia** (published ≠ adopted — NCC
+  2025 published 1 May 2026 but staggered to 2027 in several states), **Canada** (a model code has no
+  force until a province enacts it; NBCC 2025 adds GHG as a formal objective). Plus a contributor template.
+- `references/document-intelligence.md` — extracting trustworthy numbers from drawings, specs, change
+  orders and pay apps: index-once/query-many, **confidence by provenance** (a schedule count and a
+  pixel-scaled distance are not the same kind of fact), encoded sanity bounds, the
+  **text-linearisation trap** (never trust a `$` column that survived PDF→text; recompute from
+  quantity × rate), **coverage-aware findings** ("0 findings" is not a clean bill of health),
+  spec↔drawing coordination joins, unit/designation canonicalization, non-destructive markup, and the
+  deterministic-finding vs judgment-call split.
+
+### Changed
+- `global-codes.md` — **correction:** NCC 2025 and NBCC 2025 were treated as simply "current." Both are
+  published-but-not-uniformly-adopted; the section now states the adoption reality and the trap.
+- `construction-delivery.md` — added the owner-side **change-order pricing audit**: markup/O&P stacking,
+  unit-price inflation, labor-rate padding, quantity tie-out.
+- `pro-forma-review.md` — new §7 "Report what you could *not* check," applying the coverage-aware rule
+  to model review.
+- `digital-toolkit.md` — MCP connectors that drive the incumbent authoring tools (Revit, AutoCAD,
+  Navisworks, Dynamo, Grasshopper); document-intelligence flagged as required reading for AI document workflows.
+- SKILL.md — both new references wired into the protocol (step 1 and step 6) and the table;
+  `description` extended to trigger on takeoff, spec cross-check, and change-order audit.
+- README — a **Credits & related work** section.
+
 ## [0.5.0] — 2026-07-25
 Content pass. Closes the one structural hole in the protocol and gives existing buildings the depth the
 skill kept asserting they deserved.

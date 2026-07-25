@@ -90,10 +90,18 @@ National building regulations sit on top (e.g., England & Wales **Building Regul
 Documents A–S**; Germany Musterbauordnung/LBO).
 
 **Commonwealth / NCC & NBCC.**
-Australia: **National Construction Code (NCC 2025)**, 3 volumes (Vol 1 commercial/BCA, Vol 2 residential,
+Australia: **National Construction Code**, 3 volumes (Vol 1 commercial/BCA, Vol 2 residential,
 Vol 3 plumbing), given legal effect by each State/Territory; strong bushfire (AS 3959), cyclone, and
-Section J energy provisions. Canada: **National Building Code of Canada (NBCC)**, adopted/adapted by
-provinces (e.g., Ontario, BC, Québec/CCQ); cold-climate and snow driven. New Zealand: NZBC (performance-based).
+Section J energy provisions. **NCC 2025 published 1 May 2026, but adoption is staggered and partly
+deferred** — some jurisdictions from May 2026, others not until May 2027, with one freezing changes
+outright. Canada: **National Building Code of Canada (NBCC 2025**, released December 2025, succeeding
+2020 — GHG emissions appear as a formal objective for the first time**)**, which has *no force in law*
+until a province adopts it, with modifications (Ontario, BC, Québec/CCQ); cold-climate and snow driven.
+New Zealand: NZBC (performance-based).
+
+> Both are the same trap: **the published edition is not the enforced edition.** Always ask which
+> edition *this* state/province has actually adopted, and on what date — see the worked examples in
+> `jurisdiction-dossiers.md`.
 
 **Indian standards.**
 **National Building Code of India (NBC 2016)** + Bureau of Indian Standards **IS codes**: IS 456

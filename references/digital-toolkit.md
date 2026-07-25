@@ -130,9 +130,20 @@ When a task calls for one of these, name it and use it rather than re-deriving t
 
 The practical, near-term AI leverage in AEC — the productized-workflow layer:
 - **Document workflows** — RFI drafting from context, submittal-log analysis, spec/submittal
-  cross-checking, drawing-set Q&A (FieldForge is exactly this productized).
+  cross-checking, drawing-set Q&A (FieldForge is exactly this productized). The reliability
+  discipline this demands — index once and query many, tag every number with its provenance and
+  confidence, and never report "0 findings" without saying which checks could run — is its own
+  reference: `document-intelligence.md`. Treat it as mandatory reading before building or trusting any
+  drawing/spec/change-order tooling.
 - **Automation of the repetitive** — Procore submittal-date automation, pay-app generation, CSV/report
   exports, take-off assists — via platform APIs and scripting.
+- **Driving the incumbent authoring tools.** Most of the industry runs Revit, AutoCAD, Navisworks,
+  MicroStation, Dynamo, 3ds Max, and Grasshopper — and a growing set of **MCP connectors now let an
+  agent drive those applications directly** (place and edit elements, run clash, build and execute
+  Dynamo/Grasshopper graphs). This is the pragmatic bridge between openBIM ideals and the tools a
+  project actually uses: the agent operates the incumbent tool, while IFC remains the interchange the
+  data must survive in. Judge such connectors on token discipline, whether edits are addressable by a
+  stable ID, and whether destructive operations are gated.
 - **MCP servers** — expose project tools/data to an AI agent through the Model Context Protocol so the
   model can *act* (query the CDE, draft the RFI, update the log), not just advise. Massing ships an MCP
   server (with a drop-in **Claude skill pack**) that lets an agent read project status/records, run

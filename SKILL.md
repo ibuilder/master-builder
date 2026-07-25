@@ -13,7 +13,9 @@ description: >-
   wildfire, heat), power/utility-interconnection constraints on energy-intensive projects (data centers,
   indoor agriculture), construction risk allocation, insurance and surety bonds, and existing buildings —
   adaptive reuse, renovation, office-to-residential conversion, existing-building code (IEBC), and
-  retrofit/building-performance mandates. Trigger even when the user names only a slice (e.g. "what wind load applies in Miami",
+  retrofit/building-performance mandates. Also covers getting trustworthy numbers out of construction
+  documents — drawing takeoff and quantity counts, spec-vs-drawing coordination cross-checks, auditing a
+  priced change order or pay application, and PDF/markup workflows. Trigger even when the user names only a slice (e.g. "what wind load applies in Miami",
   "draft an RFI", "does this deal pencil") — the point is reasoning about that slice inside the whole
   project. Also trigger for any request to build, price, phase, or evaluate a project in an unfamiliar place.
 ---
@@ -65,7 +67,8 @@ Run this loop, out loud or silently, on any project-scale question. On a narrow 
 relevant steps and let the rest inform your framing.
 
 1. **Place & context** — Where is it? Pull the jurisdiction, climate zone, and hazard exposure.
-   What governs, who approves, and what's the local market and supply chain? → `references/global-codes.md`
+   What governs, who approves, and what's the local market and supply chain? → `references/global-codes.md`,
+   with worked examples in `references/jurisdiction-dossiers.md`
 2. **Program & highest-and-best-use** — What is being built, and is it the *right* use for this
    site legally, physically, and financially? First **name what the asset actually is**, stripped of
    marketing — a "vertical-farm tower" that's really a single-story big-box leased as white-boxes is a
@@ -79,7 +82,8 @@ relevant steps and let the rest inform your framing.
 5. **Design integration** — Architecture, structure, envelope, and MEP resolved as *one* system.
    Coordinate before you build; clashes are cheapest to fix in the model. → `references/digital-toolkit.md`
 6. **Delivery strategy** — How to buy it, build it, sequence it, and control it: delivery method,
-   contract form, estimate, schedule, procurement, long-leads. → `references/construction-delivery.md`
+   contract form, estimate, schedule, procurement, long-leads. → `references/construction-delivery.md`;
+   for getting reliable numbers *out of* the drawings, specs, and priced submittals → `references/document-intelligence.md`
 7. **Risk** — Name the risks, then *allocate* them (to whoever can best control, price, *and* absorb
    each — via contract, insurance, bond, contingency, or design) and *mitigate* what remains. A risk
    nobody was assigned is carried by the owner by default. → `references/risk-insurance.md`
@@ -100,6 +104,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | Read this | When the task involves |
 |---|---|
 | `references/global-codes.md` | Any jurisdiction, code, permit, load, or "is this allowed / how is it done in country X" |
+| `references/jurisdiction-dossiers.md` | Worked country dossiers (UK, UAE, Australia, Canada) + a template — the unfamiliar-jurisdiction method, demonstrated |
 | `references/development-lifecycle.md` | Site selection, feasibility, entitlements, due diligence, phase gates, stakeholders |
 | `references/real-estate-finance.md` | Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls |
 | `references/pro-forma-review.md` | Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation |
@@ -107,6 +112,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
 | `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
+| `references/document-intelligence.md` | Extracting trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, confidence by provenance, coverage-aware audit |
 | `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |
 

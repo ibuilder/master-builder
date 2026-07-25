@@ -15,7 +15,8 @@ be honest about what's wrong — optimism in a pro forma is a defect, not a cour
 4. The three-questions test for any assumption
 5. Cost-concentration & the one big move
 6. Validate demand before capital
-7. How to deliver the critique
+7. Report what you could not check
+8. How to deliver the critique
 
 ---
 
@@ -91,7 +92,22 @@ the first unit proves the unit economics (and the real operating cost) before th
 cash flow instead of a single day-one bet. This is the `build-doctrine.md` staged-validation gate
 applied to real estate: prove the edge on a small, real slice before scaling.
 
-## 7. How to deliver the critique
+## 7. Report what you could *not* check
+
+A review that ends "I found no problems" without saying what it was able to examine manufactures false
+assurance — the most dangerous output an auditor can produce. A model reviewed without the rent roll, the
+signed leases, or the loan term sheet can look clean and still be wrong in exactly the places you
+couldn't see.
+
+**Always deliver findings and coverage together.** Say plainly which checks ran, which didn't, and why:
+*"Reconciliation and NOI arithmetic: checked. Unit-price and hard-cost reasonableness: **not** checked —
+no GC estimate or comparable cost data supplied. Exit cap: not testable — no local comps provided."*
+
+Absence of a finding is not evidence of soundness; it is often just a **sourcing gap**. Naming the gap
+both protects the reader and tells them exactly what to send you next. (The same rule, applied to
+drawing and change-order review, is in `document-intelligence.md` §5.)
+
+## 8. How to deliver the critique
 
 Lead with a one-line verdict (feasible / conditional / no-go) and the honest return, not the sponsor's.
 Credit what's genuinely strong first — a critique lands better when it's clearly fair. Then separate

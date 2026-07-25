@@ -26,7 +26,11 @@ it reasons about that fragment inside the whole.
 - **Encodes real build doctrine.** Source-of-truth data models, staged validation gates, hard rails
   on irreversible actions, honest status over optimistic status, compliance-as-code.
 - **Thinks globally.** A method for reasoning about unfamiliar jurisdictions by code family (ICC/IBC,
-  Eurocodes, NCC, NBCC, IS/NBC India, GB China, Japan BSL, Middle East).
+  Eurocodes, NCC, NBCC, IS/NBC India, GB China, Japan BSL, Middle East) — plus **worked dossiers**
+  (UK, UAE, Australia, Canada) that demonstrate the method instead of just describing it.
+- **Reads construction documents honestly.** Takeoff, spec↔drawing cross-check, and change-order
+  auditing — with every number carrying its provenance and confidence, and a hard rule that
+  *"0 findings" is never a clean bill of health* unless you also say which checks could run.
 - **Counts the carbon, the climate risk, and the power.** Treats whole-life and embodied carbon as a
   cost and a risk (CBAM, Buy Clean, LEED v5, transition risk), climate resilience as adaptation the asset
   is underwritten against (flood/ASCE 24, stormwater, wildfire, heat), and the utility-interconnection
@@ -139,12 +143,14 @@ python scripts/mcp_server.py --selftest
 SKILL.md                         # the Master Builder Protocol + ground-in-place rule + boundaries
 references/
   global-codes.md                # jurisdictions, code families, load derivation, the AHJ, utility gates
+  jurisdiction-dossiers.md       # worked dossiers (UK · UAE · Australia · Canada) + a contributor template
   development-lifecycle.md        # origination → feasibility → entitlements → design gates → ops → exit
   real-estate-finance.md         # pro formas, returns, capital stack, construction loans, JV waterfalls
   construction-delivery.md        # delivery methods, contracts (AIA/FIDIC/NEC/JCT), estimating, scheduling
   risk-insurance.md              # risk allocation, contract clauses, insurance, surety, insurability, contingency
   adaptive-reuse.md              # existing buildings — conversion, IEBC code paths, hazmat DD, retrofit mandates
   digital-toolkit.md             # BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, the software map
+  document-intelligence.md       # takeoff, spec↔drawing cross-check, CO audit — confidence by provenance
   sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk, resilience
   build-doctrine.md              # cross-cutting engineering lessons for building any system
   pro-forma-review.md            # forensic model/deal audit — reframe, reconcile, defect checklist
@@ -163,7 +169,7 @@ dist/                            # generated — do not edit by hand
 
 Everything in `dist/` is generated from `SKILL.md` + `references/` by **`python scripts/build.py`** — so
 the packages and the bundle can never drift from the source. Progressive disclosure: `SKILL.md` stays
-lean (~170 lines) and carries a table pointing to the ten reference files, which load only when the
+lean (~170 lines) and carries a table pointing to the twelve reference files, which load only when the
 task needs them.
 
 ## Case study
@@ -184,6 +190,25 @@ AEC platform). Standards references were verified against current editions as of
 / ASCE 7-22 (ICC 2027 in development), second-generation Eurocodes (publish 2027 / withdraw 2028),
 NCC 2025, ISO 19650 second-generation DIS (Mar 2026) + IFC/ISO 16739-1:2024, LEED v5, RICS WLCA 2nd ed
 + EN 15978, and the EU CBAM definitive period (live Jan 2026).
+
+## Credits & related work
+
+This skill is knowledge, not tooling — but its document-intelligence doctrine was sharpened by studying
+open work from others in the AEC-AI space. Credit where it's due:
+
+- **[hamzaabduljabbar](https://github.com/hamzaabduljabbar)** — the `autoConst` family of construction
+  document skills (drawing takeoff, spec indexing, spec↔drawing cross-check, change-order pricing audit,
+  PDF markup, drawing analysis). The index-once/query-many architecture, confidence-by-provenance,
+  the text-linearisation trap, and coverage-aware reporting in
+  [`references/document-intelligence.md`](references/document-intelligence.md) were all sharpened by
+  reading that work.
+- **[AUTOM8LABS](https://github.com/AUTOM8LABS/mcp-connector-skills)** — MCP connector skills for Revit,
+  AutoCAD, Navisworks, MicroStation, Dynamo, 3ds Max and Grasshopper, which prompted the
+  "driving the incumbent authoring tools" entry in
+  [`references/digital-toolkit.md`](references/digital-toolkit.md).
+
+Those are separate projects under their own terms — nothing is vendored here. What's written in this
+repo is written independently; only the *lessons* travelled.
 
 ## Contributing
 

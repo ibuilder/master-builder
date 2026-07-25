@@ -126,6 +126,20 @@ The daily machinery of building. Each artifact is both a communication and a con
   schedule; a late submittal is a late long-lead is a late project.
 - **Change management** — change events → potential change orders → **change orders (COs)**, each with
   cost + time impact; track **change-event cost exposure** against contingency.
+  **Auditing a priced CO (owner side)** is a distinct skill and normally an hour or more of PM time per
+  change. Four checks, in order of how reliably they find money:
+  1. **Markup / O&P / bond caps** — is the applied markup within the contract's cap, and is it
+     **stacked**? Overhead-and-profit taken again at each tier (sub → sub-sub → GC), or a bond/insurance
+     percentage applied on top of a marked-up base, quietly compounds. Check the contract exhibit.
+  2. **Unit-price inflation** — line rates against the contract's rate schedule or the awarded bid tab.
+     Rates that were competitive at bid often are not in a change.
+  3. **Labor-rate padding** — billed rates and classifications against the agreed labor-rate schedule
+     (and, on T&M tickets, whether the classification billed matches the work performed).
+  4. **Quantity tie-out** — claimed quantities against the drawing set or an independent takeoff.
+  Recompute every extension from quantity × rate rather than trusting a printed total, and report each
+  finding as *a dollar amount with a page reference*. Distinguish arithmetic findings (assertable) from
+  judgment ("is 42 hours reasonable?" — surface it, don't rule on it). The method, and the extraction
+  traps that make naive checking produce false positives, are in `document-intelligence.md`.
 - **Payment applications** — **AIA G702/G703** (or local equivalent): the schedule of values, percent
   complete, stored materials, and retainage that drive the monthly draw. Ties directly to the lender
   draw (finance ref §5).
