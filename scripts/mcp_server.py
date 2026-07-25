@@ -199,10 +199,12 @@ TOOLS: list[dict[str, Any]] = [
     {
         "name": "master_builder_list_references",
         "description": (
-            "List the available Master Builder reference documents and what each one covers "
-            "(codes/jurisdictions, development lifecycle, real-estate finance, pro-forma review, "
-            "construction delivery, digital/BIM toolkit, sustainability & carbon, build doctrine). "
-            "Use this to decide which reference to read for the task at hand."
+            "List the available Master Builder reference documents and what each one covers — "
+            "jurisdictions and codes, localization, climate/building science, the development "
+            "lifecycle, real-estate finance, pro-forma review, construction delivery, risk and "
+            "insurance, adaptive reuse, the digital/BIM toolkit, document intelligence, "
+            "sustainability and carbon, and build doctrine. Descriptions are read live from the "
+            "skill, so this list is always current. Use it to decide which reference to read."
         ),
         "inputSchema": {"type": "object", "properties": {}, "additionalProperties": False},
         "annotations": {

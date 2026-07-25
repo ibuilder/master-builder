@@ -48,8 +48,20 @@ jobs:
           assert len(lines) == 2, f"expected 2 responses (the notification gets none), got {len(lines)}"
           init, tools = (json.loads(l) for l in lines)
           assert init['result']['serverInfo']['name'] == 'master-builder'
-          assert len(tools['result']['tools']) == 4, tools
-          print("stdio transport OK:", [t['name'] for t in tools['result']['tools']])
+          names = {t['name'] for t in tools['result']['tools']}
+          # Assert the contract by name, not by count, so adding a tool doesn't break CI
+          # while removing or renaming one still does.
+          required = {
+              'master_builder_get_protocol',
+              'master_builder_list_references',
+              'master_builder_read_reference',
+              'master_builder_search',
+              'master_builder_localize',
+          }
+          missing = required - names
+          assert not missing, f"missing tools: {sorted(missing)}"
+          assert all(t.get('inputSchema') for t in tools['result']['tools']), "a tool is missing its schema"
+          print("stdio transport OK:", sorted(names))
           PY
 
       - name: dist/ is in sync with the source (rebuild must be a no-op)
