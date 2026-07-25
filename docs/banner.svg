@@ -69,8 +69,11 @@
 
   <!-- ============ wordmark ============ -->
   <g>
+    <!-- textLength pins the rendered width: SVG resolves fonts on the VIEWER's machine, and a
+         fallback serif wider than Georgia would otherwise overrun the 1280 canvas. -->
     <text x="512" y="118" font-family="Georgia,'Iowan Old Style','Times New Roman',serif"
-          font-size="62" font-weight="700" fill="#F5F0E6" letter-spacing="1">MASTER BUILDER</text>
+          font-size="62" font-weight="700" fill="#F5F0E6" letter-spacing="1"
+          textLength="633" lengthAdjust="spacingAndGlyphs">MASTER BUILDER</text>
 
     <path d="M514 140 H1180" stroke="url(#rule)" stroke-width="2"/>
 
@@ -80,9 +83,8 @@
     </text>
 
     <text x="514" y="212" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
-          font-size="12.5" fill="#8FA8C8" letter-spacing="1.6">
-      LAND → FEASIBILITY → DESIGN → CONSTRUCTION → HANDOVER → OPERATIONS → EXIT
-    </text>
+          font-size="12.5" fill="#8FA8C8" letter-spacing="1.6"
+          textLength="618" lengthAdjust="spacingAndGlyphs">LAND → FEASIBILITY → DESIGN → CONSTRUCTION → HANDOVER → OPERATIONS → EXIT</text>
 
     <text x="514" y="252" font-family="ui-monospace,SFMono-Regular,Menlo,Consolas,monospace"
           font-size="12" fill="#E8C46A" fill-opacity="0.72" letter-spacing="1.2">
