@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.11.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.12.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -2802,4 +2802,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.11.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.12.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

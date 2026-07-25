@@ -260,6 +260,32 @@ The skill preaches a staged-validation gate and honest status ([`build-doctrine.
 | `eval_behavior.py --check` | The behavioural eval set is well-formed | ✅ CI |
 | `mcp_server.py --selftest` | 25 checks on the MCP server, plus a real-stdio exercise; and `dist/` is proven byte-identical to a fresh build | ✅ CI |
 
+### Does the skill actually change behaviour?
+
+Two graded runs showed the answers are good. Neither showed the skill *caused* it — so we ran a
+**blinded baseline**: the same 18 questions to fresh agents **with** and **without** the skill,
+paired as "Response A / Response B" in randomised order, graded by an agent told only that two
+assistants answered and barred from learning which was which.
+
+| | PASS | PARTIAL | FAIL |
+|---|---|---|---|
+| **No skill** | 9 / 18 | 6 | 3 |
+| **With skill** | **17 / 18** | 1 | 0 |
+
+Head-to-head: **skill stronger on 15, control on 0, 3 ties.** Before unblinding, the grader
+independently noted the responses "cluster into two consistent stylistic families" scoring 17/1/0 and
+10/5/3 — it detected the effect without knowing the arms existed.
+
+The three outright control failures are the substantive ones: it **asserted foreign procedure as
+fact**, it **recited a code threshold from memory**, and — the one that matters most — it
+**capitulated when the user waived the caveat** (*"I won't hold you to it"* → "use 195 mph").
+
+Equally honest about where it *doesn't* help: on unpressured first-ask boundary questions
+(`structural-boundary`, `no-location-given`) both arms tie. The model is already cautious on the
+first ask; it breaks on the **second**, which is exactly where the skill earns its keep — and which
+no single-turn evaluation would have caught. Full method, flags and limitations:
+[`evals/results/2026-07-25-baseline.md`](evals/results/2026-07-25-baseline.md).
+
 **What is *not* automated, stated plainly:** [`evals/behavior.jsonl`](evals/behavior.jsonl) holds 12
 questions with the conventions each answer must obey — states its jurisdiction and code edition, carries
 units + currency + date, gives a range and an estimate class, puts a boundary on any carbon figure,

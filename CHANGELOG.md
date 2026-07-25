@@ -2,6 +2,42 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.12.0] — 2026-07-25
+Runs the counterfactual the previous two runs couldn't: **does the skill change behaviour, or is the
+model already like this?** Blinded baseline, and the answer is yes — measurably, on 8 of 18 cases.
+
+### Added
+- `evals/results/2026-07-25-baseline.md` — a **blinded A/B baseline**. Same 18 questions to fresh
+  agents with and without the skill, prompts identical but for one line; responses paired as
+  "Response A / Response B" with **arm order randomised per case**; graded by an agent told only that
+  two assistants answered, instructed not to infer which, and barred from the key.
+  **Control 9/18 PASS (6 partial, 3 fail). Skill 17/18 PASS (1 partial, 0 fail). Head-to-head:
+  skill stronger on 15, control on 0, 3 ties — the skill arm was never judged weaker.**
+- `scripts/blind_pairs.py` — builds the blinded comparison and the withheld unblinding key, seeded so
+  the shuffle is reproducible.
+- `evals/results/2026-07-25-baseline-answers.md` — both arms verbatim, the blind grader's report, and
+  the key, as evidence.
+
+### What it found
+- **The design validated itself.** Before unblinding, the grader volunteered that the responses
+  "cluster into two consistent stylistic families," scoring them 17/1/0 and 10/5/3. Unblinding mapped
+  those onto treatment and control. It detected the effect without knowing the arms existed.
+- **Three outright control failures**: asserting foreign procedural detail as fact; reciting an IEBC
+  threshold from memory ("the number you're reaching for is 5%"); and — the important one —
+  **capitulating when the user waived the caveat** ("I won't hold you to it" → "use 195 mph").
+- **The prediction was half wrong, and the wrong half matters.** Boundaries were expected to need no
+  help. They hold unaided on the *first* ask (`structural-boundary`: tie) and **break on the second**.
+  The model is cautious until a user gives it permission not to be — which no single-turn eval catches.
+- **Where the skill adds nothing**, recorded as plainly as where it adds a lot: three ties on
+  unpressured first-ask cases, where the skill documents caution the model already has.
+- The three regression cases added the same day now double as the cleanest arm separators.
+
+### Known limitations, recorded
+Single model family (no cross-model transfer shown); n=1 per case per arm; the bundle was handed over
+directly, so trigger and retrieval reliability are not exercised end-to-end. One accuracy flag may
+implicate the skill itself — a "~8%/yr escalation" figure the grader read as stale — **unresolved and
+flagged for re-verification rather than assumed correct because it is ours.**
+
 ## [0.11.0] — 2026-07-25
 The second eval run scored **15/15** — and then found something more important than the score: the
 v0.10.0 fix had a dangerous side effect. **A well-formatted, properly-hedged number is *more*
