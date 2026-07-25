@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/banner.svg" alt="Master Builder — one mind holding the whole project, anywhere on Earth" width="100%">
+</p>
+
 # Master Builder — a Claude Skill for the built environment
 
 [![CI](https://github.com/ibuilder/master-builder/actions/workflows/ci.yml/badge.svg)](https://github.com/ibuilder/master-builder/actions/workflows/ci.yml)
@@ -8,11 +12,47 @@
 > **Reason like a master builder** — one mind holding an entire built-asset project from raw land
 > through design, construction, handover, operations, and disposition, **anywhere in the world.**
 
-The historical *master builder* — the capomastro, the Baumeister, the architectus — was one person
-who understood the whole: the ground, the money, the code, the crew, the materials, and the life of
-the building after handover. This [Claude Skill](https://docs.claude.com) restores that unified mind.
-Hand it any fragment of a project — a wind-load question, a line in a pro forma, a schedule slip — and
-it reasons about that fragment inside the whole.
+Hand this [Claude Skill](https://docs.claude.com) any fragment of a project — a wind-load question, a
+line in a pro forma, a schedule slip — and it reasons about that fragment inside the whole: the ground,
+the money, the code, the climate, the crew, and the life of the building long after handover.
+
+## A short history of the master builder
+
+**One mind, one workshop.** For most of building history the *master builder* — the **capomastro**,
+the **Baumeister**, the **architectus** — was a single accountable figure who held design intent,
+structural judgment, materials, labour, sequencing, money, and the patron's politics together. The
+pyramids, the Parthenon, the Colosseum and the great cathedrals were delivered this way. It worked
+because the knowledge lived in one workshop culture, the site was known directly, materials were
+regionally constrained, and patrons expected one visible authority to turn ambition into stone.
+Ken Follett's *The Pillars of the Earth* dramatises exactly this: Kingsbridge's cathedral is at once a
+capital project, a political instrument, a labour market, and a fifty-year operating asset — and the
+master builder's real work is negotiating patrons, scarcity, and time, not just cutting stone.
+
+**Then it broke apart — for good reasons.** As the 18th and 19th centuries brought formal
+architectural education, engineering as a discipline, and industrial-scale demand, no single craft
+lineage could hold the knowledge any more. The role split into architecture, engineering, development,
+contracting, and operations, and delivery split with it into design-bid-build. Specialization bought
+genuine technical depth. It also **moved the coordination cost onto the owner** — the party least
+equipped to carry it — and made the project an organisational achievement rather than one craftsman's
+extension. Meanwhile property itself was becoming an *asset*: describable, transferable, financeable,
+insurable, taxable. (Documented land transactions run back millennia; the recognisably modern real
+estate profession dates to the late 19th and early 20th centuries.) Building was now inseparable from
+land tenure, law, capital, and regulation.
+
+**The industry keeps trying to put it back together.** Design-build, construction management at risk,
+IPD, and the owner's representative are all attempts to recover the integrative function — and the
+market keeps voting for it: design-build is projected at **up to 47% of US non-residential construction
+spending in assessed segments in 2026**. But each is an organisational arrangement inside a specialised
+ecosystem, bounded by contracts, incentives, and human memory.
+
+**Which is the point of this skill.** The historical role can't be recreated by nostalgia, and the
+integrating intelligence of a modern project is scattered across documents, models, meetings, and
+contracts. The modern master builder is therefore **not the person who knows everything — it's whatever
+keeps everything coherently connected.** This skill is built for that job: to hold land, capital,
+code, climate, construction, carbon, risk, and operations in one view, make assumptions explicit,
+and surface the seams — because **projects fail at the boundaries between disciplines far more often
+than inside them.** It doesn't replace the architect, the engineer, or the stamp; it stops the gaps
+between them from going unnoticed.
 
 ## What it does
 
@@ -162,11 +202,13 @@ references/
   sustainability-carbon.md       # whole-life & embodied carbon, LCA/EPDs, CBAM/Buy Clean, transition risk, resilience
   build-doctrine.md              # cross-cutting engineering lessons for building any system
   pro-forma-review.md            # forensic model/deal audit — reframe, reconcile, defect checklist
+docs/
+  banner.svg                     # README banner — cathedral bay in construction-document convention
 examples/
   hempstead-vertical-farm-case-study.md   # using the skill to critique the author's own 2021 thesis
   hempstead-corrected-model.xlsx          # the rebuilt, formula-driven feasibility model
 evals/
-  retrieval.jsonl                # 26 real questions -> the reference each must route to (CI-enforced)
+  retrieval.jsonl                # 28 real questions -> the reference each must route to (CI-enforced)
   behavior.jsonl                 # 12 questions + the conventions the answer must obey (model-graded)
 scripts/
   build.py                       # regenerates every dist/ artifact from the source (one build command)

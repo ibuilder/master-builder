@@ -35,6 +35,17 @@ and time. In a pro forma it's the line-item ID; on a jobsite it's the drawing/sp
 in a cap table it's the SPV membership record. When identity is stable, everything else (issues, versions,
 exports, audits) round-trips instead of drifting. **Identity drift is the root cause of most integration bugs.**
 
+**And preserve the *why*, not just the *what*.** A stable record of the current state is half of it; the
+other half is the constraint that produced it. Projects outlive the people who made their decisions —
+staff turn over, consultants change, financing assumptions get revised — and the classic failure is a
+team that inherits a choice, cannot reconstruct the reason for it, and either relitigates it at cost or
+overturns it and rediscovers the original constraint the expensive way. (*Why is the column grid 8.4 m?
+Why did we assume 10% vacancy?*) Record the decision, its owner, the alternatives rejected, and above
+all **the constraint that drove it**, next to the thing itself: a note on the assumption in a model, the
+RFI and change-order rationale on a job, the commit message and ADR in a codebase. Institutional memory
+is infrastructure — and where it is missing, whatever holds the thread across time is worth more than
+any single specialist.
+
 ## 2. Do heavy work at the right layer; stream light artifacts
 
 Massing **pre-converts IFC to Fragments on the server and never parses full IFC in the browser at

@@ -20,6 +20,18 @@ selection, contracts, estimating, scheduling, procurement, and construction admi
 The delivery method sets who holds which risk and when the price is known. Choose it to match the
 owner's priorities among **cost certainty, speed, quality, and design control.**
 
+> **Read the menu as a history, not a list.** Building was once delivered by a single accountable
+> master builder holding design and construction together. That fragmented in the 18th–19th centuries —
+> **an adaptation, not a fall**: formal architectural education, engineering as a discipline, and
+> industrial-scale demand outgrew any one craft lineage, and specialization bought real technical depth.
+> What it cost was integration. Design-bid-build separates design from construction, which externalizes
+> the **coordination burden onto the owner** — usually the party least equipped to carry it — and sets up
+> adversarial incentives when design assumptions meet field reality. Every method below is a different
+> answer to the question *how much integration do we buy back, and who pays for it?* The market keeps
+> answering "more": design-build is projected at **up to 47% of US non-residential construction spending
+> in assessed segments in 2026** (DBIA/FMI), rising beyond that later in the decade. Choosing a delivery
+> method is choosing where the seams will be — and seams are where projects fail.
+
 - **Design-Bid-Build (DBB)** — design fully, then bid to a GC (usually low bid). Max design control,
   lowest collusion risk, but slowest and adversarial on changes. Common for public work.
 - **Design-Build (DB)** — one entity for design + construction. Fast, single point of responsibility,

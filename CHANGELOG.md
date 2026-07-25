@@ -2,6 +2,39 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.9.0] — 2026-07-25
+States the skill's own thesis, which had been implicit for eight releases. Informed by a report on the
+evolution of the master builder from *The Pillars of the Earth* to the modern industry.
+
+### Added
+- **A banner** (`docs/banner.svg`) — a half-section through a cathedral bay drawn in construction-document
+  convention (dimension line, ground hatch, pier coursing, sheet corner ticks). SVG, so it is
+  version-controlled, scales, and needs no binary asset.
+- **README — "A short history of the master builder."** One mind and one workshop (capomastro,
+  Baumeister, architectus; *The Pillars of the Earth* as the cultural model) → fragmentation in the
+  18th–19th centuries as knowledge outgrew a single craft lineage → property becoming a financeable
+  asset → the industry's repeated attempts to put integration back (design-build, CMAR, IPD, owner's rep)
+  → why an integrator is the job now.
+- **SKILL.md — "Why this matters."** The thesis, stated plainly at last: fragmentation was an
+  adaptation, not a fall, but it moved coordination cost onto the owner — so **projects fail at the
+  boundaries between disciplines far more often than inside them**, and the modern master builder is
+  *not the person who knows everything but whatever keeps everything coherently connected.*
+- Two retrieval eval cases covering the new material (now **28/28**).
+
+### Changed
+- `construction-delivery.md` §1 — delivery methods reframed as a history rather than a menu: every method
+  is a different answer to *how much integration do we buy back, and who pays for it?* Includes the
+  verified DBIA/FMI projection of design-build at **up to 47% of US non-residential spending in assessed
+  segments in 2026**. Choosing a delivery method is choosing where the seams will be.
+- `development-lifecycle.md` §11 — **the question the pro forma doesn't ask**: whose objective the numbers
+  encode, and who bears costs while others collect benefits. Distributional facts have a commercial edge
+  (community opposition is entitlement risk), and market/valuation/demographic assumptions can encode
+  bias while presenting as neutral arithmetic.
+- `build-doctrine.md` §1 — **preserve the *why*, not just the *what*.** Stable identity records the
+  current state; the constraint that produced it is the other half. Projects outlive their decision-makers,
+  and the classic failure is inheriting a choice, losing its rationale, and rediscovering the constraint
+  the expensive way.
+
 ## [0.8.0] — 2026-07-25
 Proves the skill works. Seven releases had shipped features with **no validation of answer quality** —
 by its own `build-doctrine.md` §5 standard ("never skip a stage"; "the most important milestone is

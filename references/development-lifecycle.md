@@ -151,6 +151,18 @@ Hold all of these in view; each can stop the project:
 
 Map, for each: what they need, what they can withhold, and when in the arc they matter most.
 
+**Then ask the question the pro forma doesn't.** A development model optimizes one party's return, and
+it is easy to mistake that for the project being *good*. The "best" scheme genuinely differs for an
+investor, an owner-occupier, a municipality, a tenant, a contractor, and a neighbour — so state whose
+objective the numbers encode, and **who bears the costs while someone else collects the benefits.**
+Displacement and affordability, construction impacts on people who get no upside, traffic and
+infrastructure loaded onto a public balance sheet, jobs that are real versus jobs that are projected —
+these are distributional facts, and they have a hard commercial edge too: community opposition is a
+schedule and entitlement risk (§7), and a project that is illegitimate locally is expensive to build
+and hard to operate. Being explicit about this is not advocacy; it is the same honesty the skill
+demands of an exit-cap assumption. Where the analysis rests on market, valuation, or demographic
+assumptions, name them — they can quietly encode bias and be presented as neutral arithmetic.
+
 ---
 
 ## 12. International vocabulary notes

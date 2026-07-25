@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.8.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.9.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -49,6 +49,16 @@ person who understood the whole: the ground, the money, the code, the crew, the 
 the life of the building after handover. This skill restores that unified mind. Whatever fragment
 of a project the user hands you — a load question, a line in a pro forma, a schedule slip — reason
 about it as a builder who is quietly holding the entire arc of the project in view.
+
+**Why this matters.** The role fragmented for a good reason — complexity outgrew what one craft
+lineage could hold, and specialization into architecture, engineering, development, contracting, and
+operations bought real technical depth. But it moved the coordination cost onto the owner, who is
+usually least equipped to carry it. The consequence is the defining pattern of this industry:
+**projects fail at the boundaries between disciplines far more often than inside them.** A sound
+building loses money on a bad market thesis; a good deal dies in entitlement; an aggressive schedule
+buys a decade of operating cost. So the modern master builder is not the person who knows everything —
+it is **whatever keeps everything coherently connected.** That is the job here: not to replace the
+specialists, but to hold the whole in view and make the seams visible.
 
 The goal is not to sound expert. It is to **think in the right order, ground every answer in a
 real place, and follow the money and the risk to their conclusions** — for a project anywhere on
@@ -1053,6 +1063,18 @@ Hold all of these in view; each can stop the project:
 
 Map, for each: what they need, what they can withhold, and when in the arc they matter most.
 
+**Then ask the question the pro forma doesn't.** A development model optimizes one party's return, and
+it is easy to mistake that for the project being *good*. The "best" scheme genuinely differs for an
+investor, an owner-occupier, a municipality, a tenant, a contractor, and a neighbour — so state whose
+objective the numbers encode, and **who bears the costs while someone else collects the benefits.**
+Displacement and affordability, construction impacts on people who get no upside, traffic and
+infrastructure loaded onto a public balance sheet, jobs that are real versus jobs that are projected —
+these are distributional facts, and they have a hard commercial edge too: community opposition is a
+schedule and entitlement risk (§7), and a project that is illegitimate locally is expensive to build
+and hard to operate. Being explicit about this is not advocacy; it is the same honesty the skill
+demands of an exit-cap assumption. Where the analysis rests on market, valuation, or demographic
+assumptions, name them — they can quietly encode bias and be presented as neutral arithmetic.
+
 ---
 
 ## 12. International vocabulary notes
@@ -1388,6 +1410,18 @@ selection, contracts, estimating, scheduling, procurement, and construction admi
 
 The delivery method sets who holds which risk and when the price is known. Choose it to match the
 owner's priorities among **cost certainty, speed, quality, and design control.**
+
+> **Read the menu as a history, not a list.** Building was once delivered by a single accountable
+> master builder holding design and construction together. That fragmented in the 18th–19th centuries —
+> **an adaptation, not a fall**: formal architectural education, engineering as a discipline, and
+> industrial-scale demand outgrew any one craft lineage, and specialization bought real technical depth.
+> What it cost was integration. Design-bid-build separates design from construction, which externalizes
+> the **coordination burden onto the owner** — usually the party least equipped to carry it — and sets up
+> adversarial incentives when design assumptions meet field reality. Every method below is a different
+> answer to the question *how much integration do we buy back, and who pays for it?* The market keeps
+> answering "more": design-build is projected at **up to 47% of US non-residential construction spending
+> in assessed segments in 2026** (DBIA/FMI), rising beyond that later in the decade. Choosing a delivery
+> method is choosing where the seams will be — and seams are where projects fail.
 
 - **Design-Bid-Build (DBB)** — design fully, then bid to a GC (usually low bid). Max design control,
   lowest collusion risk, but slowest and adversarial on changes. Common for public work.
@@ -2636,6 +2670,17 @@ and time. In a pro forma it's the line-item ID; on a jobsite it's the drawing/sp
 in a cap table it's the SPV membership record. When identity is stable, everything else (issues, versions,
 exports, audits) round-trips instead of drifting. **Identity drift is the root cause of most integration bugs.**
 
+**And preserve the *why*, not just the *what*.** A stable record of the current state is half of it; the
+other half is the constraint that produced it. Projects outlive the people who made their decisions —
+staff turn over, consultants change, financing assumptions get revised — and the classic failure is a
+team that inherits a choice, cannot reconstruct the reason for it, and either relitigates it at cost or
+overturns it and rediscovers the original constraint the expensive way. (*Why is the column grid 8.4 m?
+Why did we assume 10% vacancy?*) Record the decision, its owner, the alternatives rejected, and above
+all **the constraint that drove it**, next to the thing itself: a note on the assumption in a model, the
+RFI and change-order rationale on a job, the commit message and ADR in a codebase. Institutional memory
+is infrastructure — and where it is missing, whatever holds the thread across time is worth more than
+any single specialist.
+
 ## 2. Do heavy work at the right layer; stream light artifacts
 
 Massing **pre-converts IFC to Fragments on the server and never parses full IFC in the browser at
@@ -2732,4 +2777,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.8.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.9.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
