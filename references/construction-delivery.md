@@ -105,6 +105,52 @@ design maturity and risk. State currency + date on every number.
   **PPC (Percent Plan Complete)**. Massing includes a Last Planner board for exactly this.
 - **Lookaheads** — the rolling **4–6 week** (and 1-month) windows that turn the master schedule into
   actionable constraint-removal; the workhorse of field coordination.
+### Delay analysis — how you prove it, not just assert it
+
+When the job runs late, "who caused it" stops being a conversation and becomes an evidentiary exercise.
+Two published frameworks govern, and they are **complementary rather than competing**: the **SCL Delay
+and Disruption Protocol (2nd edition)** and **AACE International RP 29R-03, Forensic Schedule
+Analysis**, which sets out nine methodologies. Name the one you are using and why — an unnamed method
+is the first thing the other side attacks.
+
+**Classify the delay before you measure it.** Three questions, in order, and they are independent:
+
+1. **Excusable?** Was the cause outside the contractor's control (owner change, design error, differing
+   site conditions, permit delay, exceptional weather, force majeure)? If not, it is **non-excusable** —
+   the contractor absorbs it and may owe LDs.
+2. **Compensable?** Excusable buys *time*. Money is a separate question: owner-caused delay is normally
+   **excusable and compensable** (prolongation costs follow); neutral events like weather are usually
+   **excusable but non-compensable** — time, no money. Conflating the two is the most common and most
+   expensive error in this whole area.
+3. **On the critical path?** A delay to an activity with float consumes float, not time. **Whoever owns
+   the float matters** — many contracts are silent, and "float belongs to the project" versus "to the
+   contractor" changes the answer. Check the clause before you argue.
+
+**Concurrent delay** — two independent causes, one owner-side and one contractor-side, driving the same
+period — is where most disputes actually live, and the treatment is jurisdiction- and contract-specific.
+Get it advised, not assumed.
+
+**The method families** (AACE groups them by observational vs modelled, static vs dynamic, additive vs
+subtractive):
+
+| Method | What it does | Best for |
+|---|---|---|
+| **As-planned vs as-built** | Compares the baseline to what happened | Simple, cheap, weakest evidentially |
+| **Windows / contemporaneous period analysis** | Walks the schedule period by period using the updates as they were | The most defensible, and usually preferred where updates exist |
+| **Impacted as-planned** | Inserts delay events into the baseline | Prospective EOT; ignores what actually happened |
+| **Time impact analysis (TIA)** | Models a single event against the schedule current at that moment | Contemporaneous EOT applications — often what the contract requires |
+| **Collapsed as-built ("but-for")** | Removes delays from the as-built to show what would have happened | Retrospective claims; contentious, sensitive to assumptions |
+
+**What actually decides these cases is records, not method.** Contemporaneous, dated evidence —
+schedule updates, daily reports, weather logs, correspondence, and above all **notice given on time** —
+beats a sophisticated analysis built after the fact. Most delay disputes are notice disputes. Keep an
+updated CPM throughout, not a baseline you stopped maintaining at month three.
+
+> Delay entitlement is contractual and jurisdictional. Reason through the classification and the method
+> here, then route the claim itself to a scheduling expert and construction counsel — the standards
+> above set out the technique, and the specific clause and forum set the outcome.
+> (Allocation and the EOT/compensability clauses: `risk-insurance.md` §3.)
+
 - **Long-lead procurement** — the schedule killer. Switchgear, generators, elevators, chillers,
   curtain wall, structural steel, custom AHUs can carry many-month or year-plus lead times. Electrical
   gear has blown out: as of 2026 **large power transformers run 2–4 years** and switchgear is measured

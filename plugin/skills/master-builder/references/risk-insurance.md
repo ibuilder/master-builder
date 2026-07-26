@@ -76,7 +76,10 @@ decide who loses money when things go wrong:
   disputes are notice disputes.
 - **Time, EOT, and concurrent delay** — extension of time vs. *money*. A contractor may win time and
   still absorb its own prolongation cost, depending on whether the delay is excusable *and*
-  compensable. Know which delays are which before you sign.
+  compensable. Know which delays are which before you sign — and know **who owns the float**, because
+  a delay that only eats float is not a delay to completion. How entitlement is actually *proved* —
+  the SCL Protocol and AACE 29R-03 method families, and why records beat method — is in
+  `construction-delivery.md` §4.
 - **Liquidated damages (LDs)** — the owner's pre-agreed delay remedy. Must be a genuine pre-estimate of
   loss, not a penalty, or it may be unenforceable. Usually capped; the cap is the real negotiation.
 - **Indemnity & limitation of liability** — who defends whom, and the overall liability cap (often a

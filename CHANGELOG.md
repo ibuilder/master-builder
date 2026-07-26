@@ -2,6 +2,38 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.14.0] — 2026-07-26
+Surveyed the AEC skills actually on GitHub. Imported the two genuine gaps it exposed on *our* axis,
+and deliberately declined the rest.
+
+### Added
+- **Delay analysis** (`construction-delivery.md` §4) — the skill said EOT is "excusable vs compensable"
+  and stopped, never saying **how entitlement is proved**. Now: the three independent questions
+  (excusable? compensable? on the critical path — and **who owns the float**), concurrent delay as the
+  place most disputes actually live, and the method families from the **SCL Delay and Disruption
+  Protocol (2nd ed.)** and **AACE RP 29R-03** (as-planned vs as-built, windows/contemporaneous period,
+  impacted as-planned, time impact analysis, collapsed as-built) with what each is good for. Plus the
+  part practitioners insist on: **records beat method, and most delay disputes are notice disputes.**
+- **Fire/life-safety and accessibility depth** (`global-codes.md` §2) — both were single bullets in a
+  skill claiming code competence. Now the chain that actually drives design (occupancy classification →
+  occupant load → exits and egress width → travel distance → discharge; ratings, compartmentation,
+  suppression, smoke control, firefighter access), that **sprinklering buys allowable area and height**
+  so it is a commercial decision too, and that accessibility is a **civil-rights obligation enforceable
+  independently of the permit**, with alteration triggers.
+- Two retrieval cases (`delay-claim`, `egress-fire`). **30/30.**
+- README — a "Complementary, not competing" section.
+
+### Deliberately not imported
+- **[Skills-Architects](https://github.com/Abhinavbwj/Skills-Architects)** (MIT, 29 skills) covers the
+  **design axis** — acoustics, daylighting, typology, spatial planning, design theory. Genuinely good,
+  actively maintained, and a different axis from this skill's developer/builder one. Absorbing it would
+  bloat a skill already at 13 references, duplicate maintained work, and re-inflate the `description`
+  trimmed in v0.13.0. **Linked instead.**
+- **[DDC](https://github.com/datadrivenconstruction/DDC_Skills_for_AI_Agents_in_Construction)**
+  (MIT, 221 skills) — the skills are Python *implementations*, a tooling library rather than doctrine.
+  Vendoring would break the zero-dependency rule and change what this skill is. Its delay taxonomy is
+  what prompted the delay-analysis section above; that idea is credited, none of the code was taken.
+
 ## [0.13.0] — 2026-07-26
 Imports from [AlpacaLabs' *skills-for-architects*](https://github.com/AlpacaLabsLLC/skills-for-architects)
 (MIT, credited) — the first of these external repos with a licence permitting reuse. Its strongest

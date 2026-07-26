@@ -346,6 +346,22 @@ open work from others in the AEC-AI space. Credit where it's due:
 Those are separate projects under their own terms — nothing is vendored here. What's written in this
 repo is written independently; only the *lessons* travelled.
 
+### Complementary, not competing
+
+Master Builder covers the **developer/builder axis**: land → money → code → climate → delivery →
+documents → operations. It deliberately does *not* try to be a design skill. If you want depth on the
+**design axis** — acoustics, daylighting, spatial planning, building typology, design theory —
+**[Skills-Architects](https://github.com/Abhinavbwj/Skills-Architects)** (MIT) covers exactly that
+ground and is maintained separately. The two install side by side and don't overlap much; two good
+focused skills beat one that does everything adequately.
+
+Also worth knowing about, and deliberately *not* imported:
+**[DDC Skills for AI Agents in Construction](https://github.com/datadrivenconstruction/DDC_Skills_for_AI_Agents_in_Construction)**
+(MIT) — 221 construction skills, but they are Python *implementations* (BIM conversion, QTO, schedule
+tooling). That's a tooling library rather than doctrine, and vendoring it would break this skill's
+zero-dependency rule. Reach for it when you want the code; reach for this when you want the reasoning.
+Its delay taxonomy did prompt the delay-analysis section in `construction-delivery.md` §4.
+
 ## Contributing
 
 Issues and PRs welcome — especially country/jurisdiction dossiers, additional worked case studies, and

@@ -41,8 +41,23 @@ Land use gates everything else; there's no point engineering a tower the zoning 
    Most of the world: a planning/development-control layer separate from the building code.)
 2. **Building code (structural + general)** — occupancy classification, construction type,
    allowable area/height, egress, fire separation.
-3. **Fire & life safety** — often a separate code and a separate authority (fire marshal / civil defense).
-4. **Accessibility** — ADA (US), Approved Document M (UK/Wales), EN 17210, local equivalents.
+3. **Fire & life safety** — often a separate code and a **separate authority** (fire marshal, civil
+   defence), running in parallel with building control and capable of withholding occupancy on its own.
+   The chain that decides most of the design: **occupancy classification → occupant load → required
+   exits and egress width → travel distance and common path → exit discharge**, then **fire-resistance
+   ratings** of assemblies (and how they're substantiated — a tested assembly, not an assertion),
+   **compartmentation and opening protection**, **sprinklers/standpipes and alarm/detection** (NFPA 13,
+   NFPA 72 in US practice), **smoke control** in atria and high-rise, and **firefighter access**
+   (apparatus routes, hydrants, riser and lift provision). Get the occupancy classification wrong and
+   everything downstream is wrong. Sprinklering frequently *buys* allowable area, height, and travel
+   distance — so it is a commercial decision, not just a safety one.
+4. **Accessibility** — ADA Standards (US), **Approved Document M** (England & Wales), **EN 17210**
+   (Europe), AS 1428 (Australia), local equivalents. It is a **civil-rights obligation in many
+   jurisdictions, not merely a code item** — enforceable by litigation independently of the permit. Live
+   issues: accessible route and entrance, vertical circulation and lift provision, sanitary facilities,
+   reach ranges and clearances, visual/acoustic provision for hearing and vision, and — the one that
+   surprises people — **triggers on alteration** of existing buildings, where a disproportionate-cost
+   limit usually applies but does not remove the duty (`adaptive-reuse.md` §3).
 5. **Energy & sustainability** — IECC/ASHRAE 90.1 (US), Approved Doc L (UK), NCC Section J (AU),
    EPBD (EU); plus rating systems (LEED v5, BREEAM, Passive House, WELL, DGNB, Green Star, Estidama).
    Increasingly a **whole-life / embodied-carbon** requirement, not just operational energy — see

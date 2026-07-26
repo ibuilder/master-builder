@@ -1,7 +1,7 @@
 {
   "name": "master-builder",
   "description": "Reason like a master builder — one mind holding an entire built-asset project from raw land through design, construction, handover, operations and disposition, anywhere in the world.",
-  "version": "0.13.0",
+  "version": "0.14.0",
   "author": {
     "name": "Matthew M. Emma",
     "url": "https://github.com/ibuilder"

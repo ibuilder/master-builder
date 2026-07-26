@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.13.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.14.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -334,8 +334,23 @@ Land use gates everything else; there's no point engineering a tower the zoning 
    Most of the world: a planning/development-control layer separate from the building code.)
 2. **Building code (structural + general)** — occupancy classification, construction type,
    allowable area/height, egress, fire separation.
-3. **Fire & life safety** — often a separate code and a separate authority (fire marshal / civil defense).
-4. **Accessibility** — ADA (US), Approved Document M (UK/Wales), EN 17210, local equivalents.
+3. **Fire & life safety** — often a separate code and a **separate authority** (fire marshal, civil
+   defence), running in parallel with building control and capable of withholding occupancy on its own.
+   The chain that decides most of the design: **occupancy classification → occupant load → required
+   exits and egress width → travel distance and common path → exit discharge**, then **fire-resistance
+   ratings** of assemblies (and how they're substantiated — a tested assembly, not an assertion),
+   **compartmentation and opening protection**, **sprinklers/standpipes and alarm/detection** (NFPA 13,
+   NFPA 72 in US practice), **smoke control** in atria and high-rise, and **firefighter access**
+   (apparatus routes, hydrants, riser and lift provision). Get the occupancy classification wrong and
+   everything downstream is wrong. Sprinklering frequently *buys* allowable area, height, and travel
+   distance — so it is a commercial decision, not just a safety one.
+4. **Accessibility** — ADA Standards (US), **Approved Document M** (England & Wales), **EN 17210**
+   (Europe), AS 1428 (Australia), local equivalents. It is a **civil-rights obligation in many
+   jurisdictions, not merely a code item** — enforceable by litigation independently of the permit. Live
+   issues: accessible route and entrance, vertical circulation and lift provision, sanitary facilities,
+   reach ranges and clearances, visual/acoustic provision for hearing and vision, and — the one that
+   surprises people — **triggers on alteration** of existing buildings, where a disproportionate-cost
+   limit usually applies but does not remove the duty (`adaptive-reuse.md` §3).
 5. **Energy & sustainability** — IECC/ASHRAE 90.1 (US), Approved Doc L (UK), NCC Section J (AU),
    EPBD (EU); plus rating systems (LEED v5, BREEAM, Passive House, WELL, DGNB, Green Star, Estidama).
    Increasingly a **whole-life / embodied-carbon** requirement, not just operational energy — see
@@ -1558,6 +1573,52 @@ design maturity and risk. State currency + date on every number.
   **PPC (Percent Plan Complete)**. Massing includes a Last Planner board for exactly this.
 - **Lookaheads** — the rolling **4–6 week** (and 1-month) windows that turn the master schedule into
   actionable constraint-removal; the workhorse of field coordination.
+### Delay analysis — how you prove it, not just assert it
+
+When the job runs late, "who caused it" stops being a conversation and becomes an evidentiary exercise.
+Two published frameworks govern, and they are **complementary rather than competing**: the **SCL Delay
+and Disruption Protocol (2nd edition)** and **AACE International RP 29R-03, Forensic Schedule
+Analysis**, which sets out nine methodologies. Name the one you are using and why — an unnamed method
+is the first thing the other side attacks.
+
+**Classify the delay before you measure it.** Three questions, in order, and they are independent:
+
+1. **Excusable?** Was the cause outside the contractor's control (owner change, design error, differing
+   site conditions, permit delay, exceptional weather, force majeure)? If not, it is **non-excusable** —
+   the contractor absorbs it and may owe LDs.
+2. **Compensable?** Excusable buys *time*. Money is a separate question: owner-caused delay is normally
+   **excusable and compensable** (prolongation costs follow); neutral events like weather are usually
+   **excusable but non-compensable** — time, no money. Conflating the two is the most common and most
+   expensive error in this whole area.
+3. **On the critical path?** A delay to an activity with float consumes float, not time. **Whoever owns
+   the float matters** — many contracts are silent, and "float belongs to the project" versus "to the
+   contractor" changes the answer. Check the clause before you argue.
+
+**Concurrent delay** — two independent causes, one owner-side and one contractor-side, driving the same
+period — is where most disputes actually live, and the treatment is jurisdiction- and contract-specific.
+Get it advised, not assumed.
+
+**The method families** (AACE groups them by observational vs modelled, static vs dynamic, additive vs
+subtractive):
+
+| Method | What it does | Best for |
+|---|---|---|
+| **As-planned vs as-built** | Compares the baseline to what happened | Simple, cheap, weakest evidentially |
+| **Windows / contemporaneous period analysis** | Walks the schedule period by period using the updates as they were | The most defensible, and usually preferred where updates exist |
+| **Impacted as-planned** | Inserts delay events into the baseline | Prospective EOT; ignores what actually happened |
+| **Time impact analysis (TIA)** | Models a single event against the schedule current at that moment | Contemporaneous EOT applications — often what the contract requires |
+| **Collapsed as-built ("but-for")** | Removes delays from the as-built to show what would have happened | Retrospective claims; contentious, sensitive to assumptions |
+
+**What actually decides these cases is records, not method.** Contemporaneous, dated evidence —
+schedule updates, daily reports, weather logs, correspondence, and above all **notice given on time** —
+beats a sophisticated analysis built after the fact. Most delay disputes are notice disputes. Keep an
+updated CPM throughout, not a baseline you stopped maintaining at month three.
+
+> Delay entitlement is contractual and jurisdictional. Reason through the classification and the method
+> here, then route the claim itself to a scheduling expert and construction counsel — the standards
+> above set out the technique, and the specific clause and forum set the outcome.
+> (Allocation and the EOT/compensability clauses: `risk-insurance.md` §3.)
+
 - **Long-lead procurement** — the schedule killer. Switchgear, generators, elevators, chillers,
   curtain wall, structural steel, custom AHUs can carry many-month or year-plus lead times. Electrical
   gear has blown out: as of 2026 **large power transformers run 2–4 years** and switchgear is measured
@@ -1731,7 +1792,10 @@ decide who loses money when things go wrong:
   disputes are notice disputes.
 - **Time, EOT, and concurrent delay** — extension of time vs. *money*. A contractor may win time and
   still absorb its own prolongation cost, depending on whether the delay is excusable *and*
-  compensable. Know which delays are which before you sign.
+  compensable. Know which delays are which before you sign — and know **who owns the float**, because
+  a delay that only eats float is not a delay to completion. How entitlement is actually *proved* —
+  the SCL Protocol and AACE 29R-03 method families, and why records beat method — is in
+  `construction-delivery.md` §4.
 - **Liquidated damages (LDs)** — the owner's pre-agreed delay remedy. Must be a genuine pre-estimate of
   loss, not a penalty, or it may be unenforceable. Usually capped; the cap is the real negotiation.
 - **Indemnity & limitation of liability** — who defends whom, and the overall liability cap (often a
@@ -2839,4 +2903,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.13.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.14.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
