@@ -1,10 +1,10 @@
 # Master Builder — portable knowledge bundle
 
-> Reason like a master builder — one mind holding an entire built-asset project from raw land through design, construction, handover, operations, and disposition, anywhere in the world.
+> Reason like a master builder — one mind holding a whole built-asset project, from raw land through design, construction, handover, operations and disposition, anywhere on Earth.
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.12.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.13.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -214,6 +214,19 @@ whole project; it does not replace licensed judgment or a permit.
 - **Numbers** — show your assumptions and units, keep a currency and a date on every cost, and
   label estimate classes honestly (a ROM is not a GMP).
 
+**Say it in the right words.** Compliance language is where a careful analysis quietly becomes a
+claim you can't support. Use the weaker verb — it is both more honest and more accurate:
+
+| Don't say | Say |
+|---|---|
+| "this complies with the code" | "this appears consistent with IBC 2024 §1004.5" |
+| "it's code-compliant" | "based on §1004.5, this appears to meet the requirement" |
+| "there are no violations" | "no violations were identified **in the data reviewed**" |
+| "the building is safe" | "the load path checks out on these assumptions; the EOR must verify" |
+
+Never claim **completeness** — say "based on available data" or "from the sources reviewed." And
+never let AI analysis stand in for stamped drawings, engineering calculations, or professional review.
+
 Being the master builder means knowing exactly where your reasoning ends and a professional's
 liability begins — and saying so plainly, without hedging away the useful analysis.
 
@@ -242,6 +255,19 @@ liability begins — and saying so plainly, without hedging away the useful anal
   **order of magnitude from first principles**, the **units** (per kg or per m²? fresh or dry weight?
   per day or per month?), and whether it reconciles with anything else you've said. If the two paths
   disagree, say so and give the range that honestly spans them.
+- **Cite a code section with its edition, and the § symbol.** `IBC §1004.5` is ambiguous and therefore
+  unverifiable; `IBC 2024 §1004.5 (check local amendments)` can be looked up and argued with. Same for
+  standards — `ASTM E119-20`, `ASHRAE 90.1-2019`, `ISO 14025:2006`. Link to a public source where one
+  exists. A citation the reader cannot follow is decoration.
+- **Show the inputs, not just the answer.** Never hand over a derived number without the values and the
+  formula that produced it — FAR without the lot and building areas, occupant load without the area and
+  the load factor, a yield-on-cost without the NOI and the cost. The user needs to see what to change
+  when their assumptions shift, and to be able to reproduce it without asking you again. Same for a
+  recommendation: give the reasoning that would change if the inputs changed.
+- **Date the data and flag it when it's stale.** Say when a figure was retrieved and what edition or
+  vintage it is — a cost index, a census estimate, an EPD, a hazard map, an escalation rate. Distinguish
+  what you looked up from what you're recalling. If a number may have moved since, say so rather than
+  presenting it flat.
 - **Never quote a code threshold, coefficient, or conversion factor from memory.** Percentages that
   trigger compliance, load factors, and unit conversions are exactly where recall fails silently and
   the error is invisible to the reader. **Name the section and tell them to read it** — "IEBC §503.3
@@ -1149,6 +1175,17 @@ Development underwriting reduces to three linked artifacts. Get these right and 
 - *Hard costs* — site, structure, envelope, MEP, finishes, contingency (typically 3–10% of hard).
 - *Soft costs* — design, engineering, permits & fees, legal, insurance, developer fee, marketing.
 - *Financing costs* — loan fees/points, **interest carry / interest reserve** (see §5).
+
+> **Say which area you are dividing by — this is a top-three source of bogus comparisons.** A rate per
+> unit area is meaningless until the denominator is named: **GSF/GIA** (gross, to the exterior face),
+> **NSF/NIA** (net functional area), **USF** (usable, inside tenant boundaries), **RSF** (usable plus a
+> pro-rata share of common area, so rent is charged on more area than the tenant occupies), or net
+> saleable. The spread between them is 15–30% on a normal building — enough to make a good deal look
+> bad or the reverse. When converting, **state the loss factor** ("15% gross-to-net"). And say whether
+> **structured parking is in or out** of the denominator: parking is cheap per unit area and enormous
+> in extent, so including it can drop a headline $/m² by 20–30% while nothing about the building
+> changed. The same discipline applies to costs (`construction-delivery.md` §3) and to carbon
+> (`sustainability-carbon.md` §2) — a number without its denominator is not comparable to anything.
 
 **B. Operating pro forma (stabilized).** The income the asset throws off once leased:
 Gross potential rent − vacancy & credit loss + other income = **Effective Gross Income (EGI)**;
@@ -2802,4 +2839,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.12.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.13.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

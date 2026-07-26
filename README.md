@@ -97,7 +97,9 @@ you use Claude. You only need to do this once. (Using something other than Claud
 
 ### Option 1 — plugin marketplace (Claude Code, with auto-updates)
 
-The tidiest route if you use Claude Code. Two commands, typed inside Claude Code:
+The tidiest route **if you use the Claude Code CLI**. Two commands, typed inside an interactive
+`claude` terminal session — `/plugin` is a terminal-panel command and isn't available in every
+surface (the desktop and web apps don't offer it; use Option 2 or 3 there):
 
 ```
 /plugin marketplace add ibuilder/master-builder
@@ -333,6 +335,13 @@ open work from others in the AEC-AI space. Credit where it's due:
   AutoCAD, Navisworks, MicroStation, Dynamo, 3ds Max and Grasshopper, which prompted the
   "driving the incumbent authoring tools" entry in
   [`references/digital-toolkit.md`](references/digital-toolkit.md).
+
+- **[AlpacaLabs](https://github.com/AlpacaLabsLLC/skills-for-architects)** — *skills-for-architects*
+  (MIT), a large plugin of architecture/real-estate skills with a `rules/` layer, enforcement hooks,
+  and a published context audit. Its compliance-language discipline ("appears consistent with", never
+  "complies with"), code-citation format, show-your-work rule, and area-type conventions sharpened the
+  professional-boundaries and output sections of `SKILL.md`; its context-audit idea prompted trimming
+  this skill's always-loaded `description` by a third.
 
 Those are separate projects under their own terms — nothing is vendored here. What's written in this
 repo is written independently; only the *lessons* travelled.

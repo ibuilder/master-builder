@@ -6,14 +6,14 @@
   },
   "metadata": {
     "description": "Open tools for the built environment, from ibuilder.",
-    "version": "0.12.0"
+    "version": "0.13.0"
   },
   "plugins": [
     {
       "name": "master-builder",
       "source": "./plugin",
       "description": "Reason like a master builder — one mind holding an entire built-asset project from raw land through design, construction, handover, operations and disposition, anywhere in the world. Codes, climate and building science, development finance, pro-forma review, delivery and contracts, risk and insurance, adaptive reuse, carbon, BIM, and construction document intelligence.",
-      "version": "0.12.0",
+      "version": "0.13.0",
       "author": {
         "name": "Matthew M. Emma",
         "url": "https://github.com/ibuilder"

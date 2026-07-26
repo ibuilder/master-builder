@@ -30,6 +30,17 @@ Development underwriting reduces to three linked artifacts. Get these right and 
 - *Soft costs* — design, engineering, permits & fees, legal, insurance, developer fee, marketing.
 - *Financing costs* — loan fees/points, **interest carry / interest reserve** (see §5).
 
+> **Say which area you are dividing by — this is a top-three source of bogus comparisons.** A rate per
+> unit area is meaningless until the denominator is named: **GSF/GIA** (gross, to the exterior face),
+> **NSF/NIA** (net functional area), **USF** (usable, inside tenant boundaries), **RSF** (usable plus a
+> pro-rata share of common area, so rent is charged on more area than the tenant occupies), or net
+> saleable. The spread between them is 15–30% on a normal building — enough to make a good deal look
+> bad or the reverse. When converting, **state the loss factor** ("15% gross-to-net"). And say whether
+> **structured parking is in or out** of the denominator: parking is cheap per unit area and enormous
+> in extent, so including it can drop a headline $/m² by 20–30% while nothing about the building
+> changed. The same discipline applies to costs (`construction-delivery.md` §3) and to carbon
+> (`sustainability-carbon.md` §2) — a number without its denominator is not comparable to anything.
+
 **B. Operating pro forma (stabilized).** The income the asset throws off once leased:
 Gross potential rent − vacancy & credit loss + other income = **Effective Gross Income (EGI)**;
 EGI − operating expenses = **Net Operating Income (NOI)**. NOI is the number the value hangs on.

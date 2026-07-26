@@ -2,6 +2,37 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.13.0] — 2026-07-26
+Imports from [AlpacaLabs' *skills-for-architects*](https://github.com/AlpacaLabsLLC/skills-for-architects)
+(MIT, credited) — the first of these external repos with a licence permitting reuse. Its strongest
+contribution is language discipline; its context audit exposed bloat in our own frontmatter.
+
+### Added
+- **Compliance language, as explicit word-for-word substitutions.** The skill said "route it to a
+  professional" but never gave the wording, which is where a careful analysis quietly becomes an
+  unsupportable claim: never *"complies with the code"* → *"appears consistent with IBC 2024 §1004.5"*;
+  never *"no violations"* → *"no violations were identified **in the data reviewed**."* Never claim
+  completeness.
+- **Citation format** — a section without its edition is unverifiable. `IBC 2024 §1004.5 (check local
+  amendments)`, `ASTM E119-20`, `ASHRAE 90.1-2019`, with a public link where one exists. Complements
+  v0.11.0's "never quote a threshold from memory."
+- **Show the inputs, not just the answer** — no derived number without the values and formula behind
+  it, so the reader can reproduce it and see what to change when assumptions shift.
+- **Date the data and flag it when stale** — distinguish what was looked up from what is recalled.
+  (This is the rule that would have caught the unresolved ~8%/yr escalation flag from v0.12.0.)
+- **Area-type discipline** in `real-estate-finance.md` — GSF/GIA vs NSF/NIA vs USF vs RSF differ by
+  15–30%, enough to invert a deal's appearance; state the loss factor when converting, and say whether
+  structured parking is in the denominator.
+- Two regression cases (`compliance-language`, `show-your-work`). Eval set now **20 cases**.
+
+### Changed
+- **`description` cut from 2,024 to 1,370 characters (~506 → ~343 est. tokens), a 32% reduction**, with
+  every trigger term retained and asserted. A skill's description is *always-loaded standing context* —
+  it costs tokens in every session whether or not the skill fires — and five releases of appending
+  triggers had bloated it. Their published context audit is what prompted measuring ours at all.
+- README — `/plugin` is a terminal-panel command and is not available in every surface; the marketplace
+  option now says so rather than implying it works everywhere.
+
 ## [0.12.0] — 2026-07-25
 Runs the counterfactual the previous two runs couldn't: **does the skill change behaviour, or is the
 model already like this?** Blinded baseline, and the answer is yes — measurably, on 8 of 18 cases.
