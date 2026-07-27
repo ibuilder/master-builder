@@ -16,13 +16,17 @@ Thanks for helping build this out.
 ## Workflow
 1. Fork and branch.
 2. Make the change; if it touches triggering, update the `description` in `SKILL.md` frontmatter.
-3. Rerun the build so the packages and the portable bundle stay in sync with the source:
+3. **If you added a capability, update its row in the `SKILL.md` reference table.** That table is the
+   runtime routing map — it is what Claude reads to decide which reference to open, and it is also the
+   source the MCP server's `list_references` serves. The retrieval eval scores reference *bodies*, so a
+   stale table passes CI silently. This one is on the author.
+4. Rerun the build so the packages and the portable bundle stay in sync with the source:
    ```bash
    python scripts/build.py
    ```
    Everything in `dist/` **and `plugin/skills/master-builder/`** is generated — never edit those by hand.
    If you add or rename a reference, the build picks it up automatically; just commit the result.
-4. Check your work (CI runs exactly these, on Python 3.9 and 3.12):
+5. Check your work (CI runs exactly these, on Python 3.9 and 3.12):
    ```bash
    python scripts/validate.py            # structure, links, and the plugin manifests
    python scripts/eval_retrieval.py      # every question still routes to the right reference
@@ -31,6 +35,6 @@ Thanks for helping build this out.
    ```
    If you add substantial new material, add a retrieval case for it in `evals/retrieval.jsonl` — a
    topic the eval doesn't cover can silently rot.
-5. Open a PR describing what changed and why.
+6. Open a PR describing what changed and why.
 
-All three scripts are **stdlib-only** — no dependencies, no lockfile, nothing to install. Keep it that way.
+Every script in `scripts/` is **stdlib-only** — no dependencies, no lockfile, nothing to install. Keep it that way.

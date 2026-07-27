@@ -22,13 +22,13 @@ The one behavior you lose versus the native Claude skill is *progressive disclos
 ## What's inside
 
 1. **The Master Builder Protocol** — the core reasoning method (from `SKILL.md`).
-2. **global-codes.md** — Any jurisdiction, code, permit, load, or "is this allowed / how is it done in country X"
+2. **global-codes.md** — Any jurisdiction, code, permit, load, **fire/life-safety and egress, accessibility**, utility gates, or "is this allowed / how is it done in country X"
 3. **jurisdiction-dossiers.md** — **The localization procedure** for any place on Earth + a code-family router, four worked dossiers (UK, UAE, Australia, Canada), and a template
 4. **climate-building-science.md** — Climate → envelope and assemblies: vapour drive and drying, control layers, Köppen families, mixed climates, ground, durability, build window
 5. **development-lifecycle.md** — Site selection, feasibility, entitlements, due diligence, phase gates, stakeholders
 6. **real-estate-finance.md** — Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls
 7. **pro-forma-review.md** — Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation
-8. **construction-delivery.md** — Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls
+8. **construction-delivery.md** — Delivery methods, contracts, estimating, scheduling, **delay analysis and EOT claims**, procurement, construction admin, controls
 9. **risk-insurance.md** — Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing
 10. **adaptive-reuse.md** — Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards
 11. **digital-toolkit.md** — BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work
@@ -149,13 +149,13 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 
 | Read this | When the task involves |
 |---|---|
-| `references/global-codes.md` | Any jurisdiction, code, permit, load, or "is this allowed / how is it done in country X" |
+| `references/global-codes.md` | Any jurisdiction, code, permit, load, **fire/life-safety and egress, accessibility**, utility gates, or "is this allowed / how is it done in country X" |
 | `references/jurisdiction-dossiers.md` | **The localization procedure** for any place on Earth + a code-family router, four worked dossiers (UK, UAE, Australia, Canada), and a template |
 | `references/climate-building-science.md` | Climate → envelope and assemblies: vapour drive and drying, control layers, Köppen families, mixed climates, ground, durability, build window |
 | `references/development-lifecycle.md` | Site selection, feasibility, entitlements, due diligence, phase gates, stakeholders |
 | `references/real-estate-finance.md` | Pro formas, underwriting, returns, capital stack, construction loans, JV waterfalls |
 | `references/pro-forma-review.md` | Reviewing/critiquing/stress-testing an existing model or deal — model-integrity audit, "does this pencil", forensic reconciliation |
-| `references/construction-delivery.md` | Delivery methods, contracts, estimating, scheduling, procurement, construction admin, controls |
+| `references/construction-delivery.md` | Delivery methods, contracts, estimating, scheduling, **delay analysis and EOT claims**, procurement, construction admin, controls |
 | `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
 | `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
@@ -1573,6 +1573,15 @@ design maturity and risk. State currency + date on every number.
   **PPC (Percent Plan Complete)**. Massing includes a Last Planner board for exactly this.
 - **Lookaheads** — the rolling **4–6 week** (and 1-month) windows that turn the master schedule into
   actionable constraint-removal; the workhorse of field coordination.
+- **Long-lead procurement** — the schedule killer. Switchgear, generators, elevators, chillers,
+  curtain wall, structural steel, custom AHUs can carry many-month or year-plus lead times. Electrical
+  gear has blown out: as of 2026 **large power transformers run 2–4 years** and switchgear is measured
+  in quarters — for power-intensive projects the electrical infrastructure, not the structure, is
+  frequently the critical path (see the interconnection gate in `global-codes.md` §2). Maintain a
+  **long-lead expediting log** and release these early — often before CDs are complete. (This is a
+  deliverable Matt has produced on live projects.)
+
+
 ### Delay analysis — how you prove it, not just assert it
 
 When the job runs late, "who caused it" stops being a conversation and becomes an evidentiary exercise.
@@ -1619,15 +1628,8 @@ updated CPM throughout, not a baseline you stopped maintaining at month three.
 > above set out the technique, and the specific clause and forum set the outcome.
 > (Allocation and the EOT/compensability clauses: `risk-insurance.md` §3.)
 
-- **Long-lead procurement** — the schedule killer. Switchgear, generators, elevators, chillers,
-  curtain wall, structural steel, custom AHUs can carry many-month or year-plus lead times. Electrical
-  gear has blown out: as of 2026 **large power transformers run 2–4 years** and switchgear is measured
-  in quarters — for power-intensive projects the electrical infrastructure, not the structure, is
-  frequently the critical path (see the interconnection gate in `global-codes.md` §2). Maintain a
-  **long-lead expediting log** and release these early — often before CDs are complete. (This is a
-  deliverable Matt has produced on live projects.)
-
 ---
+
 
 ## 5. Procurement, supply chain, and prefab/DfMA
 

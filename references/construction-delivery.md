@@ -105,6 +105,15 @@ design maturity and risk. State currency + date on every number.
   **PPC (Percent Plan Complete)**. Massing includes a Last Planner board for exactly this.
 - **Lookaheads** — the rolling **4–6 week** (and 1-month) windows that turn the master schedule into
   actionable constraint-removal; the workhorse of field coordination.
+- **Long-lead procurement** — the schedule killer. Switchgear, generators, elevators, chillers,
+  curtain wall, structural steel, custom AHUs can carry many-month or year-plus lead times. Electrical
+  gear has blown out: as of 2026 **large power transformers run 2–4 years** and switchgear is measured
+  in quarters — for power-intensive projects the electrical infrastructure, not the structure, is
+  frequently the critical path (see the interconnection gate in `global-codes.md` §2). Maintain a
+  **long-lead expediting log** and release these early — often before CDs are complete. (This is a
+  deliverable Matt has produced on live projects.)
+
+
 ### Delay analysis — how you prove it, not just assert it
 
 When the job runs late, "who caused it" stops being a conversation and becomes an evidentiary exercise.
@@ -151,15 +160,8 @@ updated CPM throughout, not a baseline you stopped maintaining at month three.
 > above set out the technique, and the specific clause and forum set the outcome.
 > (Allocation and the EOT/compensability clauses: `risk-insurance.md` §3.)
 
-- **Long-lead procurement** — the schedule killer. Switchgear, generators, elevators, chillers,
-  curtain wall, structural steel, custom AHUs can carry many-month or year-plus lead times. Electrical
-  gear has blown out: as of 2026 **large power transformers run 2–4 years** and switchgear is measured
-  in quarters — for power-intensive projects the electrical infrastructure, not the structure, is
-  frequently the critical path (see the interconnection gate in `global-codes.md` §2). Maintain a
-  **long-lead expediting log** and release these early — often before CDs are complete. (This is a
-  deliverable Matt has produced on live projects.)
-
 ---
+
 
 ## 5. Procurement, supply chain, and prefab/DfMA
 
