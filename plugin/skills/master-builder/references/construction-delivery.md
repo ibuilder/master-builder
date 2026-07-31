@@ -85,8 +85,17 @@ design maturity and risk. State currency + date on every number.
 
 > **The 2025–26 escalation environment is a live driver, not a background assumption.** US **Section 232
 > tariffs of ~50% on steel, aluminium, and copper** (derivatives ~25%) pushed steel mill products up
-> ~20% and aluminium ~33% year-over-year into early 2026, with nonresidential input prices running at
-> their fastest pace since 2022 and aggregate cost escalation around ~8%. Treat metals, and anything
+> ~20% and aluminium ~33% year-over-year into early 2026, with pressure sustained by data-centre,
+> electrification and advanced-manufacturing demand.
+>
+> **Name the index, and check it yourself — the published indices disagree, materially.** As of
+> **Q1 2026**, Mortenson's nonresidential index ran **+1.69% on the quarter and +6.77% year-over-year**
+> (materials +7.0%, trade-partner work +6.6%), while Turner's was **+1.3% on the quarter and +3.1%
+> against the 2025 average** — a spread wide enough to change a go/no-go on a long programme. They
+> differ by basket, geography, and whether they track bid prices or input costs. So **"construction
+> escalation is X%" is not a fact until you say whose index, which quarter, and which market**; pick the
+> index that matches your project type and location, quote it with its date, and re-check it at estimate
+> time rather than carrying a number forward. Treat metals, and anything
 > imported, as volatile: get **firm quotes with expiry dates**, negotiate **price-escalation / material-cost
 > clauses** (who carries the tariff and commodity risk — the allocation question, and the clauses that
 > settle it, are in `risk-insurance.md` §3), buy out and lock long-leads early, and carry

@@ -2,6 +2,33 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.16.0] — 2026-07-31
+Closes the oldest open debt in the repo: the escalation figure a blind grader flagged three releases
+ago. **The grader was right — our own number was stale.**
+
+### Fixed
+- **`construction-delivery.md` §3 — the ~8%/yr escalation figure was high.** Re-verified against Q1
+  2026 data: **Mortenson's** nonresidential index ran **+1.69% on the quarter, +6.77% year-over-year**
+  (materials +7.0%, trade-partner work +6.6%); **Turner's** ran **+1.3% on the quarter and +3.1%**
+  against the 2025 average. Both are now quoted, dated and attributed, replacing a single unsourced
+  figure.
+
+### Added
+- **"Name the index" as doctrine.** The re-verification surfaced something more useful than the
+  correction: the two published indices **disagree by more than 2×** — different baskets, geographies,
+  and bid-price-vs-input-cost bases. So *"construction escalation is X%"* is not a fact until you say
+  **whose index, which quarter, and which market**. Pick the index that matches the project type and
+  location, quote it with its date, and re-check at estimate time rather than carrying a number forward.
+- Behaviour regression case `index-provenance` (**21 cases**) guarding exactly this.
+- `evals/results/2026-07-25-baseline.md` — the open flag is marked **RESOLVED** in place, with the
+  outcome, rather than the record being quietly edited.
+
+### Why this mattered
+The flag came from an *adversarial* reader of the skill's own output, was recorded as unresolved rather
+than dismissed because it was ours, and turned out to be correct. That loop — flag, verify, correct,
+guard with a test — is the skill's own doctrine (`SKILL.md`: date the data and flag it when stale)
+applied to itself.
+
 ## [0.15.0] — 2026-07-30
 Extends the skill from *reading* project documents to *judging AI output about them* — and adds the
 defect class that cross-referencing structurally cannot catch.
