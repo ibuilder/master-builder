@@ -32,6 +32,9 @@ jobs:
       - name: Skill structure is intact
         run: python scripts/validate.py
 
+      - name: Plugin discovery resolves (simulation, not an install)
+        run: python scripts/verify_plugin.py
+
       - name: Retrieval eval — every question routes to the right reference
         run: python scripts/eval_retrieval.py
 

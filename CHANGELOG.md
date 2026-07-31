@@ -2,6 +2,42 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.17.0] — 2026-07-31
+Closes the three items that were standing open, and the one that went least well taught the most.
+
+### Added
+- **Cross-model run** (`evals/results/2026-07-31-crossmodel.md`) — the same blinded design on **Haiku**.
+  **No skill: 1/8. With skill: 6/8.** Five of eight cases changed verdict, none against. **The lift is
+  larger on the weaker model** (12.5% → 75%, vs 50% → 94% on the larger one), which is the direction
+  predicted if the skill supplies *knowledge* rather than *style* — the strongest evidence yet against
+  the "it was just the model" reading. Honestly scoped: this is cross-*model*, not cross-*vendor*, and
+  the single-vendor limitation is **not** lifted.
+- **`scripts/verify_plugin.py`** — walks the loader's documented resolution path (catalog → source →
+  `skills/<name>/SKILL.md` → frontmatter), confirms the skill is discovered as
+  `/master-builder:master-builder`, and proves no top-level `skills/` tree exists to double-load. Now a
+  CI gate. It states in its own output that it does **not** run `/plugin install`, which remains
+  unverifiable without an interactive CLI session.
+- **`examples/vietnam-localization-walkthrough.md`** — a second worked example, demonstrating the
+  localization procedure on a jurisdiction with **no dossier and no router entry**. Vietnam's amended
+  Law on Construction took effect **1 July 2026**, so guidance assembled from 2024 sources describes a
+  superseded regime — R2's purpose demonstrated live. Ends with what it could *not* resolve.
+
+### Fixed — both found by the cross-model run
+- **Internal reference filenames were leaking into user-facing prose.** A grader caught
+  `global-codes.md §2` surfaced to a user as though it were a citation. Filenames are **navigation, not
+  citations**; cite the code section or standard instead.
+- **"A check you cannot verify is not a check."** One answer *performed* the sanity check required
+  since v0.11.0 and got the check itself **wrong by 1,000×** — GWh where its own rate gave MWh, with a
+  cost figure that silently agreed with the error. The form of verification without the substance,
+  which is worse than none because it launders the original error. SKILL.md now requires the check to
+  carry its units through and land in the same order of magnitude as the claim.
+
+### Recorded, not smoothed over
+`numeric-sanity` **failed in both arms** — the v0.11.0 sanity rule did not hold on a weaker model.
+**The rule is capability-dependent**: it works on a stronger model and degrades to ritual on a weaker
+one. That is a real bound on what this skill can promise, and it is stated in the results file rather
+than buried.
+
 ## [0.16.0] — 2026-07-31
 Closes the oldest open debt in the repo: the escalation figure a blind grader flagged three releases
 ago. **The grader was right — our own number was stale.**

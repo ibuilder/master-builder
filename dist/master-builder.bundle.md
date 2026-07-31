@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.16.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.17.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -213,6 +213,13 @@ whole project; it does not replace licensed judgment or a permit.
   counsel and note the regulatory exposure. (See the tokenization and JV material in the finance reference.)
 - **Numbers** — show your assumptions and units, keep a currency and a date on every cost, and
   label estimate classes honestly (a ROM is not a GMP).
+- **The reference filenames in this skill are navigation, not citations.** `global-codes.md §2` tells
+  *you* where to look; it means nothing to the user and reads as a leaked internal note. Cite the
+  actual authority instead — the code section, the standard, the hazard map.
+- **A check you cannot verify is not a check.** If you sanity-test a figure, the test itself has to be
+  right: carry the units through it and confirm the arithmetic lands in the same order of magnitude as
+  the claim. A "sanity check" that is itself wrong by a factor of a thousand is worse than none — it
+  launders the original error and looks like diligence while doing it.
 
 **Say it in the right words.** Compliance language is where a careful analysis quietly becomes a
 claim you can't support. Use the weaker verb — it is both more honest and more accurate:
@@ -2981,4 +2988,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.16.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.17.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

@@ -230,6 +230,7 @@ docs/
 examples/
   hempstead-vertical-farm-case-study.md   # using the skill to critique the author's own 2021 thesis
   hempstead-corrected-model.xlsx          # the rebuilt, formula-driven feasibility model
+  vietnam-localization-walkthrough.md     # the localization procedure worked on a jurisdiction with no dossier
 evals/
   retrieval.jsonl                # 28 real questions -> the reference each must route to (CI-enforced)
   behavior.jsonl                 # 12 questions + the conventions the answer must obey (model-graded)
@@ -237,6 +238,7 @@ scripts/
   build.py                       # regenerates every dist/ artifact from the source (one build command)
   mcp_server.py                  # zero-dependency MCP server (stdio) — serves the skill on demand
   validate.py                    # enforces the authoring rules (lean SKILL.md, table ↔ files, links)
+  verify_plugin.py               # simulates plugin discovery (does NOT run /plugin install)
   eval_retrieval.py              # proves the corpus answers real questions, from the right file
   eval_behavior.py               # validates + prints the behavioural grading sheet
 dist/                            # generated — do not edit by hand
@@ -287,6 +289,26 @@ Equally honest about where it *doesn't* help: on unpressured first-ask boundary 
 first ask; it breaks on the **second**, which is exactly where the skill earns its keep — and which
 no single-turn evaluation would have caught. Full method, flags and limitations:
 [`evals/results/2026-07-25-baseline.md`](evals/results/2026-07-25-baseline.md).
+
+### Does it transfer to a weaker model?
+
+The baseline's standing limitation was *single model family*. A cross-**vendor** test still isn't
+runnable here — but the sharper question is whether the skill supplies **knowledge** or just **style**,
+and a smaller model has less latent knowledge to fall back on. Same blinded design, on **Haiku**:
+
+| | PASS |
+|---|---|
+| Haiku, no skill | **1 / 8** |
+| Haiku + skill | **6 / 8** |
+
+**The lift is larger on the weaker model** — 12.5% → 75%, against 50% → 94% on the larger one. That's
+the direction predicted if the skill carries content rather than polish.
+
+It also found the skill's clearest limit. `numeric-sanity` **failed in both arms**, and one answer
+*performed* the required sanity check while getting the check itself wrong by 1,000× — the form of
+verification without the substance. **The sanity-check rule is capability-dependent**: it holds on a
+stronger model and degrades to ritual on a weaker one. Recorded in
+[`evals/results/2026-07-31-crossmodel.md`](evals/results/2026-07-31-crossmodel.md) rather than smoothed over.
 
 **What is *not* automated, stated plainly:** [`evals/behavior.jsonl`](evals/behavior.jsonl) holds 12
 questions with the conventions each answer must obey — states its jurisdiction and code edition, carries
