@@ -2,6 +2,38 @@
 
 All notable changes to the **master-builder** skill.
 
+## [0.15.0] — 2026-07-30
+Extends the skill from *reading* project documents to *judging AI output about them* — and adds the
+defect class that cross-referencing structurally cannot catch.
+
+### Added
+- **`document-intelligence.md` §7 — "Generated output: plausible is not buildable."** The mirror of
+  v0.11.0's wrong-but-well-formatted number: geometry that looks right and cannot be built. Grounded in
+  the **DreamHouse** benchmark ([arXiv 2603.24866](https://arxiv.org/abs/2603.24866); 26,000+ structures,
+  13 styles, LOD 350, a deterministic 10-test validation framework), whose finding is blunt —
+  *"physical validity is not a byproduct of visual imitation, and vice versa."* Best **joint**
+  structural-and-visual pass rate: **7.1%**, with the axes coming apart between models (one leads
+  structurally at 79.2% while scoring lowest visually). Practice: never treat a render as evidence of
+  feasibility; validate generated geometry against a **deterministic** engine, not another model;
+  constrain generation up front; the stamp does not move.
+- **"Protocol dominates model"** — the same benchmark found a **33-point** structural swing
+  (45.4% → 78.5%) from changing task scaffolding alone, larger than between-model differences under a
+  fixed protocol. Restructure the task before reaching for a different model.
+- **`document-intelligence.md` §6 — the omission problem.** A cross-document join finds
+  *contradictions*; it will **never** find a requirement absent from both documents. Adds the
+  three-pass shape: what the documents address → what *should* apply, researched independently → the
+  delta, reported as gaps to confirm with confidence and citations. Pass 2 is the one that cannot be
+  derived from the project file, and it is the whole value.
+- Cross-links from `build-doctrine.md` §5 (a generated artifact's gate must be physical, not visual)
+  and `digital-toolkit.md` §7 (generative design needs a deterministic referee).
+- Two retrieval cases (`generated-geometry`, `missing-requirement`). **32/32.**
+
+### Note on sourcing
+The source article's two headline figures were **both wrong**, and the paper was used instead: the
+scaffolding gap is **33 points, not 46**, and "physically valid only 7.1% of the time" is actually the
+**joint** structural-and-visual rate — structural alone is far higher. Recorded here because the skill
+tells its users not to propagate unverified numbers.
+
 ## [0.14.0] — 2026-07-26
 Surveyed the AEC skills actually on GitHub. Imported the two genuine gaps it exposed on *our* axis,
 and deliberately declined the rest.

@@ -4,7 +4,7 @@
 
 This single file is the **complete Master Builder skill** — its reasoning protocol and full reference library — concatenated into one document so it can be used in **any** AI assistant, not just Claude. It is generated from the source at https://github.com/ibuilder/master-builder (MIT-licensed) — do not edit by hand; edit the source and rerun `scripts/build.py`.
 
-**Version 0.14.0** · Source of truth: https://github.com/ibuilder/master-builder
+**Version 0.15.0** · Source of truth: https://github.com/ibuilder/master-builder
 
 ---
 
@@ -32,7 +32,7 @@ The one behavior you lose versus the native Claude skill is *progressive disclos
 9. **risk-insurance.md** — Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing
 10. **adaptive-reuse.md** — Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards
 11. **digital-toolkit.md** — BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work
-12. **document-intelligence.md** — Extracting trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, confidence by provenance, coverage-aware audit
+12. **document-intelligence.md** — Trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, **missing-requirement gap analysis**, confidence by provenance, coverage-aware audit, and **whether AI-generated design output is buildable**
 13. **sustainability-carbon.md** — Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation
 14. **build-doctrine.md** — How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code
 
@@ -159,7 +159,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
 | `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
-| `references/document-intelligence.md` | Extracting trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, confidence by provenance, coverage-aware audit |
+| `references/document-intelligence.md` | Trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, **missing-requirement gap analysis**, confidence by provenance, coverage-aware audit, and **whether AI-generated design output is buildable** |
 | `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |
 
@@ -2316,6 +2316,10 @@ The practical, near-term AI leverage in AEC — the productized-workflow layer:
   **schedule-risk, embodied-carbon, permit-readiness, drawing-QA and standards checks**, and even **author
   the model with GUID-stable recipes** — all through the same gated engines the UI uses, so carbon and
   code checks run off the one authoritative model rather than a side spreadsheet.
+- **Generative design needs a deterministic referee.** Where a model produces geometry rather than
+  text, review it against an engine — clash, span, load, code pre-check — because visual plausibility
+  and physical validity are orthogonal (`document-intelligence.md` §7). And restructure the task before
+  swapping the model: scaffolding moves results further than model choice does.
 - **Guardrails** — keep AI outputs auditable and human-reviewed for anything touching cost, contract,
   or life-safety; transparent, rules-based logic beats black boxes where money and liability are at stake.
 
@@ -2334,7 +2338,8 @@ their time on judgment — the part of building that is, and should remain, huma
 
 Most of a project's truth is trapped in documents — a 500-page spec book, an 89-sheet drawing set, a
 change-order proposal, a pay application. Read this when the task is to **extract reliable numbers from
-construction documents**, cross-check documents against each other, or build tooling that does.
+construction documents**, cross-check documents against each other, judge whether **AI-generated**
+design output can be trusted, or build tooling that does any of it.
 
 The governing idea: **a number's trustworthiness is a property of how it was derived, not of how
 confident it sounds.** A count read from a door schedule and a length scaled off pixels are not the same
@@ -2347,10 +2352,11 @@ kind of fact, and presenting them with equal certainty is the defect. Everything
 4. Never trust a column that survived text-linearisation
 5. Coverage-aware findings — "0 findings" is not a clean bill of health
 6. Cross-document coordination — where change orders are born
-7. Units, grades, and canonical identity
-8. Writing back to documents — never in place
-9. Deterministic finding vs. judgment call
-10. Applying it
+7. Generated output: plausible is not buildable
+8. Units, grades, and canonical identity
+9. Writing back to documents — never in place
+10. Deterministic finding vs. judgment call
+11. Applying it
 
 ---
 
@@ -2513,9 +2519,67 @@ side. High-value fact families to compare:
 This is the same instinct as the **decision-readiness / RFI-prevention audit** in `digital-toolkit.md`:
 resolve the conflict before it costs money, and do it on paper rather than in the field.
 
+> **A join finds contradictions. It will never find an omission.** Everything above compares what *is*
+> in two documents. The more dangerous defect is a requirement that appears in **neither** — the
+> standard nobody cited, the accessibility clause nobody applied, the testing regime nobody scheduled.
+> No amount of cross-referencing surfaces it, because there is nothing to cross-reference.
+>
+> Catching it needs a deliberately different, **three-pass** shape:
+> 1. **What the documents already address** — extract every code citation, standard, and requirement
+>    actually present in the specs, drawings and schedules.
+> 2. **What *should* apply** — research what governs this scope, in this jurisdiction, for this
+>    occupancy, *independently of what the documents say.*
+> 3. **The delta** — report only what is in (2) and missing from (1), each with a confidence level and a
+>    citation on both sides.
+>
+> Pass 2 is the one that cannot be skipped or derived from the project file, and it is the whole value:
+> you are testing the documents against the world, not against themselves. Report the result as
+> **gaps to confirm, not defects to allege** — and apply §5, because a gap analysis run without the
+> jurisdiction resolved has not checked anything.
+
 ---
 
-## 7. Units, grades, and canonical identity
+## 7. Generated output: plausible is not buildable
+
+Everything above is about reading documents. The mirror problem is **AI that produces** them — a
+layout, a detail, a framing plan, a fit-out. Here the failure mode inverts: instead of a number that
+looks precise and is wrong, you get **geometry that looks right and cannot be built.**
+
+The evidence is unambiguous. The **DreamHouse** benchmark ([arXiv 2603.24866](https://arxiv.org/abs/2603.24866),
+2026) tests exactly this — over 26,000 timber-frame structures across 13 architectural styles, verified
+to **LOD 350**, scored by a deterministic 10-test structural validation framework. Its finding:
+
+> **"Physical validity is not a byproduct of visual imitation, and vice versa."**
+
+Concretely, the best model reached a **joint** structural-and-visual pass rate of just **7.1%**, and the
+two axes came apart entirely between models — one led structurally (79.2%) while scoring *lowest*
+visually; another led visually and not structurally. Note the distinction, because it is easy to
+misquote: **structural pass rates alone are far higher than 7.1%**; it is passing *both* that collapses.
+The paper also warns that **"physical constraints are discontinuous"** — a near-miss in topology is not
+a near-miss in buildability. Something can be one member away from standing up and still fall down.
+
+**What follows for practice:**
+
+- **Never accept a render, plan, or model as evidence of feasibility.** Visual review is a check on
+  *intent*, not on *constructability*. They are separate reviews with separate reviewers.
+- **Validate generated geometry against a deterministic engine**, not another model — clash, span and
+  load checks, code pre-checks, dimensional and clearance rules. The neuro-symbolic pattern (a learned
+  generator inside hard, rule-based constraints) exists precisely because the generator cannot police
+  itself. This is `build-doctrine.md` §8's compliance-as-code, pointed at generated output.
+- **Constrain generation up front rather than reviewing after.** Encode the codes, the firm's standards,
+  and the geometric rules as bounds on what can be produced. Cheaper than catching it downstream, and
+  it makes the invalid state unrepresentable.
+- **The stamp does not move.** A generated structural scheme is a starting point for an engineer of
+  record, never a substitute (see SKILL.md professional boundaries).
+
+> **How you frame the task beats which model you use.** The same benchmark found that
+> **"protocol dominates model"** — one model swung from a **45.4% to 78.5%** structural pass rate,
+> **33 points**, purely by changing the task scaffolding, a gap larger than the differences between
+> models under a fixed protocol. This is the generation-side statement of §1: **externalise the problem
+> into a structured, queryable form and constrain the step before you ask for the answer.** If output
+> quality disappoints, restructure the task before reaching for a different model.
+
+## 8. Units, grades, and canonical identity
 
 Cross-document comparison fails on naming long before it fails on logic:
 
@@ -2532,7 +2596,7 @@ Cross-document comparison fails on naming long before it fails on logic:
 
 ---
 
-## 8. Writing back to documents — never in place
+## 9. Writing back to documents — never in place
 
 Extraction is read-only and safe. **Modifying** documents — bulk stamps, revision clouds, markup edits
 across a set — is not, and it earns the irreversible-action rails from `build-doctrine.md` §6:
@@ -2547,7 +2611,7 @@ across a set — is not, and it earns the irreversible-action rails from `build-
   Construction" applied to the wrong sheets, or removed from the right ones, has consequences beyond the
   PDF.
 
-## 9. Deterministic finding vs. judgment call
+## 10. Deterministic finding vs. judgment call
 
 Separate the two and never blur them:
 
@@ -2564,7 +2628,7 @@ addressed differently and must be reported differently.
 
 ---
 
-## 10. Applying it
+## 11. Applying it
 
 When building or evaluating any construction-document tooling — or doing the review by hand — run these:
 
@@ -2842,6 +2906,9 @@ The transferable idea is a gauntlet of increasingly-real tests that a thing must
 consequences. For a building it's the estimate-class ladder (ROM → GMP) and the design phase gates; for
 a pro forma it's base/downside/stress before you commit equity; for any model it's out-of-sample before
 you trust it. **The most important milestone is usually not a feature — it's proving (or disproving) the edge.**
+For anything *generated* — a layout, a frame, a detail — the gate must be **deterministic and physical,
+not visual**: plausible-looking geometry is uncorrelated with buildable geometry
+(`document-intelligence.md` §7).
 
 ## 6. Hard rails on irreversible actions
 
@@ -2905,4 +2972,4 @@ These are the same instincts that make a good jobsite — applied to whatever is
 
 ====================================================================================================
 
-*Master Builder v0.14.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*
+*Master Builder v0.15.0 — https://github.com/ibuilder/master-builder — MIT. Built with Claude.*

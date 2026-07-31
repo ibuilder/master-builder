@@ -343,6 +343,18 @@ open work from others in the AEC-AI space. Credit where it's due:
   professional-boundaries and output sections of `SKILL.md`; its context-audit idea prompted trimming
   this skill's always-loaded `description` by a third.
 
+- **[dleerdefi/claude-code-construction](https://github.com/dleerdefi/claude-code-construction)** —
+  construction skills whose **three-pass gap analysis** (what the documents address → what *should*
+  apply → the delta) prompted the missing-requirement rule in `document-intelligence.md` §6. A join
+  finds contradictions; only a deliberate outside-in pass finds omissions.
+- **Irénée Mrtr, ["Machine-interpretable AEC"](https://ireneemrtr.substack.com/p/machine-interpretable-aec)**
+  — pointed at the **DreamHouse** benchmark ([arXiv 2603.24866](https://arxiv.org/abs/2603.24866)),
+  which is the evidence behind `document-intelligence.md` §7. *(The paper's own figures were used: the
+  article's "46-point" scaffolding gap is 33 points in the source, and its "physically valid only 7.1%
+  of the time" is the **joint** structural-and-visual pass rate — structural alone reaches 79.2%.)*
+- **Nitish Jain, "15 Claude Skills Worth Your Weekend"** (Xelion Labs, July 2026) — a curated directory
+  that surfaced the dleerdefi toolkit.
+
 Those are separate projects under their own terms — nothing is vendored here. What's written in this
 repo is written independently; only the *lessons* travelled.
 

@@ -2,7 +2,8 @@
 
 Most of a project's truth is trapped in documents — a 500-page spec book, an 89-sheet drawing set, a
 change-order proposal, a pay application. Read this when the task is to **extract reliable numbers from
-construction documents**, cross-check documents against each other, or build tooling that does.
+construction documents**, cross-check documents against each other, judge whether **AI-generated**
+design output can be trusted, or build tooling that does any of it.
 
 The governing idea: **a number's trustworthiness is a property of how it was derived, not of how
 confident it sounds.** A count read from a door schedule and a length scaled off pixels are not the same
@@ -15,10 +16,11 @@ kind of fact, and presenting them with equal certainty is the defect. Everything
 4. Never trust a column that survived text-linearisation
 5. Coverage-aware findings — "0 findings" is not a clean bill of health
 6. Cross-document coordination — where change orders are born
-7. Units, grades, and canonical identity
-8. Writing back to documents — never in place
-9. Deterministic finding vs. judgment call
-10. Applying it
+7. Generated output: plausible is not buildable
+8. Units, grades, and canonical identity
+9. Writing back to documents — never in place
+10. Deterministic finding vs. judgment call
+11. Applying it
 
 ---
 
@@ -181,9 +183,67 @@ side. High-value fact families to compare:
 This is the same instinct as the **decision-readiness / RFI-prevention audit** in `digital-toolkit.md`:
 resolve the conflict before it costs money, and do it on paper rather than in the field.
 
+> **A join finds contradictions. It will never find an omission.** Everything above compares what *is*
+> in two documents. The more dangerous defect is a requirement that appears in **neither** — the
+> standard nobody cited, the accessibility clause nobody applied, the testing regime nobody scheduled.
+> No amount of cross-referencing surfaces it, because there is nothing to cross-reference.
+>
+> Catching it needs a deliberately different, **three-pass** shape:
+> 1. **What the documents already address** — extract every code citation, standard, and requirement
+>    actually present in the specs, drawings and schedules.
+> 2. **What *should* apply** — research what governs this scope, in this jurisdiction, for this
+>    occupancy, *independently of what the documents say.*
+> 3. **The delta** — report only what is in (2) and missing from (1), each with a confidence level and a
+>    citation on both sides.
+>
+> Pass 2 is the one that cannot be skipped or derived from the project file, and it is the whole value:
+> you are testing the documents against the world, not against themselves. Report the result as
+> **gaps to confirm, not defects to allege** — and apply §5, because a gap analysis run without the
+> jurisdiction resolved has not checked anything.
+
 ---
 
-## 7. Units, grades, and canonical identity
+## 7. Generated output: plausible is not buildable
+
+Everything above is about reading documents. The mirror problem is **AI that produces** them — a
+layout, a detail, a framing plan, a fit-out. Here the failure mode inverts: instead of a number that
+looks precise and is wrong, you get **geometry that looks right and cannot be built.**
+
+The evidence is unambiguous. The **DreamHouse** benchmark ([arXiv 2603.24866](https://arxiv.org/abs/2603.24866),
+2026) tests exactly this — over 26,000 timber-frame structures across 13 architectural styles, verified
+to **LOD 350**, scored by a deterministic 10-test structural validation framework. Its finding:
+
+> **"Physical validity is not a byproduct of visual imitation, and vice versa."**
+
+Concretely, the best model reached a **joint** structural-and-visual pass rate of just **7.1%**, and the
+two axes came apart entirely between models — one led structurally (79.2%) while scoring *lowest*
+visually; another led visually and not structurally. Note the distinction, because it is easy to
+misquote: **structural pass rates alone are far higher than 7.1%**; it is passing *both* that collapses.
+The paper also warns that **"physical constraints are discontinuous"** — a near-miss in topology is not
+a near-miss in buildability. Something can be one member away from standing up and still fall down.
+
+**What follows for practice:**
+
+- **Never accept a render, plan, or model as evidence of feasibility.** Visual review is a check on
+  *intent*, not on *constructability*. They are separate reviews with separate reviewers.
+- **Validate generated geometry against a deterministic engine**, not another model — clash, span and
+  load checks, code pre-checks, dimensional and clearance rules. The neuro-symbolic pattern (a learned
+  generator inside hard, rule-based constraints) exists precisely because the generator cannot police
+  itself. This is `build-doctrine.md` §8's compliance-as-code, pointed at generated output.
+- **Constrain generation up front rather than reviewing after.** Encode the codes, the firm's standards,
+  and the geometric rules as bounds on what can be produced. Cheaper than catching it downstream, and
+  it makes the invalid state unrepresentable.
+- **The stamp does not move.** A generated structural scheme is a starting point for an engineer of
+  record, never a substitute (see SKILL.md professional boundaries).
+
+> **How you frame the task beats which model you use.** The same benchmark found that
+> **"protocol dominates model"** — one model swung from a **45.4% to 78.5%** structural pass rate,
+> **33 points**, purely by changing the task scaffolding, a gap larger than the differences between
+> models under a fixed protocol. This is the generation-side statement of §1: **externalise the problem
+> into a structured, queryable form and constrain the step before you ask for the answer.** If output
+> quality disappoints, restructure the task before reaching for a different model.
+
+## 8. Units, grades, and canonical identity
 
 Cross-document comparison fails on naming long before it fails on logic:
 
@@ -200,7 +260,7 @@ Cross-document comparison fails on naming long before it fails on logic:
 
 ---
 
-## 8. Writing back to documents — never in place
+## 9. Writing back to documents — never in place
 
 Extraction is read-only and safe. **Modifying** documents — bulk stamps, revision clouds, markup edits
 across a set — is not, and it earns the irreversible-action rails from `build-doctrine.md` §6:
@@ -215,7 +275,7 @@ across a set — is not, and it earns the irreversible-action rails from `build-
   Construction" applied to the wrong sheets, or removed from the right ones, has consequences beyond the
   PDF.
 
-## 9. Deterministic finding vs. judgment call
+## 10. Deterministic finding vs. judgment call
 
 Separate the two and never blur them:
 
@@ -232,7 +292,7 @@ addressed differently and must be reported differently.
 
 ---
 
-## 10. Applying it
+## 11. Applying it
 
 When building or evaluating any construction-document tooling — or doing the review by hand — run these:
 

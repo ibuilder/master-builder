@@ -150,6 +150,10 @@ The practical, near-term AI leverage in AEC — the productized-workflow layer:
   **schedule-risk, embodied-carbon, permit-readiness, drawing-QA and standards checks**, and even **author
   the model with GUID-stable recipes** — all through the same gated engines the UI uses, so carbon and
   code checks run off the one authoritative model rather than a side spreadsheet.
+- **Generative design needs a deterministic referee.** Where a model produces geometry rather than
+  text, review it against an engine — clash, span, load, code pre-check — because visual plausibility
+  and physical validity are orthogonal (`document-intelligence.md` §7). And restructure the task before
+  swapping the model: scaffolding moves results further than model choice does.
 - **Guardrails** — keep AI outputs auditable and human-reviewed for anything touching cost, contract,
   or life-safety; transparent, rules-based logic beats black boxes where money and liability are at stake.
 

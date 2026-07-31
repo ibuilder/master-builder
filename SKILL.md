@@ -134,7 +134,7 @@ Load these as needed; don't dump them all. Each is written to be read on demand.
 | `references/risk-insurance.md` | Risk registers and allocation, contract clauses that fight, insurance products, bonds/surety, insurability, contingency sizing |
 | `references/adaptive-reuse.md` | Existing buildings — conversion, renovation, retrofit; existing-building code paths, hazmat/structural DD, office-to-resi, building performance standards |
 | `references/digital-toolkit.md` | BIM/IFC, ISO 19650/CDE, 4D/5D, reality capture, digital twins, and the software to actually do the work |
-| `references/document-intelligence.md` | Extracting trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, confidence by provenance, coverage-aware audit |
+| `references/document-intelligence.md` | Trustworthy numbers from drawings, specs, COs and pay apps — takeoff, spec↔drawing cross-check, **missing-requirement gap analysis**, confidence by provenance, coverage-aware audit, and **whether AI-generated design output is buildable** |
 | `references/sustainability-carbon.md` | Whole-life & embodied carbon, LCA/EPDs, green certification, CBAM/Buy Clean, transition risk, low-carbon materials, climate resilience/adaptation |
 | `references/build-doctrine.md` | How to design/architect/validate/ship a system or tool — source-of-truth, staged validation, safety rails, compliance-as-code |
 

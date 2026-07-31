@@ -79,6 +79,9 @@ The transferable idea is a gauntlet of increasingly-real tests that a thing must
 consequences. For a building it's the estimate-class ladder (ROM → GMP) and the design phase gates; for
 a pro forma it's base/downside/stress before you commit equity; for any model it's out-of-sample before
 you trust it. **The most important milestone is usually not a feature — it's proving (or disproving) the edge.**
+For anything *generated* — a layout, a frame, a detail — the gate must be **deterministic and physical,
+not visual**: plausible-looking geometry is uncorrelated with buildable geometry
+(`document-intelligence.md` §7).
 
 ## 6. Hard rails on irreversible actions
 
